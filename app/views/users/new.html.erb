@@ -1,0 +1,61 @@
+<div class = "video-container-create">
+<div class="jumbotron"><h3>SponsorDad</h3></div>
+
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_for @user, url: create_user_path do |f| %>
+
+    <div class="field">
+    <%= f.radio_button :account_type, false, :checked => true  %>
+    <%= f.label :account_type, "Skate Account", :value => "Skateboarder"  %>
+    <br>
+    <%= f.radio_button :account_type, true %>
+    <%= f.label :account_type, "Business Account", :value => "Business Account" %>
+    
+    </div>
+
+    <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control"%>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :age %>
+    <%= f.text_field :age, class: "form-control"%>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :location (zipcode) %>
+    <%= f.text_field :location, class: "form-control"%>
+    </div>
+    
+    <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control" %>
+    </div>
+
+    
+
+    <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+    <br>
+    <%= f.label :password_confirmation, "Confirm" %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Register", class: "submit-button-create" %>
+
+<% end %>
+<hr>
+</div>

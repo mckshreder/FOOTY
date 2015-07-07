@@ -1,0 +1,187 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body.container-fluid{
+  width: 100%;
+  padding: 0;
+  background:  linear-gradient(
+    to bottom,
+    #ECECEC,
+    #fff
+    )
+  
+  }
+
+.dad-navbar{
+
+background-color: white;
+}
+
+
+a.navbar-brand{
+  color: black;
+  &:hover {
+         color: black;
+       }
+  font-size: 2em;
+  line-height: 18px;
+  font-weight: 700;
+  
+  
+}
+
+.navbar-nav>li>a{
+
+  color: black;
+    &:hover {
+         color: rgb(0, 136, 255);
+       }
+  font-size: 1em;
+  line-height: 18px;
+  font-weight: 700;
+  
+
+}
+
+
+ .dropdown-menu{
+ 	text-align: center;
+ }
+
+ .col-xs-6 {
+ 	float: left;
+ }
+
+ .embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+} 
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+/*.feed_container{
+  text-align: center;
+}*/
+
+.container-fluid, .navbar .nav-links {
+font-family: 'Michroma', sans-serif;
+}
+
+.feed_row {
+  width: 100%;
+  margin-left: 5px;
+  margin-top:5px;
+ 
+ /* text-align: center;*/
+}
+
+.feed_post {
+    
+    background: white;
+    width: 32.15%; 
+    height: 337px;
+    display: inline-block;
+    outline: none;
+    margin: 5px;
+
+
+    
+   
+}
+
+.landing-page {
+
+  background: black;
+}
+span.glyphicon.glyphicon-cog{
+  width: 20px;
+  
+}
+
+h1.jumbotron{
+  background-color: white;
+}
+ul.dropdown-menu{
+  text-align: right;
+}
+
+
+/*@media screen and (max-width: 568px) {
+
+.feed_container{
+  padding-left: 20px;
+  }
+}*/
+
+@media screen and (max-width: 600px) {
+
+.feed_post{
+  height:100%;
+  width:100%;
+  min-width: 325px;
+  min-height: 310px;
+  margin-left: 0;
+margin:0;
+
+  }
+}
+@media screen and (max-width: 375px) {
+
+.navbar{
+  min-width: 325px;
+  padding: 0;
+  
+  }
+}
+
+@media screen and (max-width: 375px) {
+
+body.container-fluid{
+  width: 100%;
+  padding: 0;
+  
+  }
+}
+
+
+
+/*this below is for the background gipf.*/
+/*body.container-fluid{
+
+  background-image: url(image-path("giphy.gif"));
+  background-size: 100%;
+  background-repeat: repeat;
+}
+*/
+
+
+
+
+

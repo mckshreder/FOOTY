@@ -3,6 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'bootstrap';
 
+
+.user_account_container{
+  width: 40%;
+  vertical-align: center;
+  margin-left: 50%;
+  margin-top: 20px;
+  display: block;
+  
+}
+
+
+
 .title-link{
   color: black;
   	&:hover {
@@ -433,6 +445,7 @@ padding: 4px;
   padding-left: 2px;
 
 }
+
 
 
 

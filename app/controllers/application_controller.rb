@@ -11,9 +11,8 @@ class ApplicationController < ActionController::Base
 
   def authorize
     unless current_user
-        flash["alert-warning"] = "You must be logged in to use JamDAD"
-        redirect_to new_session_path
+        flash["alert-warning"] = "You must be logged in to use SkateSponsor.com"
+        redirect_to new_user_path
     end
-  end
-  
+  end 
 end

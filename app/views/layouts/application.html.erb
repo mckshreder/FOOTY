@@ -66,32 +66,44 @@
 <% end %> -->
 
 <%if @current_user %>
+<ul id="topright_nav">
+<li>
+    <small>Hello, </small>
+      <a><%= link_to "#{current_user.name.split.first}", user_profile_path(current_user) %>
+      </a>
+    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+      
+      <ul> 
+        <li>
+             <a><%= link_to "Your Events", new_user_path %>
+             </a>
+        </li> 
+        <li>
+            <a><%= link_to "Edit Account", edit_users_path(current_user) %>
+            </a>
+        </li>  
+        <li>
+            <a><%= link_to "Log out", destroy_session_path %>
+            </a>
+        </li>  
+      </ul>
+    </li>
+
+    <a><%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %><a>
+
+</ul>
+
+
 <div>
   <%= image_tag ("FOOTY_logo.png"), :class => "footy_logo_img"%> 
 </div>
+
 <div class = "my_new_nav">
 <ul>
-    <li><a href= "#">HOME</a></li>
     <li><%= link_to "HOME", posts_path%></li>
     <li><a href= "#">MAP</a></li>
     <li><a href= "#">EVENTS</a></li>
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-        <span class="caret"></span>
-      <ul class="dropdown-menu" role="menu"> 
-      <li>
-          <%= link_to "Edit Account", edit_users_path(current_user) %>
-      </li>  
-      <li>
-          <%= link_to "Log out", destroy_session_path %>
-      </li>
-       <li>
-           <%= link_to "Create New Account", new_user_path %>
-      </li> 
-      </ul>
-    </li>
-    <li><%= link_to "#{current_user.name.split.first}", user_profile_path(current_user) %></li>
+  
 </ul>
 </div>
 

@@ -26,12 +26,18 @@ RSpec.describe UsersController, :type => :controller do
     expect(assigns(:user)).to be_a_new(User)
   	end
 
+  	it "should return user profile view for show method" do
+    	FactoryGirl.create(:valid_user)
+	    get :show,user: FactoryGirl.attributes_for(:user_id)
+	    expect(response).to redirect_to(:show) 
+  	end
+
 
   	it "allows creation of valid user" do
 	
 	post :create,{user: {name: "Michael Hartl", email: "mhartl@example.com", password: "dadddy", password_confirmation: "dadddy"}}
   
-  	expect(response).to redirect_to(users_path) 
+  	expect(response).to redirect_to(posts_path) 
   	end
 
   	

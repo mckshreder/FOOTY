@@ -3,28 +3,25 @@
  <nav class="dad-navbar">
     <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> 
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-      </button>
-          <a class="navbar-brand" href="/">SkateSponsor.com</a>
+          <a class="navbar-brand" href="/">SkonsorDad.com</a>
   </div>
 
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<div>
   <ul class="nav navbar-nav navbar-right">
   
   <%= form_for @user ,html: {class: "form-inline"}, url: create_session_path do |f| %>
+      
       <div class="form-group">
-        <label class="sr-only" for="email">Email address</label>
-        <input name = "user_email" type="email" class="form-control" id="email" placeholder="Email">
+        <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
       </div>
+      
       <div class="form-group">
-        <label class="sr-only" for="password">Password</label>
-        <input name="user_password" type="password" class="form-control" id="password" placeholder="Password">
+        <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
       </div>
-        <%= f.submit "Log In", class: "submit-button-create" %>
+        
+        <%= f.submit "Log In", class: "submit-button-sign-in" %>
+
+  
   <% end %>
 </div>
 </ul>
@@ -47,33 +44,26 @@
 <% end %>
 
 <%= form_for @user, url: create_user_path do |f| %>
+    <h2>Sign up for Free!</h2>
 
     <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control", placeholder: "full name..."%>
+        <%= f.text_field :name, class: "form-control", placeholder: "First & Last Name ..."%>
+    </div>
+    <div class="form-group">
+        <%= f.text_field :age, class: "form-control", placeholder: "Age ..."%>
+    </div>
+    <div class="form-group">
+        <%= f.text_field :location, class: "form-control", placeholder: "Location Zipcode..."%>
+    </div>
+    <div class="form-group">
+        <%= f.email_field :email, class: "form-control", placeholder: "Account Email..." %>
     </div>
 
     <div class="form-group">
-        <%= f.label :age %>
-        <%= f.text_field :age, class: "form-control"%>
+        <%= f.password_field :password, class: "form-control", placeholder: "New Password..." %>
     </div>
-
     <div class="form-group">
-        <%= f.label :location %>
-        <%= f.text_field :location, class: "form-control", placeholder: "zipcode..."%>
-    </div>
-    
-    <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, class: "form-control" %>
-    <br>
-        <%= f.label :password_confirmation, "Confirm Password" %>
-        <%= f.password_field :password_confirmation, class: "form-control" %>
+        <%= f.password_field :password_digest, class: "form-control", placeholder: "Confirm Password..." %>
     </div>
 
     <div class="field">
@@ -86,8 +76,8 @@
         <%= f.radio_button :account_type, true %>
         <%= f.label :account_type, "Business Account", :value => "Business Account" %>
     </div>
-
-        <%= f.submit "Register", class: "submit-button-create" %>
+       
+        <%= f.submit "Sign Up", class: "submit-button-create" %>
 <% end %>
     
     <hr>

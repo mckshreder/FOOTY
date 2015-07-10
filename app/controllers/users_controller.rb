@@ -18,10 +18,12 @@
         @user = User.new(user_params)
 
         respond_to do |format|
-      if @user.save
+      if @user.save && @user.authenticate(user_params[:password])
 
         MyMailer.tester_email(@user).deliver_later
-
+        
+        session[:user_id] = @user.id
+        flash["alert-success"] = "Hi #{current_user.name}! You are now logged in."
         format.html { redirect_to posts_path, notice: 'User was successfully created. Please sign in below.' }
         format.json { render :show, status: :created, location: @user }
       else

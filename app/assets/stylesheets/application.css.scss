@@ -14,6 +14,30 @@
  *= require_self
  */
 
+li {
+  display: inline;
+  font-size: 2em;
+  padding: 15px;
+
+ 
+}
+/*this is for the nav bar that is below the footy logo*/
+.my_new_nav{
+  text-align: center;
+  margin-top: -7%;
+
+
+
+}
+/*this is the image that is the main title image throigh out the entire site*/
+.footy_logo_img{
+  width: 100%;
+  padding-left: 3%;
+  margin-top: -5%;
+  
+
+}
+
 
 body.container-fluid{
   width: 100%;

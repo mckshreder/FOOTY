@@ -38,7 +38,7 @@ group :development, :test do
   # this brakeman is to catch potetial hacker routes
   gem 'brakeman', :require => false
   # this one is for rspec testing
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails', '~> 3.1'
 
   gem 'shoulda-matchers', require: false
 

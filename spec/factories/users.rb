@@ -6,6 +6,7 @@ FactoryGirl.define do
   		password "password"
   		id 1
 
+
     
   end
 

@@ -1,61 +1,84 @@
-<div class = "video-container-create">
-<div class="jumbotron"><h3>SponsorDad</h3></div>
+ 
+
+ <nav class="dad-navbar">
+    <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+          <a class="navbar-brand" href="/">SkonsorDad.com</a>
+  </div>
+
+<div>
+  <ul class="nav navbar-nav navbar-right">
+  
+  <%= form_for @user ,html: {class: "form-inline"}, url: create_session_path do |f| %>
+      
+      <div class="form-group">
+        <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+      </div>
+        
+        <%= f.submit "Log In", class: "submit-button-sign-in" %>
+
+  
+  <% end %>
+</div>
+</ul>
+</nav>
+
+
+<!-- <div class="jumbotron"><h3>SponsorDad</h3></div> -->
+<div class = "user_account_container">
 
 <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %>
+            </li>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+<% end %>
 
 <%= form_for @user, url: create_user_path do |f| %>
+    <h2>Sign up for Free!</h2>
+
+    <div class="form-group">
+        <%= f.text_field :name, class: "form-control", placeholder: "First & Last Name ..."%>
+    </div>
+    <div class="form-group">
+        <%= f.text_field :age, class: "form-control", placeholder: "Age ..."%>
+    </div>
+    <div class="form-group">
+        <%= f.text_field :location, class: "form-control", placeholder: "Location Zipcode..."%>
+    </div>
+    <div class="form-group">
+        <%= f.email_field :email, class: "form-control", placeholder: "Account Email..." %>
+    </div>
+
+    <div class="form-group">
+        <%= f.password_field :password, class: "form-control", placeholder: "New Password..." %>
+    </div>
+    <div class="form-group">
+        <%= f.password_field :password_digest, class: "form-control", placeholder: "Confirm Password..." %>
+    </div>
 
     <div class="field">
-    <%= f.radio_button :account_type, false, :checked => true  %>
-    <%= f.label :account_type, "Skate Account", :value => "Skateboarder"  %>
+        <%= f.label "Account Type" %>
+        <small>  (select one of the following)</small>
     <br>
-    <%= f.radio_button :account_type, true %>
-    <%= f.label :account_type, "Business Account", :value => "Business Account" %>
-    
-    </div>
-
-    <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control"%>
-    </div>
-
-    <div class="form-group">
-    <%= f.label :age %>
-    <%= f.text_field :age, class: "form-control"%>
-    </div>
-
-    <div class="form-group">
-    <%= f.label :location (zipcode) %>
-    <%= f.text_field :location, class: "form-control"%>
-    </div>
-    
-    <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: "form-control" %>
-    </div>
-
-    
-
-    <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: "form-control" %>
+        <%= f.radio_button :account_type, false, :checked => true  %>
+        <%= f.label :account_type, "Skate Account", :value => "Skateboarder"  %>
     <br>
-    <%= f.label :password_confirmation, "Confirm" %>
-    <%= f.password_field :password_confirmation, class: "form-control" %>
+        <%= f.radio_button :account_type, true %>
+        <%= f.label :account_type, "Business Account", :value => "Business Account" %>
     </div>
-
-    <%= f.submit "Register", class: "submit-button-create" %>
-
+       
+        <%= f.submit "Sign Up", class: "submit-button-create" %>
 <% end %>
-<hr>
+    
+    <hr>
 </div>

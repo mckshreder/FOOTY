@@ -3,6 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'bootstrap';
 
+
+
+
+.user_account_container{
+  width: 39%;
+  height: 55%;
+  vertical-align: center;
+  margin-left: 55%;
+  margin-top: 8%;
+  display: block;
+  
+}
+
+
+
 .title-link{
   color: black;
   	&:hover {
@@ -386,6 +401,22 @@ padding: 4px;
 
 
 }
+/*this is for the form on the main log in page that allows already registered user log in*/
+.submit-button-sign-in{
+  font-size: 1em;
+  margin-right: 10%;
+  float: right;
+  width:45%;
+  border:none;
+  border-bottom: 1.2px solid black;
+  background-color: white;
+  text-align: right;
+  color:black;
+    &:hover {
+         color: #337ab7;
+       }
+}
+
 
 .video-comments-container{
   width:100%;
@@ -433,6 +464,7 @@ padding: 4px;
   padding-left: 2px;
 
 }
+
 
 
 

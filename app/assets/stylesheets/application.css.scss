@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+
+ /*this to align the drop down box*/
 #topright_nav, #topright_nav ul{
   z-index: 1001;
   position: absolute;
@@ -24,7 +27,11 @@
   list-style-position: outside;
   position: relative;
 }
-
+#topright_nav ul li a{
+  font-size: 0.3em;
+  border-bottom: 1px black solid;
+  padding: 0px;
+}
  #topright_nav a:link, #topright_nav a:active, #topright_nav a:visited{
     padding:0px 5px;
     color: #0062c3;
@@ -40,8 +47,34 @@
     float:right;
     position:relative;
 }
-/*this to align the drop down box*/
+#topright_nav ul {
+    position:absolute;
+    width:12em;
+    top:1.5em;
+    display:none;
+}
+#topright_nav li ul a{
+    width:12em;
+    float:left;
+}
+#topright_nav ul ul{
+  top:auto;
+  }
 
+#topright_nav li ul ul {
+    left:12em;
+    margin:0px 0 0 10px;
+    }
+
+#topright_nav li:hover ul ul, #topright_nav li:hover ul ul ul, #topright_nav li:hover ul ul ul ul{
+    display:none;
+    }
+#topright_nav li:hover ul, #topright_nav li li:hover ul, #topright_nav li li li:hover ul, #topright_nav li li li li:hover ul{
+    display:block;
+    }
+
+
+/*this is where the nav bar below the footy logo is styled below*/
 li {
   display: inline;
   font-size: 2em;
@@ -61,7 +94,7 @@ li {
 .footy_logo_img{
   width: 100%;
   padding-left: 3%;
-  margin-top: -5%;
+  margin-top: -10%;
   
 
 }

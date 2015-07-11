@@ -68,6 +68,7 @@
 <%if @current_user %>
 <ul id="topright_nav">
 <li>
+    <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>
     <small>Hello, </small>
       <a><%= link_to "#{current_user.name.split.first}", user_profile_path(current_user) %>
       </a>
@@ -88,9 +89,6 @@
         </li>  
       </ul>
     </li>
-
-    <a><%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %><a>
-
 </ul>
 
 

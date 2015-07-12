@@ -11,37 +11,37 @@
 </head>
 <body class="container-fluid" >
   <!-- the start of the new nav bar -->
-
+<!-- 
 <%if @current_user %>
   <nav class="dad-navbar">
 
-    <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> 
+    Brand and toggle get grouped for better mobile display
+  <div class="navbar-header"> -->
+     <!--  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> 
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
       </button>
           <a class="navbar-brand" href="/">SkateSponsor.com</a>
-  </div>
-
+  </div> -->
+<!-- 
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   <ul class="nav navbar-nav navbar-right">
   
    
     <li>
         <%= link_to  "Create", new_post_path %>
-    </li>
-
+    </li> -->
+<!-- 
     <li>
         <%= link_to  "The Dads", users_path %>
     </li>
       
     <li>
         <%= link_to "#{current_user.name.split.first}", user_profile_path(current_user) %>
-    </li> 
-
+    </li>  -->
+<!-- 
 
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -54,17 +54,59 @@
       <li>
           <%= link_to "Log out", destroy_session_path %>
       </li>
-      <!-- <li>
+       <li>
            <%= link_to "Create New Account", new_user_path %>
-      </li>  -->
+      </li> 
       </ul>
     </li>
     </ul>
   </div>
 </nav>
   <% else %>   
-<% end %>
+<% end %> -->
 
+<%if @current_user %>
+<ul id="topright_nav">
+<li>
+    <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>
+    <small>Hello, </small>
+      <a><%= link_to "#{current_user.name.split.first}", user_profile_path(current_user) %>
+      </a>
+    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+      
+      <ul> 
+        <li>
+             <a><%= link_to "Your Events", new_user_path %>
+             </a>
+        </li> 
+        <li>
+            <a><%= link_to "Edit Account", edit_users_path(current_user) %>
+            </a>
+        </li>  
+        <li>
+            <a><%= link_to "Log out", destroy_session_path %>
+            </a>
+        </li>  
+      </ul>
+    </li>
+</ul>
+
+
+<div>
+  <%= image_tag ("FOOTY_logo.png"), :class => "footy_logo_img"%> 
+</div>
+
+<div class = "my_new_nav">
+<ul>
+    <li><%= link_to "HOME", posts_path%></li>
+    <li><a href= "#">MAP</a></li>
+    <li><a href= "#">EVENTS</a></li>
+  
+</ul>
+</div>
+
+  <% else %>   
+<% end %>
 <%= yield %>
 
 </body>

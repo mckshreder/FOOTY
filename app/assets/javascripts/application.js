@@ -18,3 +18,16 @@
 $('div').on('click', function() {
       $(this).toggleClass('show-description');
   });
+// this is the function that creates the drop down effect on the top right user(name) profile link on home page
+function mainmenu(){
+$(" #topright_nav ul ").css({display: "none"}); // Opera Fix
+$(" #topright_nav li").hover(function(){
+		$(this).find('ul:first').css({visibility: "visible",display: "none"}).show(400);
+		},function(){
+		$(this).find('ul:first').css({visibility: "hidden"});
+		});
+}
+
+ $(document).ready(function(){
+	mainmenu();
+});

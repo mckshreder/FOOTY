@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Skate Sponsor</title>
+  <title>FOOTY™</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -96,14 +96,47 @@
   <%= image_tag ("FOOTY_logo.png"), :class => "footy_logo_img"%> 
 </div>
 
-<div class = "my_new_nav">
-<ul>
-    <li><%= link_to "HOME", posts_path%></li>
-    <li><a href= "#">MAP</a></li>
-    <li><a href= "#">EVENTS</a></li>
+<nav>
+  <ul id = "my_new_nav">
+    
+    <li class = "tab" id = "pink">
+      <a href="#"></a>
+      <div>
+         <a id = "pink" href="#">HOME</a>
+      </div>
+    </li> 
+    
+    <li class = "tab" id = "blue">
+      <a href="#"></a>
+        <div>
+          <a id = "blue" href="#">MAP</a>
+        </div>     
+    </li>
+    
+    <li class = "tab" id = "orange">
+       <a href="#"></a>
+        <div>
+          <a id = "orange" href="#">ABOUT</a>
+        </div>
+    </li>
+    
+    <li class = "tab" id = "purple">
+       <a href="#"></a>
+        <div>
+          <a id = "purple" href="#">EVENTS</a>
+        </div> 
+    </li>
+    
+    <li class = "tab" id = "green">
+       <a href="#"></a>  
+        <div>
+          <a id = "green" href="#">CONTACT</a>
+        </div> 
+    </li>
   
-</ul>
-</div>
+  </ul>
+</nav>
+<br>
 
   <% else %>   
 <% end %>

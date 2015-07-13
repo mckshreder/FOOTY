@@ -33,6 +33,8 @@ $(" #topright_nav li").hover(function(){
 });
 
 
+
+// this is for the nav bar
 var timeout	= 500;
 var closetimer	= 0;
 var ddmenuitem	= 0;

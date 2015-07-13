@@ -77,83 +77,75 @@
 
 
 /*this is for the nav bar that is below the footy logo*/
-nav{
-  text-align: center;
-  margin-top: -5%;
-  position: relative;
-  width: 100%;
-  margin-left: -0.6%;
 
-}
 /*this is the class that i had the nav bar set to before i made the dropdowns*/
-/*#my_new_nav{
+#my_new_nav{
   text-align: center;
+  margin-left: 20%;
   margin-top: -5%;
   position: relative;
-  width: 100%;
-  margin-left: -0.6%;
-
-/*this is the container that holds all the tabs*/
-nav ul {
-  text-align:center;
-  display: inline;
-  font-size: 2em;
-  padding: 15px;
-}
-/*this is where the tabs of the nav bar below the footy logo is styled below*/
-nav ul li {
-  display: inline;
-  font-size: 2em;
-  padding: 15px;
-  display: inline;
-  width: 12%;
-  margin: -0.07%;
-  &:hover {
-         color: #337ab7;
-       }
-
-
- 
-}
-nav ul li a {
-  display:block;
-  }
-nav ul li ul {
-  position:absolute;
-  width:100%;
-  background:#FFF;
-}
-nav ul li ul li {
-  width:100%;
-}
-/*nav ul li ul li a {
-  display:block;padding:15px 10px;color:#444;
-}*/
-nav ul li ul li:hover a {
-  background:#F7F7F7;
+  width: 62%;
+/*  margin-left: -0.6%;*/
 }
 
-nav ul li ul.fallback {
-  display:none;
-}
-nav ul li:hover ul.fallback {
-  display:block;
-}
 
 
 
 /*this code is to style the colored tabs for the top nav bar*/
-/*<li>*/
-/*.tab {
-  display: inline;
-  width: 12%;
+
+.tab {
+  list-style: none;
+/*  float: left;*/
+  display: inline-block;
+  /*font-size: 2em;*/
+  padding: 15px;
+  width: 20%;
   margin: -0.07%;
   &:hover {
          color: #337ab7;
        }
 
 }
-*/
+
+#my_new_nav li a
+{ display: block;
+  margin: 0 1px 0 0;
+  padding: 4px 10px;
+  width: 60px;
+  background: #5970B2;
+  color: #FFF;
+  text-align: center;
+  text-decoration: none}
+
+#my_new_nav li a:hover
+{ background: #49A3FF}
+
+#my_new_nav div
+{ position: absolute;
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #5970B2;
+  width: 100%;
+  }
+
+  #my_new_nav div a
+  { position: relative;
+    display: block;
+    margin: 0;
+    padding: 5px 10px;
+    width: 100%;
+    white-space: nowrap;
+    text-align: left;
+    text-decoration: none;
+    background: #EAEBD8;
+    color: #2875DE;
+    font: 11px arial}
+
+  #my_new_nav div a:hover
+  { background: #49A3FF;
+    color: #FFF}
+
 
 
 

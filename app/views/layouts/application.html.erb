@@ -96,38 +96,68 @@
   <%= image_tag ("FOOTY_logo.png"), :class => "footy_logo_img"%> 
 </div>
 
-<nav id = "my_new_nav">
-  <ul>
+<nav>
+  <ul id = "my_new_nav">
     <li class = "tab" id = "pink">
-      <a href="#"></a>
-        <ul class = "fallback">
-           <li><a href="#">HOME</a></li>
-        </ul>
+      <a href="#" 
+        onmouseover="mopen('m1')" 
+        onmouseout="mclosetime()"></a>
+
+          <div id="m1" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+             <a id = "pink" href="#">HOME</a>
+          </div>
     </li> 
+    
     <li class = "tab" id = "blue">
-      <a href="#"></a>
-        <ul class = "fallback">
-           <li><a href="#">MAP</a></li>
-        </ul>
+       <a href="#" 
+        onmouseover="mopen('m2')" 
+        onmouseout="mclosetime()"></a>
+
+        <div id="m2" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+           <a id = "blue" href="#">MAP</a>
+        </div>
     </li>
+    
     <li class = "tab" id = "orange">
-      <a href="#"></a>
-        <ul class = "fallback">
-           <li><a href="#">ABOUT</a></li>
-        </ul>
+       <a href="#" 
+        onmouseover="mopen('m3')" 
+        onmouseout="mclosetime()"></a>
+
+        <div id="m3" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+           <a id = "orange" href="#">ABOUT</a>
+        </div>
     </li>
+    
     <li class = "tab" id = "purple">
-      <a href="#"></a>
-        <ul class = "fallback">
-           <li><a href="#">EVENTS</a></li>
-        </ul>
+       <a href="#" 
+        onmouseover="mopen('m4')" 
+        onmouseout="mclosetime()"></a>
+
+        <div id="m4" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+          <a id = "purple" href="#">EVENTS</a>
+        </div>
     </li>
+    
     <li class = "tab" id = "green">
-      <a href="#"></a>
-      <ul class = "fallback">
-          <li><a href="#">CONTACT</a></li>
-      </ul>  
+       <a href="#" 
+        onmouseover="mopen('m5')" 
+        onmouseout="mclosetime()"></a>
+
+      <div id="m5" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+          <a id = "green" href="#">CONTACT</a>
+      </div>  
     </li>
+  
   </ul>
 </nav>
 <br>

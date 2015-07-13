@@ -31,3 +31,15 @@ $(" #topright_nav li").hover(function(){
  $(document).ready(function(){
 	mainmenu();
 });
+
+
+// this is the dropdown effects for the main menu bars on every page
+$('nav li ul').hide().removeClass('fallback');
+$('nav li').hover(
+  function () {
+    $('ul', this).stop().slideDown(100);
+  },
+  function () {
+    $('ul', this).stop().slideUp(100);
+  }
+);

@@ -15,6 +15,8 @@
  */
 
 
+
+
  /*this to align the drop down box*/
 #topright_nav, #topright_nav ul{
   z-index: 1001;
@@ -74,34 +76,112 @@
     }
 
 
-/*this is where the nav bar below the footy logo is styled below*/
-li {
+/*this is for the nav bar that is below the footy logo*/
+nav{
+  text-align: center;
+  margin-top: -5%;
+  position: relative;
+  width: 100%;
+  margin-left: -0.6%;
+
+}
+/*this is the class that i had the nav bar set to before i made the dropdowns*/
+/*#my_new_nav{
+  text-align: center;
+  margin-top: -5%;
+  position: relative;
+  width: 100%;
+  margin-left: -0.6%;
+
+/*this is the container that holds all the tabs*/
+nav ul {
+  text-align:center;
   display: inline;
   font-size: 2em;
   padding: 15px;
+}
+/*this is where the tabs of the nav bar below the footy logo is styled below*/
+nav ul li {
+  display: inline;
+  font-size: 2em;
+  padding: 15px;
+  display: inline;
+  width: 12%;
+  margin: -0.07%;
+  &:hover {
+         color: #337ab7;
+       }
+
 
  
 }
-/*this is for the nav bar that is below the footy logo*/
-#my_new_nav{
-  text-align: center;
-  margin-top: -7%;
-  border-bottom: 5px solid black;
-/*  z-index: 1010;*/
+nav ul li a {
+  display:block;
+  }
+nav ul li ul {
+  position:absolute;
+  width:100%;
+  background:#FFF;
+}
+nav ul li ul li {
+  width:100%;
+}
+/*nav ul li ul li a {
+  display:block;padding:15px 10px;color:#444;
+}*/
+nav ul li ul li:hover a {
+  background:#F7F7F7;
+}
+
+nav ul li ul.fallback {
+  display:none;
+}
+nav ul li:hover ul.fallback {
+  display:block;
+}
 
 
+
+/*this code is to style the colored tabs for the top nav bar*/
+/*<li>*/
+/*.tab {
+  display: inline;
+  width: 12%;
+  margin: -0.07%;
+  &:hover {
+         color: #337ab7;
+       }
 
 }
+*/
+
+
+
+#green {
+  background-color: #2cd301;
+}
+
+#purple{
+  background-color: #872fdf;
+}
+
+#orange {
+  background-color: #ff5001;
+}
+
+#blue{
+  background-color: #0071e0;
+}
+
+#pink {
+  background-color: #f448c2;
+}
+
 /*this is the image that is the main title image throigh out the entire site*/
 .footy_logo_img{
   width: 100%;
-  padding-left: 3%;
-  margin-top: -10%;
+  margin-top: -12%;
   z-index: 1;
- 
-
-  
-
 }
 
 
@@ -112,7 +192,7 @@ body.container-fluid{
   
   }
 
-.dad-navbar{
+/*.dad-navbar{
 
 background-color: white;
 }
@@ -146,7 +226,7 @@ a.navbar-brand{
 
  .dropdown-menu{
  	text-align: center;
- }
+ }*/
 
  .col-xs-6 {
  	float: left;

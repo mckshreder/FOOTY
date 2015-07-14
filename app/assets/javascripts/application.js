@@ -42,7 +42,9 @@ $(function () {
                 height: 'easeOutQuint'
             }
         });
-        $(this).find('div.dropdown_nav').slideDown();
+        $('.dropdown_nav').slideDown();
+        $('.lower_bar').attr("id", $(this).children('div').attr('id'));
+        console.log($(this).children('div').attr('id'));
     },
 
     function () {

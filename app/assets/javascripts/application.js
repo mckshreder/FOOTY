@@ -15,65 +15,40 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
-$('div').on('click', function() {
-      $(this).toggleClass('show-description');
-  });
-// this is the function that creates the drop down effect on the top right user(name) profile link on home page
+$('div').on('click', function(){
+$(this).toggleClass('show-description');
+});
 function mainmenu(){
-$(" #topright_nav ul ").css({display: "none"}); // Opera Fix
-$(" #topright_nav li").hover(function(){
-		$(this).find('ul:first').css({visibility: "visible",display: "none"}).show(400);
-		},function(){
-		$(this).find('ul:first').css({visibility: "hidden"});
-		});
+$(' #topright_nav ul ').css({display: 'none'});
+$(' #topright_nav li').hover(function(){
+$(this).find('ul:first').css({visibility: 'visible',display: 'none'}).show(400);
+},function(){
+$(this).find('ul:first').css({visibility: 'hidden'});
+});
 }
-
- $(document).ready(function(){
-	mainmenu();
+$(document).ready(function(){
+mainmenu();
 });
 
 
+$(function () {
+    $("nav ul li").hover(
+    function () {
+        $(this).find('#my_new_nav li').stop().animate({
+            height: '100%'
+        }, {
+            duration: 700,
+            specialEasing: {
+                height: 'easeOutQuint'
+            }
+        });
+        $(this).find('div.dropdown_nav').slideDown();
+    },
 
-// this is for the nav bar
-// var timeout	= 500;
-// var closetimer	= 0;
-// var ddmenuitem	= 0;
-
-// // open hidden layer
-// function mopen(id)
-// {	
-// 	// cancel close timer
-// 	mcancelclosetime();
-
-// 	// close old layer
-// 	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
-
-// 	// get new layer and show it
-// 	ddmenuitem = document.getElementById(id);
-// 	ddmenuitem.style.visibility = 'visible';
-
-// }
-// // close showed layer
-// function mclose()
-// {
-// 	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
-// }
-
-// // go close timer
-// function mclosetime()
-// {
-// 	closetimer = window.setTimeout(mclose, timeout);
-// }
-
-// // cancel close timer
-// function mcancelclosetime()
-// {
-// 	if(closetimer)
-// 	{
-// 		window.clearTimeout(closetimer);
-// 		closetimer = null;
-// 	}
-// }
-
-// // close layer when click-out
-// document.onclick = mclose;
+    function () {
+        $(this).find('#my_new_nav li').stop().animate({
+            height: '10px'
+        }, 700);
+        $(this).find('div.dropdown_nav').stop().slideUp();
+    });
+});

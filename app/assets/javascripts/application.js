@@ -43,16 +43,13 @@ $(function () {
                 height: 'easeOutQuint'
             }
         });
-        $('.dropdown_nav').slideDown();
-        $('.lower_bar').attr("id", $(this).children('div').attr('id'));
-        console.log($(this).children('div').attr('id'));
+        $(this).find('div.dropdown_nav').slideDown();
     },
 
     function () {
         $(this).find('#my_new_nav li').stop().animate({
             height: '10px'
-        }, 500);
-        $('.dropdown_nav').stop().slideUp();
-
+        }, 700);
+        $(this).find('div.dropdown_nav').stop().slideUp();
     });
 });

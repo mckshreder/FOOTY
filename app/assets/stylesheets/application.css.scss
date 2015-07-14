@@ -75,7 +75,8 @@
 
 nav {
   width: 100%;
-  height: 2%;
+  height: 2.5%;
+  padding-left: 38%;
 }
 /*this is the class that i had the nav bar set to before i made the dropdowns*/
 #my_new_nav li{
@@ -83,26 +84,31 @@ nav {
   text-align: center;
   margin-top: -5%;
   list-style: none;
-  width: 10%;
+  width: 7%;
   margin: -0.01%;
+  opacity: 0.79;
+
 }
 
 div.tab {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 25px;
+    height: 45px;
     z-index: 1;
 }
 .dropdown_nav {
   position: absolute; 
   float:left;
   /*this is what allowed me to bring the bar to left left of the drop down*/
-  left:3.1%;
+  left:41.1%;
   display: none;
   width: 50%;
   text-align: center;
   text-decoration: none;
+  width: 20.6%;
+
+
 
 }
 
@@ -110,7 +116,9 @@ div a{
     padding: 10px;
     display: block;
     white-space: nowrap;
-
+    color:black;
+    font-size: 1.3em;
+    letter-spacing: 3px;
 }
 
 #green {
@@ -138,6 +146,9 @@ div a{
   width: 100%;
   margin-top: -8%;
   z-index: 1;
+}
+br.clear {
+   clear: both;
 }
 
 

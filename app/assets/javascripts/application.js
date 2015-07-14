@@ -53,3 +53,9 @@ $(function () {
         $(this).find('div.dropdown_nav').stop().slideUp();
     });
 });
+
+// this is for the parallax
+ $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+        

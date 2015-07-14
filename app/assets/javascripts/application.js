@@ -31,6 +31,7 @@ mainmenu();
 });
 
 
+
 $(function () {
     $("nav ul li").hover(
     function () {
@@ -50,7 +51,8 @@ $(function () {
     function () {
         $(this).find('#my_new_nav li').stop().animate({
             height: '10px'
-        }, 700);
-        $(this).find('div.dropdown_nav').stop().slideUp();
+        }, 500);
+        $('.dropdown_nav').stop().slideUp();
+
     });
 });

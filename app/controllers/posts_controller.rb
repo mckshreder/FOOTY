@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
     def new
     	@posts = Post.new
+        @events = Event.new
     end
 
     def show
@@ -17,13 +18,17 @@ class PostsController < ApplicationController
 
     def create
         @posts = Post.new(post_params)
-            
+        @events = Event.new(event_params)    
             
     respond_to do |format|
       if current_user.posts.push @posts
         format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @posts }
 
+      elsif current_user.events.push @events
+        format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @posts }
+        
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -61,5 +66,9 @@ private
 	def post_params
 		params.require(:post).permit(:title,:body,:youtube_url, :image_url)
 	end
+
+    def event_params
+        params.require(:event).permit(:title,:date,:location, :info)
+    end
 
 end

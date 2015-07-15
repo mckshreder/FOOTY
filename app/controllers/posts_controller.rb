@@ -24,10 +24,6 @@ class PostsController < ApplicationController
       if current_user.posts.push @posts
         format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @posts }
-
-      elsif current_user.events.push @events
-        format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @posts }
         
       else
         format.html { render :new }
@@ -67,8 +63,6 @@ private
 		params.require(:post).permit(:title,:body,:youtube_url, :image_url)
 	end
 
-    def event_params
-        params.require(:event).permit(:title,:date,:location, :info)
-    end
+    
 
 end

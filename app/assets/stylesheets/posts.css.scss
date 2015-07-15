@@ -3,11 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'bootstrap';
 
+.form_create{
+ 
+  width: 100%;
+  vertical-align: center;
+  margin-left: 1%;
+  margin-top: 10px;
 
+}
+.create_post {
+    
+    background: white;
+    width: 38%; 
+    height: 337px;
+    display: inline-block;
+    outline: none;
+    margin-left: 5%;  
+    margin-right: 5%;
+}
 
 .title-link{
   color: black;
-  	&:hover {
+    &:hover {
          color: #337ab7;
        }
   text-align: right;
@@ -21,7 +38,7 @@
 .title_link_right{
   
   color: black;
-  	&:hover {
+    &:hover {
          color: #337ab7;
        }
   text-align: right;
@@ -241,6 +258,7 @@ text-align: right;
 
 
 }
+
 
 .video-title-link{
   color: #1a1c21;

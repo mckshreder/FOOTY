@@ -39,7 +39,7 @@ end
 
 def update
     @post = Post.find(params[:id])
-    if @post.update_attributes(params.require(:post).permit(:title,:body,:url,:artist))
+    if @post.update_attributes(params.require(:post).permit(:title,:body,:youtube_url,:image_url))
         redirect_to posts_path
     else 
         render :edit
@@ -59,7 +59,7 @@ end
 
 private
 	def post_params
-		params.require(:post).permit(:title,:body,:url,:artist)
+		params.require(:post).permit(:title,:body,:youtube_url, :image_url)
 	end
 
 end

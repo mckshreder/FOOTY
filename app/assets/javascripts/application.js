@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require jquery.turbolinks
 //= require_tree .
 $('div').on('click', function(){
 $(this).toggleClass('show-description');
@@ -54,8 +55,5 @@ $(function () {
     });
 });
 
-// this is for the parallax
- $(document).ready(function(){
-      $('.parallax').parallax();
-    });
+
         

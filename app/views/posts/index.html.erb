@@ -19,14 +19,14 @@
               <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "user-post-photo_tag") %><%= "  " %><%= link_to post.user.name, user_profile_path(post.user_id), :class => "post-photo-tag" %>
          </div>              
           
-         <div class="embed-responsive embed-responsive-16by9"><%= embed(post.url) %>
+         <div class="embed-responsive embed-responsive-16by9"><%= embed(post.youtube_url) %>
          </div>
 
 
 
         <h4><%= link_to post.title, post_path(id: post.id), :class => "title-link" %></h4>
           
-        <div class = "artist-link"><%= post.artist %>
+        <div class = "artist-link"><%= post.body %>
       
           </div>
 

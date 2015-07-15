@@ -114,7 +114,7 @@ div.tab {
 }
 
 div a{
-    padding: 10px;
+    padding: 1px;
     display: block;
     white-space: nowrap;
     color:black;
@@ -242,11 +242,7 @@ font-family: 'Michroma', sans-serif;
     height: 337px;
     display: inline-block;
     outline: none;
-    margin: 5px;
-
-
-    
-   
+    margin: 5px;  
 }
 
 .landing-page {
@@ -258,7 +254,7 @@ span.glyphicon.glyphicon-cog{
   
 }
 
-h1.jumbotron{
+h3.jumbotron{
   background-color: white;
 }
 ul.dropdown-menu{

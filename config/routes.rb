@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-    
+    resources :events
+
     root "posts#index"
     get "/users" => "users#index", as: :users
     get "/users/new" => "users#new", as: :new_user

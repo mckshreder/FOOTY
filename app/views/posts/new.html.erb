@@ -1,6 +1,7 @@
-
-<div class = "video-container-create">
-<h1 class="jumbotron">Create New Post</h1>
+<br>
+<div class = "form_create">
+<div class = "create_post">
+<p>Create New Post</p>
 <% flash.each do |key, value| %>
     <h4><%= value %></h4>
 <% end %>
@@ -8,23 +9,23 @@
 <%= form_for(@posts) do |f| %>
 
     <div class="form-group">
-    <%= f.label 'Song title' %>
+    <%= f.label 'Title' %>
     <%= f.text_field :title, class: "form-control"%>
     </div>
 
     <div class="form-group">
-    <%= f.label :artist %>
-    <%= f.text_field :artist, class: "form-control"%>
+    <%= f.label 'Caption' %>
+    <%= f.text_field :body, class: "form-control"%>
     </div>
 
     <div class="form-group">
     <%= f.label 'Paste YouTube Url' %>
-    <%= f.url_field :url, class: "form-control" %>
+    <%= f.url_field :youtube_url, class: "form-control" %>
     </div>
     
     <div class="form-group">
-    <%= f.label :body %>
-    <%= f.text_area :body, class: "form-control" %>
+    <%= f.label 'Or Paste Image Url' %>
+    <%= f.url_field :image_url, class: "form-control" %>
     </div>
 
     <%= f.submit "Post", class: "submit-button-create" %>
@@ -32,3 +33,36 @@
 <% end %>
 
 </div>
+
+<div class = "create_post">
+<p>Create New Event</p>
+
+<%= form_for(@events) do |f| %>
+
+    <div class="form-group">
+    <%= f.label 'Title' %>
+    <%= f.text_field :title, class: "form-control"%>
+    </div>
+
+    <div class="form-group">
+    <%= f.label 'Date' %>
+    <%= f.text_field :date, class: "form-control"%>
+    </div>
+
+    <div class="form-group">
+    <%= f.label 'Location' %>
+    <%= f.text_field :location, class: "form-control" %>
+    </div>
+    
+    <div class="form-group">
+    <%= f.label 'Event Info' %>
+    <%= f.text_field :info, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Event", class: "submit-button-create" %>
+
+<% end %>
+</div>
+</div>
+<br>
+<br>

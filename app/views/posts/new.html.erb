@@ -6,7 +6,8 @@
     <h4><%= value %></h4>
 <% end %>
 
-<%= form_for(@posts) do |f| %>
+
+<%= form_for posts, html: { class: 'submit_post_form' }, remote: true do |f| %>
 
     <div class="form-group">
     <%= f.label 'Title' %>
@@ -37,7 +38,7 @@
 <div class = "create_post">
 <p>Create New Event</p>
 
-<%= form_for(@events) do |f| %>
+<%= form_for event, html: { id: 'submit_event_form' }, remote: true do |f| %>
 
     <div class="form-group">
     <%= f.label 'Title' %>
@@ -59,7 +60,7 @@
     <%= f.text_field :info, class: "form-control" %>
     </div>
 
-    <%= f.submit "Event", class: "submit-button-create" %>
+    <%= f.submit "Event", class: "submit-button-create", id: "submit_event" %>
 
 <% end %>
 </div>

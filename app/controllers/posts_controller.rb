@@ -17,12 +17,25 @@ class PostsController < ApplicationController
     end
 
     def create
-        @posts = Post.new(post_params)
+        # @posts = Post.new(post_params)
         # @events = Event.new(event_params)    
-                
-    respond_to do |format|
-            
-        if current_user.posts.push @posts
+        
+        current_user.posts << Post.create({
+          :title => params[:title],
+          :body => params[:body],
+          :youtube_url => params[:youtube_url],
+          :image_url => params[:image_url],
+          :lat => params[:lat],
+          :lng => params[:lng]
+        })
+       # if  current_user.save 
+       #   redirect_to posts_path, notice: 'Post was successfully created.' 
+       # else
+       #   redirect_to new_post_path
+       # end
+          
+    respond_to do |format|     
+        if current_user.save
             
             format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
             format.json { render :show, status: :created, location: @posts }

@@ -16,9 +16,14 @@
 //= require bootstrap
 //= require jquery.turbolinks
 //= require_tree .
+
+
+
+// this is for the dropdowns
 $('div').on('click', function(){
 $(this).toggleClass('show-description');
 });
+// this is for userprofile  nav bar on posts screen
 function mainmenu(){
 $(' #topright_nav ul ').css({display: 'none'});
 $(' #topright_nav li').hover(function(){
@@ -74,6 +79,44 @@ function loadScript() {
   document.body.appendChild(script);
 }
 
+// call function when user clocks submit post
+$('.submit_post_form').submit(saveLocation);
+
+function saveLocation(){
+
+  alert("function called")
+  var lat;
+  var lng;
+
+  navigator.geolocation.getCurrentPosition(function(position) {
+      lat = position.coords.latitude,
+      lng = position.coords.longitude
+    })
+    var title = document.getElementsByName("title");
+    var body = document.getElementsByName("body");
+    var youtube_url = document.getElementsByName("youtube_url");
+    var image_url = document.getElementsByName("image_url");
+    console.log("lat:" + lat);
+    console.log("lng:" + lng);
+      data = {
+          title: title,
+          body: body,
+          youtube_url: youtube_url,
+          image_url: image_url,
+          lat: lat,
+          lng: lng
+      }
+      console.log(data);
+
+       $.ajax({ url: '/create',
+          type: 'POST',
+          // beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+          data: data
+    });
+  
+}
+
+
 window.onload = loadScript;
 
-        
+      

@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
     has_secure_password
-
+    #this translate zipcode to lat/lng
+    geocoded_by :location
+	after_validation :geocode, if: :address_changed? 
+	
     has_many :posts
     has_many :comments
 
@@ -19,6 +22,7 @@ class User < ActiveRecord::Base
 #     self.password_digest = BCrypt::Password.create(unencrypted_password)
 #   end
 # end
+
 
 
 end

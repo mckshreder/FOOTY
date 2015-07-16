@@ -1,10 +1,7 @@
   class UsersController < ApplicationController
-        
+  
     def index
         @users = User.all
-    end
-    
-    def map
     end
 
     def new
@@ -59,7 +56,7 @@
   #     end
   # end
         @user = User.find(params[:id])
-        if @user.update_attributes(params.require(:user).permit(:name, :age, :location, :email, :password_digest))
+        if @user.update_attributes(params.require(:user).permit(:name, :email, :password, :password_confirmation))
             redirect_to posts_path
         else 
             render :edit
@@ -80,7 +77,7 @@
 private
 
     def user_params
-        params.require(:user).permit(:name, :age, :location, :email, :password_digest)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
 end

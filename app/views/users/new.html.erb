@@ -62,10 +62,10 @@
         <%= f.label "Account Type" %>
         <small>  (select one of the following)</small>
     <br>
-        <%= f.radio_button :account_type, false, :checked => true  %>
+        <%= f.radio_button :account_type, "Skate Account", :checked => true  %>
         <%= f.label :account_type, "Skate Account", :value => "Skateboarder"  %>
     <br>
-        <%= f.radio_button :account_type, true %>
+        <%= f.radio_button :account_type, "Business Account" %>
         <%= f.label :account_type, "Business Account", :value => "Business Account" %>
     </div>
        

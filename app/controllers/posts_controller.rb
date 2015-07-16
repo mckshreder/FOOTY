@@ -21,18 +21,12 @@ class PostsController < ApplicationController
         # @events = Event.new(event_params)    
                 
     respond_to do |format|
+            
         if current_user.posts.push @posts
             
-            # @posts.each do |f|
-            #     location = f.location
-            #     location_value = Geocoder.coordinates("#{location}")
-            #         if location_value.present?
-            #             Post.get_post_data(f,location_value,current_user.id)
-            #         end
-            # end
             format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
             format.json { render :show, status: :created, location: @posts }
-        
+
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }

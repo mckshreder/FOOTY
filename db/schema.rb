@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716054523) do
+ActiveRecord::Schema.define(version: 20150716101021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20150716054523) do
     t.string   "youtube_url"
     t.string   "image_url"
     t.string   "location_value"
+    t.float    "lat"
+    t.float    "lng"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree

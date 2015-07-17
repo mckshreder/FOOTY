@@ -100,13 +100,13 @@ hr.comment-line-break-top {
        };
 }
 .post-photo-tag{
-  width: 300px;
+  width: 250px;
   height: 25px;
   font-size: 12px;
   z-index: 999;
   position: absolute;
   text-shadow: 0 0 2px black;
-  padding-left: 4.2px;
+  padding-left: 15.2px;
   padding-top: 2px;
   color:white;
     &:hover {
@@ -118,6 +118,8 @@ hr.comment-line-break-top {
 .user-post-photo_tag{
   border-radius: 12px;
   border: 1px solid rgb(0, 136, 255);
+  float:left;
+  margin-left: -5%;
 
 
 }

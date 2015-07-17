@@ -6,8 +6,8 @@ class PostsController < ApplicationController
     end
 
     def new
-    	@posts = Post.new
-        @events = Event.new
+    	@post = Post.new
+        @event = Event.new
     end
 
     def show
@@ -16,29 +16,16 @@ class PostsController < ApplicationController
         @comment = Comment.new
     end
 
-    def create
-        # @posts = Post.new(post_params)
+   def create
+        @post = Post.new(post_params)
         # @events = Event.new(event_params)    
-        
-        current_user.posts << Post.create({
-          :title => params[:title],
-          :body => params[:body],
-          :youtube_url => params[:youtube_url],
-          :image_url => params[:image_url],
-          :lat => params[:lat],
-          :lng => params[:lng]
-        })
-       # if  current_user.save 
-       #   redirect_to posts_path, notice: 'Post was successfully created.' 
-       # else
-       #   redirect_to new_post_path
-       # end
-          
-    respond_to do |format|     
-        if current_user.save
+                
+        respond_to do |format|
+            
+        if current_user.posts.push @post
             
             format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
-            format.json { render :show, status: :created, location: @posts }
+            format.json { render :show, status: :created, location: @post }
 
       else
         format.html { render :new }
@@ -75,7 +62,7 @@ end
 
 private
 	def post_params
-		params.require(:post).permit(:title,:body,:youtube_url, :image_url)
+		params.require(:post).permit(:title,:body,:youtube_url, :image_url, :address)
 	end
 
     

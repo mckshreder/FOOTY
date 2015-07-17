@@ -19,6 +19,7 @@
 
 
 
+
 // this is for the dropdowns
 $('div').on('click', function(){
 $(this).toggleClass('show-description');
@@ -60,63 +61,61 @@ $(function () {
     });
 });
 
+
+
+
 // this is the javascript code for the google maps api
-function initialize() {
-  var mapOptions = {
-    zoom: 8,
-    center: new google.maps.LatLng(-34.0500, 118.2500)
-  };
 
-  var map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-}
 
-function loadScript() {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp' +
-      '&signed_in=true&callback=initialize';
-  document.body.appendChild(script);
-}
+// function loadScript() {
+//   var script = document.createElement('script');
+//   script.type = 'text/javascript';
+//   script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp' +
+//       '&signed_in=true&callback=initialize';
+//   document.body.appendChild(script);
+// }
 
 // call function when user clocks submit post
-$('.submit_post_form').submit(saveLocation);
 
-function saveLocation(){
 
-  alert("function called")
-  var lat;
-  var lng;
+// $("#post_submit").submit(function (e){
+//   e.preventDefault();
+//   alert("function called");
+//   var lat;
+//   var lng;
 
-  navigator.geolocation.getCurrentPosition(function(position) {
-      lat = position.coords.latitude,
-      lng = position.coords.longitude
-    })
-    var title = document.getElementsByName("title");
-    var body = document.getElementsByName("body");
-    var youtube_url = document.getElementsByName("youtube_url");
-    var image_url = document.getElementsByName("image_url");
-    console.log("lat:" + lat);
-    console.log("lng:" + lng);
-      data = {
-          title: title,
-          body: body,
-          youtube_url: youtube_url,
-          image_url: image_url,
-          lat: lat,
-          lng: lng
-      }
-      console.log(data);
+//   navigator.geolocation.getCurrentPosition(function(position) {
+//     var pos = new google.maps.LatLng(position.coords.latitude,
+//                                        position.coords.longitude);
+//     lat = pos.lat
+//     lng = pos.lng
+//     var title = document.getElementsByName("title");
+//     var body = document.getElementsByName("body");
+//     var youtube_url = document.getElementsByName("youtube_url");
+//     var image_url = document.getElementsByName("image_url");
+//     console.log("lat:" + lat);
+//     console.log("lng:" + lng);
+//        });
+//       data = {
+//           title: title,
+//           body: body,
+//           youtube_url: youtube_url,
+//           image_url: image_url,
+//           lat: lat,
+//           lng: lng,
+//           location: pos
+//       }
+//       console.log(data);
 
-       $.ajax({ url: '/create',
-          type: 'POST',
-          // beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-          data: data
-    });
+//        $.ajax({ url: '/create',
+//           type: 'POST',
+//           // beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+//           data: data
+//     });
   
-}
+// });
 
 
-window.onload = loadScript;
+ 
 
       

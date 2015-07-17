@@ -1,7 +1,7 @@
-    <div id="map-canvas"></div>
-
+    
 
 <script>
+//= require jquery.turbolinks
 // Note: This example requires that you consent to location sharing when
 // prompted by your browser. If you see a blank space instead of the map, this
 // is probably because you have denied permission for location sharing.
@@ -16,38 +16,49 @@ function initialize() {
       mapOptions);
 
   // Try HTML5 geolocation
-  if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
+	if(navigator.geolocation) {
+	    navigator.geolocation.getCurrentPosition(function(position) {
+	      	var pos = new google.maps.LatLng(position.coords.latitude,
+	                                       position.coords.longitude);
 
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
-        position: pos,
-        content: 'Location found using HTML5.'
-      });
-      var marker = new google.maps.Marker({
-	      position: pos,
-	      map: map,
-	      title: 'Hello World!'
-	  });
+	      	var infowindow = new google.maps.InfoWindow({
+		        map: map,
+		        position: pos,
+		        content: 'Location found using HTML5.'
+	      	});
+	    	map.setCenter(pos);
+	 	});
 
-      map.setCenter(pos);
-
-      google.maps.event.addListener(marker, 'click', function() {
-	    map.setZoom(8);
-	    map.setCenter(marker.getPosition());
-	  });
-    }, function() {
-      handleNoGeolocation(true);
-    });
-
-
-
-  } else {
+	 	handleNoGeolocation(true);
+	}
+	else {
     // Browser doesn't support Geolocation
-    handleNoGeolocation(false);
-  }
+    	handleNoGeolocation(false);
+  	}
+
+  	var markers = $("#marker_data").val();
+  	// console.log(markers);
+	for (var i = 0; i < markers.length; i++) {
+		
+		var coordinates = markers[i].split(",");
+		var pos = new google.maps.LatLng(Number(coordinates[0]),Number(coordinates[1]));
+	      console.log(pos);
+
+		
+
+		var marker = new google.maps.Marker({
+	      
+	      position: pos,
+	      map: map
+	  
+	  	});
+
+
+        google.maps.event.addListener(marker, 'click', function() {
+	     map.setZoom(8);
+	     map.setCenter(marker.getPosition());
+	    });
+	}
 }
 
 function handleNoGeolocation(errorFlag) {
@@ -63,9 +74,22 @@ function handleNoGeolocation(errorFlag) {
     content: content
   };
 
-  var infowindow = new google.maps.InfoWindow(options);
-  map.setCenter(options.position);
+  // var infowindow = new google.maps.InfoWindow(options);
+  // map.setCenter(options.position);
 }
 
-// google.maps.event.addDomListener(window, 'load', initialize);
+$(document).ready(function() {
+	console.log("document ready, calling initialize");
+	initialize();
+});
+
 </script>
+
+<div id="map-canvas"></div>
+
+<select hidden, id = "marker_data" multiple>
+<% @posts.each do |post| %>
+	<option selected = "true" value = "<%= post.latitude%>,<%= post.longitude%>">
+	</option>	
+<% end %>
+</select>

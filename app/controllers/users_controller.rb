@@ -3,6 +3,10 @@
     def index
         @users = User.all
     end
+    
+    def map 
+        @posts = Post.all
+    end
 
     def new
         @user = User.new

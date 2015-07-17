@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+
+gem 'gmaps4rails'
+
 gem 'geocoder'
 
 gem 'figaro'

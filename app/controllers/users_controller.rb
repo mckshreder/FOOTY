@@ -8,6 +8,11 @@
         @posts = Post.all
     end
 
+    def eventmap 
+        # @events = Event.all
+        @posts = Post.all
+    end
+
     def new
         @user = User.new
     end

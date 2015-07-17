@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     root "posts#index"
     get "/users" => "users#index", as: :users
     get "/users/map" => "users#map", as: :user_map
+    get "/users/eventmap" => "users#eventmap", as: :event_map
     get "/users/new" => "users#new", as: :new_user
     post "/users" => "users#create", as: :create_user
     get "/users/:id" => "users#show", as: :user_profile

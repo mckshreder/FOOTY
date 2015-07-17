@@ -16,11 +16,13 @@
 
 /*this is where we over ride boot strap for the map*/
 #home_photo{
-  width: 75%;
-  margin-left: 13%;
-
-
-
+  width: 67%;
+  margin-left: 17%;
+  margin-top: -2.3%;
+}
+.homepage_container{
+  background-image: url("paint.jpg");
+  
 }
 #map-container {
    height: 384px;

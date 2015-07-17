@@ -1,8 +1,14 @@
 class User < ActiveRecord::Base
+    
+    # geocoded_by :location
+    # after_validation :geocode 
+    
     has_secure_password
+
 
     has_many :posts
     has_many :comments
+    has_many :events
 
     validates :name, presence: true
    

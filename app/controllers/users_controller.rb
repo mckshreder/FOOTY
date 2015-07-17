@@ -3,6 +3,10 @@
     def index
         @users = User.all
     end
+    
+    def map 
+        @posts = Post.all.order('created_at DESC')   
+    end
 
     def new
         @user = User.new

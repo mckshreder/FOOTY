@@ -23,11 +23,11 @@ default: &default
 
 development:
   <<: *default
-  database: blog_with_comments_development
+  database: thefootyapp_development
 
 test:
   <<: *default
-  database: blog_with_comments_test
+  database: thefootyapp_test
 # The specified database role being used to connect to postgres.
 # To create additional roles in postgres see `$ createuser --help`.
 # When left blank, postgres will use the default role. This is
@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: blog_with_comments_production
-  username: blog_with_comments
-  password: <%= ENV['BLOG_WITH_COMMENTS_DATABASE_PASSWORD'] %>
+  database: thefootyapp_production
+  username: GarrettMcKenzie
+  password: <%= ENV['THEFOOTYAPP_DATABASE_PASSWORD'] %>

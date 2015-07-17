@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
-# Figaro was written to make it easy to securely configure Rails applications.
+
+gem 'gmaps4rails'
+
+gem 'geocoder'
+
 gem 'figaro'
 
 gem 'pry'

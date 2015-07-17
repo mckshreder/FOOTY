@@ -1,12 +1,4 @@
- 
 
- <nav class="dad-navbar">
-    <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-          <a class="navbar-brand" href="/">SkonsorDad.com</a>
-  </div>
-
-<div>
   <ul class="nav navbar-nav navbar-right">
   
   <%= form_for @user ,html: {class: "form-inline"}, url: create_session_path do |f| %>
@@ -26,7 +18,9 @@
 </div>
 </ul>
 </nav>
-
+<% flash.each do |key, value| %>
+    <h4><%= value %></h4>
+<% end %>
 
 <!-- <div class="jumbotron"><h3>SponsorDad</h3></div> -->
 <div class = "user_account_container">
@@ -70,10 +64,10 @@
         <%= f.label "Account Type" %>
         <small>  (select one of the following)</small>
     <br>
-        <%= f.radio_button :account_type, false, :checked => true  %>
+        <%= f.radio_button :account_type, "Skate Account", :checked => true  %>
         <%= f.label :account_type, "Skate Account", :value => "Skateboarder"  %>
     <br>
-        <%= f.radio_button :account_type, true %>
+        <%= f.radio_button :account_type, "Business Account" %>
         <%= f.label :account_type, "Business Account", :value => "Business Account" %>
     </div>
        

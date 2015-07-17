@@ -2,7 +2,7 @@
 
 <div class = "video-container">
           
-        <div class="embed-responsive embed-responsive-16by9"><%= embed(@post.url) %>
+        <div class="embed-responsive embed-responsive-16by9"><%= embed(@post.youtube_url) %>
         </div>
 
 
@@ -10,12 +10,12 @@
             
          
 
-                <%= content_tag :div, class: "video-title-link" do -%>
+                <%= content_tag :div, class: "video-title-link" do %>
                     <%= @post.title %>
-                <% end -%>
-                <%= content_tag :div, class: "video-artist-link" do -%> 
-                    <%= @post.artist %>
-                <% end -%>  
+                <% end %>
+                <%= content_tag :div, class: "video-artist-link" do %> 
+                    <%= @post.body %>
+                <% end %>  
                
           
     </div>
@@ -90,7 +90,7 @@
       
 
 <div class="comment_feed_container">
-<h4 class = "more_music">More Music &nbsp;&nbsp;<small>(scroll)</small></h4>
+<h4 class = "more_music">More Clips &nbsp;&nbsp;<small>(scroll)</small></h4>
 <div class="comment_feed_row">
     <% if @posts.count > 0 %>
     <% @posts.each do |post| %>
@@ -99,12 +99,12 @@
                         
                             
                 
-                <div class="embed-responsive embed-responsive-16by9"><%= embed(post.url) %></div>
+                <div class="embed-responsive embed-responsive-16by9"><%= embed(post.youtube_url) %></div>
 
 
                 <h4><%= link_to post.title, post_path(id: post.id), :class => "title-link" %></h4>
         
-                <div class = "artist-link"><%= post.artist %>
+                <div class = "artist-link"><%= post.body %>
             
                 </div>
 

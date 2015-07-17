@@ -1,25 +1,141 @@
-<p id="notice"><%= notice %></p>
+    
 
-<h1>Listing Events</h1>
+<script>
+//= require jquery.turbolinks
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+var map;
 
-  <tbody>
+function initialize() {
+  var mapOptions = {
+    zoom: 10,
+    // mapTypeId: google.maps.MapTypeId.HYBRID
+  };
+  // google.maps,Map creates map on div canvas
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+  // this creates a location of the current users location 
+  if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+          // this assigns the current users coordinats as pos
+          var pos = new google.maps.LatLng(position.coords.latitude,
+                                         position.coords.longitude);
+          // below creates the info window marker for current user location
+          var infowindow = new google.maps.InfoWindow({
+            // must use map
+            map: map,
+            // assigns the window to show on map at current user location
+            position: pos,
+            content: 'your current location.'
+          });
+
+
+          // brings the users map to center their location
+        map.setCenter(pos);
+    });
+
+    handleNoGeolocation(true);
+  }
+  else {
+    // Browser doesn't support Geolocation
+      handleNoGeolocation(false);
+    }
+    
+    // variable for all markers in event.all. We extract the data from the <select hidden, id = "marker_data" multiple> tag. data is ["123.1,-76.928"] Jquery
+    var markers = $("#marker_data").val();
+
+  for (var i = 0; i < markers.length; i++) {
+    // this splits data into two seperate strings of an array. Erase ","
+    var coordinates = markers[i].split(",");
+    // Number takes array turns strings into numbers for google pos variable
+    var pos = new google.maps.LatLng(Number(coordinates[0]),Number(coordinates[1]));
+        console.log(pos);
+
+      
+        // this creates the marker in the user view
+    var marker = new google.maps.Marker({
+        animation: google.maps.Animation.DROP,
+        position: pos,
+        map: map
+    });
+
+    // this creates zoom when user clicks marker
+    google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
+  }
+}
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
+}
+
+// jquery call to initalize () on load basically
+$(document).ready(function() {
+  initialize();
+});
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+<!-- this contains the map on the view -->
+<% flash.each do |key, value| %>
+    <h4><%= value %></h4>
+<% end %>
+
+<h5 id = "event_logo">EVENTS</h5>
+<div class="feed_container">
+<div class="map_feed_row">
+<!-- this contains the map on the view -->
+<div id="map-canvas">
+</div>
+<% if @events.count > 0 %>
     <% @events.each do |event| %>
-      <tr>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      
+    <div class="map_feed_post">  
+    <div class = "artist-link"><%= event.address %>
+      
+          </div>          
+        <h1><%= event.date %></h1>
+        <h1><%= link_to event.title, event_path(id: event.id), :class => "title-link" %></h1>
+          
+        <div class = "artist-link"><%= event.info %>
+      
+          </div>
+
+                   
+
+                
+                <hr class = "line-break">
+
+                    
+                
+                
+           
+
+            <div class= "time-ago-tag"><span class="glyphicon glyphicon-time" aria-hidden="false"></span><%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, event.updated_at)) + " ago"  %>
+            </div>
+        
+        </div>
+        
     <% end %>
-  </tbody>
-</table>
+    </div>
+</div>    
+<% else %>
+    <h2>No Posts Exist</h2>
+<% end %>
 
-<br>
 
-<%= link_to 'New Event', new_event_path %>
+
+
+<!-- this creates ruby data in the view that can be accessed by JS if the <script> is on same exact file. multiple allows JS to know there is multple data  -->
+<select hidden, id = "marker_data" multiple>
+<% @events.each do |event| %>
+  <option selected = "true" value = "<%= event.latitude%>,<%= event.longitude%>">
+  </option> 
+<% end %>
+</select>

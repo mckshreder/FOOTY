@@ -37,7 +37,7 @@
                     <%= post.title %>
                 <% end -%>
                 <%= content_tag :div, class: "video-artist-link" do -%> 
-                    <%= post.artist %>
+                    <%= post.body %>
                 <% end -%>  
                
           
@@ -118,16 +118,16 @@
     <% if @posts.count > 0 %>
     <% @posts.shuffle.each do |post| %>
       
-        <div class="comment_feed_post">
+        <div class="map_feed_post">
                         
                             
                 
-                <div class="embed-responsive embed-responsive-16by9"><%= embed(post.url) %></div>
+                <div class="embed-responsive embed-responsive-16by9"><%= embed(post.youtube_url) %></div>
 
 
                 <h4><%= link_to post.title, post_path(id: post.id), :class => "title-link" %></h4>
         
-                <div class = "artist-link"><%= post.artist %>
+                <div class = "artist-link"><%= post.body %>
             
                 </div>
 

@@ -1,4 +1,28 @@
 <br>
+<ul id="topright_nav">
+<li>
+    <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>
+    <small>Hello, </small>
+      <a><%= link_to "#{current_user.name.split.first}", user_profile_path(current_user) %>
+      </a>
+    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+      
+      <ul> 
+        <li>
+             <a><%= link_to "Your Events", new_user_path %>
+             </a>
+        </li> 
+        <li>
+            <a><%= link_to "Edit Account", edit_users_path(current_user) %>
+            </a>
+        </li>  
+        <li>
+            <a><%= link_to "Log out", destroy_session_path %>
+            </a>
+        </li>  
+      </ul>
+    </li>
+</ul>
 <div class = "form_create">
 <div class = "create_post">
 <p>Create New Post</p>
@@ -24,10 +48,6 @@
     <%= f.url_field :youtube_url, class: "form-control" %>
     </div>
     
-    <div class="form-group">
-    <%= f.label 'Or Paste Image Url' %>
-    <%= f.url_field :image_url, class: "form-control" %>
-    </div>
 
     <div class="form-group">
     <%= f.label 'Address (City, State)' %>

@@ -7,7 +7,8 @@ var map;
 
 function initialize() {
   var mapOptions = {
-    zoom: 9
+    zoom: 10,
+    mapTypeId: google.maps.MapTypeId.HYBRID
   };
   // google.maps,Map creates map on div canvas
   var map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -93,6 +94,7 @@ $(document).ready(function() {
 <% end %>
 
 
+<h5 id = "event_logo">POSTS</h5>
 <div class="feed_container">
 <div class="map_feed_row">
 <!-- this contains the map on the view -->
@@ -133,7 +135,7 @@ $(document).ready(function() {
                     add = ""
                 end %>
 
-                <%= link_to "View#{add} Comments", post_path(id: post.id), :class => "comment-link-color-change" %><%= "  (" + post.comments.count.to_s + ")"%>
+                <%= post.address%>
             </div>
 
             <div class= "time-ago-tag"><span class="glyphicon glyphicon-time" aria-hidden="false"></span><%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>

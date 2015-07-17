@@ -62,7 +62,7 @@ end
 
 private
 	def post_params
-		params.require(:post).permit(:title,:body,:youtube_url, :image_url, :address)
+		params.require(:post).permit(:title,:body,:youtube_url, :address)
 	end
 
     

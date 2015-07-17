@@ -5,7 +5,7 @@
     end
     
     def map 
-        @posts = Post.all
+        @posts = Post.all.order('created_at DESC')   
     end
 
     def new

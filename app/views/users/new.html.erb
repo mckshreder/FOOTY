@@ -18,7 +18,9 @@
 </div>
 </ul>
 </nav>
-
+<% flash.each do |key, value| %>
+    <h4><%= value %></h4>
+<% end %>
 
 <!-- <div class="jumbotron"><h3>SponsorDad</h3></div> -->
 <div class = "user_account_container">

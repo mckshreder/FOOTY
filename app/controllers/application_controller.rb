@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   def authorize
     unless current_user
-        flash["alert-warning"] = "You must be logged in to use SkateSponsor.com"
+        flash["alert-warning"] = "You must be logged in to use FOOTY"
         redirect_to new_user_path
     end
   end 

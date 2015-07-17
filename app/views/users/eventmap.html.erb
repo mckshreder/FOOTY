@@ -38,7 +38,7 @@ function initialize() {
     	handleNoGeolocation(false);
   	}
   	
-  	// variable for all markers in post.all. We extract the data from the <select hidden, id = "marker_data" multiple> tag. data is ["123.1,-76.928"] Jquery
+  	// variable for all markers in event.all. We extract the data from the <select hidden, id = "marker_data" multiple> tag. data is ["123.1,-76.928"] Jquery
   	var markers = $("#marker_data").val();
 
 	for (var i = 0; i < markers.length; i++) {
@@ -84,8 +84,8 @@ $(document).ready(function() {
 
 <!-- this creates ruby data in the view that can be accessed by JS if the <script> is on same exact file. multiple allows JS to know there is multple data  -->
 <select hidden, id = "marker_data" multiple>
-<% @posts.each do |post| %>
-	<option selected = "true" value = "<%= post.latitude%>,<%= post.longitude%>">
+<% @events.each do |event| %>
+	<option selected = "true" value = "<%= event.latitude%>,<%= event.longitude%>">
 	</option>	
 <% end %>
 </select>

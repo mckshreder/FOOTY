@@ -7,7 +7,7 @@ var map;
 
 function initialize() {
   var mapOptions = {
-    zoom: 6
+    zoom: 9
   };
   // google.maps,Map creates map on div canvas
   var map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -25,8 +25,10 @@ function initialize() {
             map: map,
             // assigns the window to show on map at current user location
             position: pos,
-            content: 'Location found using HTML5.'
+            content: 'your current location.'
           });
+
+
           // brings the users map to center their location
         map.setCenter(pos);
     });
@@ -48,20 +50,18 @@ function initialize() {
     var pos = new google.maps.LatLng(Number(coordinates[0]),Number(coordinates[1]));
         console.log(pos);
 
-    
-      // this creates the marker in the user view
+      
+        // this creates the marker in the user view
     var marker = new google.maps.Marker({
         animation: google.maps.Animation.DROP,
         position: pos,
         map: map
-    
-      });
+    });
 
     // this creates zoom when user clicks marker
-        google.maps.event.addListener(marker, 'click', function() {
-       map.setZoom(50);
-       map.setCenter(marker.getPosition());
-      });
+    google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
   }
 }
 
@@ -77,10 +77,59 @@ function handleNoGeolocation(errorFlag) {
 $(document).ready(function() {
   initialize();
 });
+google.maps.event.addDomListener(window, 'load', initialize);
+
 </script>
 
 <!-- this contains the map on the view -->
-<div id="map-canvas"></div>
+<% flash.each do |key, value| %>
+    <h4><%= value %></h4>
+<% end %>
+
+
+<div class="feed_container">
+<div class="map_feed_row">
+<!-- this contains the map on the view -->
+<div id="map-canvas">
+</div>
+<% if @events.count > 0 %>
+    <% @events.each do |event| %>
+      
+    <div class="map_feed_post">  
+    <div class = "artist-link"><%= event.address %>
+      
+          </div>          
+        <h1><%= event.date %></h1>
+        <h1><%= link_to event.title, event_path(id: event.id), :class => "title-link" %></h1>
+          
+        <div class = "artist-link"><%= event.info %>
+      
+          </div>
+
+                   
+
+                
+                <hr class = "line-break">
+
+                    
+                
+                
+           
+
+            <div class= "time-ago-tag"><span class="glyphicon glyphicon-time" aria-hidden="false"></span><%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, event.updated_at)) + " ago"  %>
+            </div>
+        
+        </div>
+        
+    <% end %>
+    </div>
+</div>    
+<% else %>
+    <h2>No Posts Exist</h2>
+<% end %>
+
+
+
 
 <!-- this creates ruby data in the view that can be accessed by JS if the <script> is on same exact file. multiple allows JS to know there is multple data  -->
 <select hidden, id = "marker_data" multiple>

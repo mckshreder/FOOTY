@@ -7,7 +7,7 @@ var map;
 
 function initialize() {
   var mapOptions = {
-    zoom: 6
+    zoom: 9
   };
   // google.maps,Map creates map on div canvas
   var map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -25,7 +25,7 @@ function initialize() {
 		        map: map,
 		        // assigns the window to show on map at current user location
 		        position: pos,
-		        content: 'Location found using HTML5.'
+		        content: 'your current location'
 	      	});
 	      	// brings the users map to center their location
 	    	map.setCenter(pos);
@@ -48,6 +48,12 @@ function initialize() {
 		var pos = new google.maps.LatLng(Number(coordinates[0]),Number(coordinates[1]));
 	      console.log(pos);
 
+	    
+      	var contentString = '<h4>Info for this post coming soon...</h4>';
+
+	  var infowindow = new google.maps.InfoWindow({
+	      content: contentString
+	  });
 		
 	    // this creates the marker in the user view
 		var marker = new google.maps.Marker({
@@ -59,9 +65,11 @@ function initialize() {
 
 		// this creates zoom when user clicks marker
         google.maps.event.addListener(marker, 'click', function() {
-	     map.setZoom(50);
+	     map.setZoom(10);
+	     infowindow.open(map,marker);
 	     map.setCenter(marker.getPosition());
 	    });
+
 	}
 }
 
@@ -80,12 +88,74 @@ $(document).ready(function() {
 </script>
 
 <!-- this contains the map on the view -->
-<div id="map-canvas"></div>
+<% flash.each do |key, value| %>
+    <h4><%= value %></h4>
+<% end %>
+
+
+<div class="feed_container">
+<div class="map_feed_row">
+<!-- this contains the map on the view -->
+<div id="map-canvas">
+</div>
+<% if @posts.count > 0 %>
+    <% @posts.each do |post| %>
+      
+    <div class="map_feed_post">
+                        
+         <div class = "post-photo-tag">
+              <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "user-post-photo_tag") %><%= "  " %><%= link_to post.user.name, user_profile_path(post.user_id), :class => "post-photo-tag" %>
+         </div>              
+          
+         <div class="embed-responsive embed-responsive-16by9"><%= embed(post.youtube_url) %>
+         </div>
+
+
+
+        <h4><%= link_to post.title, post_path(id: post.id), :class => "title-link" %></h4>
+          
+        <div class = "artist-link"><%= post.body %>
+      
+          </div>
+
+                   
+
+                
+                <hr class = "line-break">
+
+                    
+                
+                
+            <div class = "comments-tag-on-feed">
+               <% if current_user
+                    add = "/Add"
+                else
+                    add = ""
+                end %>
+
+                <%= link_to "View#{add} Comments", post_path(id: post.id), :class => "comment-link-color-change" %><%= "  (" + post.comments.count.to_s + ")"%>
+            </div>
+
+            <div class= "time-ago-tag"><span class="glyphicon glyphicon-time" aria-hidden="false"></span><%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>
+            </div>
+        
+        </div>
+        
+    <% end %>
+    </div>
+</div>    
+<% else %>
+    <h2>No Posts Exist</h2>
+<% end %>
+
+
+
+
 
 <!-- this creates ruby data in the view that can be accessed by JS if the <script> is on same exact file. multiple allows JS to know there is multple data  -->
 <select hidden, id = "marker_data" multiple>
 <% @posts.each do |post| %>
-	<option selected = "true" value = "<%= post.latitude%>,<%= post.longitude%>">
+	<option selected = "true" value = "<%= post.latitude%>,<%= post.longitude%>, <%= post.title%>, <=% post.id %>">
 	</option>	
 <% end %>
 </select>

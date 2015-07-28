@@ -28,6 +28,10 @@
    box-shadow: 2px 2px 10px #B1B1B1;
    margin-top: 25px;
    border-width: 7px;
+    &:hover {
+         color: white;
+       }
+
  }
  #map-canvas {
    height: 353px;

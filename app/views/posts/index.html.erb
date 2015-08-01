@@ -6,13 +6,42 @@
 
 <div class="feed_container">
 <div class="left_column">
+<h1> HI DADDY!</h1>
 </div>
 
 <!-- begining of the right side column on the home page -->
 <div class="right_column">
+<!-- this is the "sign in or sign up forum" -->
+	<ul id="topright_nav">
+	<li>
+	    <!--<%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>-->
+		    <small>Hello, </small>
+		      
+		      <a><%= link_to "#{current_user.name}", user_profile_path(current_user) %>
+		      </a>
+			  <span class="glyphicon glyphicon-cog" aria-hidden="true">
+			  </span>
+	      
+	      <ul> 
+	        <li>
+	             <a><%= link_to "Your Events", new_user_path %>
+	             </a>
+	        </li> 
+	        <li>
+	            <a><%= link_to "Edit Account", edit_users_path(current_user) %>
+	            </a>
+	        </li>  
+	        <li>
+	            <a><%= link_to "Log out", destroy_session_path %>
+	            </a>
+	        </li>  
+	      </ul>
+	    </li>
+	</ul>
+
+<!-- this is the start of the posts on right column -->
 <% if @posts.count > 0 %>
     <% @posts.each do |post| %>
-      
     <div class="right_column_post">
                         
          <div class = "post-photo-tag">

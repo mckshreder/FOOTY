@@ -215,14 +215,17 @@ body.container-fluid{
 }
 #topright_nav ul li a{
   font-size: 0.3em;
-  border-bottom: 1px black solid;
-  padding: 0px;
+  /*border-bottom: 1px black solid;*/
+  /*padding: 0px;*/
+  float: center;
+  text-align: center;
+  display: block;
 
 }
 #topright_nav li a{
 display: inline;
 font-size: 1em;
-position: relative;
+/*position: relative;*/
 }
 
  #topright_nav a:link, #topright_nav a:active, #topright_nav a:visited{
@@ -230,6 +233,7 @@ position: relative;
     color: #0062c3;
     text-decoration:none;
     font-size: 1em;
+    background-color: white;
  }
 
 #topright_nav a:hover{
@@ -242,9 +246,9 @@ position: relative;
   text-align: center;
 }
 #topright_nav ul {
-    position:absolute;
-    width:12em;
-    top:1.5em;
+    /*position:absolute;*/
+    width:100%;
+   /* top:1.5em;*/
     display:none;
 }
 #topright_nav li ul a{

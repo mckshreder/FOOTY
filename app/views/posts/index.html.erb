@@ -13,6 +13,8 @@
 <div class="right_column">
 <!-- this is the "sign in or sign up forum" -->
 	<ul id="topright_nav">
+	
+
 	<li>
 	    <!--<%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>-->
 		    <small>Hello, </small>
@@ -24,7 +26,7 @@
 	      
 	      <ul> 
 	        <li>
-	             <a><%= link_to "Your Events", new_user_path %>
+	             <a><%= link_to "Your Profile", user_profile_path(current_user)%>
 	             </a>
 	        </li> 
 	        <li>

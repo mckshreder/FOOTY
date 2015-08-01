@@ -5,14 +5,15 @@
 <div> -->
 
 <div class="feed_container">
-<div class="map_feed_row">
-<!-- this contains the map on the view -->
-<!-- <div id="map-canvas">
-</div> -->
+<div class="left_column">
+</div>
+
+<!-- begining of the right side column on the home page -->
+<div class="right_column">
 <% if @posts.count > 0 %>
     <% @posts.each do |post| %>
       
-    <div class="map_feed_post">
+    <div class="right_column_post">
                         
          <div class = "post-photo-tag">
               <%=image_tag("https://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "user-post-photo_tag") %><%= "  " %><%= link_to post.user.name, user_profile_path(post.user_id), :class => "post-photo-tag" %>

@@ -122,7 +122,10 @@
 		    </li>
 		</ul>
 	<% else %>
+
 	<div id="topright_nav">
+	<h3 class="center">Hello, Sign in</h3>
+	<h5 class="center">Your Account</h5>
 	<%= form_for @user, url: create_session_path do |f| %>
 
     <div class="form-group">
@@ -136,6 +139,7 @@
     </div>
     
     <%= f.submit "Log In", class: "submit-button-create" %>
+    <p class="center">New to the Footy app?</p>
     <%= link_to "Create New Account", new_user_path, class: "submit-button" %>
 <% end %> 
 	</div>
@@ -143,6 +147,16 @@
 	<div class="feed_border">
 	<h2>Events</h2>
 	<h6>This weeks featured events</h6>
+	</div>
+
+	<div class="feed_border">
+	<img alt="Icon" src="http://skateparkoftampa.com/spot/images3/damn-am-frontpage2.png" />
+	<!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+	<h4>DAMN AM COSTA MESA, CA</h4>
+	<p>August 7-9, 2015</p>
+	<!-- <br> -->
+	<h4>DAMN AM WOODWARD, PA</h4>
+	<p>August 27-29, 2015</p>
 	</div>
 
 <!-- this is the start of the posts on right column -->

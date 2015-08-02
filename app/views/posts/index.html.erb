@@ -7,7 +7,8 @@
 <div class="feed_container">
 <div class="left_column">
 	<div class="feed_border">
-		<h2>Welcome to the Footy app!</h2>
+		<h1>Welcome to the Footy app!</h1>
+		<h6>The only skateboard sponsorship classifieds ever.</h6>
 	</div>
 	<div class="home_info">
 		
@@ -26,14 +27,16 @@
 			<li>
 				<p>#4. Instantly share your footy with companies, friends, and family all around the world... for FREE!</p>
 			</li>
-			<small>Note: You may end up making several videos as your skateboarding and camera skill improve.</small>
+			<small>Note: We encouraged you to stay determined and continue to make videos as your skateboarding and camera skills will only improve.</small>
 
 		</ul>
 	</div>
-	<hr class = "line-break">
+	<hr class = "line-break" >
+
 <!-- the start of the popular feed on home page -->
 	<div class="feed_border">
-	<h2>Featured footy</h2>
+	<h2>What's poppin'? </h2>
+	<h6>This weeks featured skaters</h6>
 	</div>
 	
 	<% if @posts.count > 0 %>
@@ -80,7 +83,8 @@
         
     <% end %>
     </div>
-</div>    
+</div>  
+<br>  
 <% else %>
     <h2>No Posts Exist</h2>
 <% end %>

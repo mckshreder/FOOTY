@@ -13,6 +13,15 @@
  *= require_tree .
  *= require_self
  */
+body{
+  background-image: url(http://khongthe.com/wallpapers/abstract/mix-3d-paint-252853.jpg);
+  background-repeat: none;
+  background-attachment: fixed;
+  background-position: center;
+
+ 
+}
+
 
 h3{
   margin-top: 1%;
@@ -22,26 +31,6 @@ h2{
   margin-top: 1%;
 
 }
-.blue{
-  color:#0088ff;
-  &:hover {
-         color:black;
-       }
-  font-size: 2vw;
-}
-
-.black{
-  padding-top: 1%;
-  padding-left: 1%;
-  font-size: 1.9vw;
-  text-align: left;
-  color:black;
-  &:hover {
-         color:black;
-       }
-}
-
-
 
 nav{
   width: 100%;
@@ -144,6 +133,9 @@ body.container-fluid{
   margin-top:25px;
   float:left;
   text-align: center;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+  background-color: rgba(255,255,255,0.85);
 }
 
 /*this is home page left site info*/
@@ -157,6 +149,8 @@ body.container-fluid{
 
 .home_info{
 border-top: 1.5px black solid;
+padding-left: 1%;
+padding-right: 1%;
 /*border-bottom: 1px black solid;*/
 }
 
@@ -206,13 +200,22 @@ border-top: 1.5px black solid;
 }
 
 .feed_border{
-  border-bottom: 3px black solid;
+  border-bottom: 1px black solid;
   padding: 5px;
   text-align: left;
   font-size: 5vw !important;
 }
 .feed_border h2{
-font-size: 5vw !important;
+font-size: 3.5vw !important;
+text-align: center;
+}
+.feed_border h6{
+font-size: 1vw !important;
+text-align: center;
+}
+.feed_border h1{
+font-size: 4vw !important;
+text-align: center;
 }
 
 .comments-on-feed {
@@ -223,6 +226,24 @@ font-size: 5vw !important;
   display: inline-block;
 
 }
+.blue{
+  color:#0088ff;
+  &:hover {
+         color:black;
+       }
+  font-size: 2vw;
+}
+
+.black{
+  padding-top: 1%;
+  padding-left: 1%;
+  font-size: 1.9vw;
+  text-align: left;
+  color:black;
+  &:hover {
+         color:black;
+       }
+}
 
 
 /*The right column containing the posts*/
@@ -231,6 +252,9 @@ font-size: 5vw !important;
   margin-right: 5%;
   margin-top:25px;
   float:right;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+  background-color: white;
  /* text-align: center;*/
 }
 /*The right column actually post contained by right column*/
@@ -438,9 +462,6 @@ a.navbar-brand{
 }
 
 
-/*.feed_container{
-  text-align: center;
-}*/
 
 .container-fluid, .navbar .nav-links {
 font-family: 'Michroma', sans-serif;

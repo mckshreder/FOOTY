@@ -16,34 +16,40 @@
 				<p>#1. Have fun and go skateboarding everyday!</p>
 			</li>
 			<li>
-				<p>#2. Create a single or several "Sponsor me videos" of your best skating.</p>
+				<p>#2. Film and edit a fun video or a "Sponsor me clip" with your best footy.</p>
 			</li>
 			<li>
-				<p>#3. Upload your video to YouTube and place ad with your footy on our skateboard classfields. </p>
+				<p>#3. Upload your video to YouTube, copy the video url, and place ad with your video on our skateboarding classfields. </p>
 			</li>
 			<li>
 				<p>#4. Instantly share your footy with companies, friends, and family all around the world... for FREE!</p>
 			</li>
+			<small>Note: You may end up making several videos as your skateboarding and camera skill improve.</small>
 
 		</ul>
 	</div>
 
+	<br>
+
 <!-- the start of the popular feed on home page -->
+	<h2>Popular ads</h2>
+		<p>
 	<% if @posts.count > 0 %>
     <% @posts.each do |post| %>
       
-    <div class="map_feed_post">
-                        
-         <div class = "post-photo-tag">
-              <%=image_tag("https://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "user-post-photo_tag") %><%= "  " %><%= link_to post.user.name, user_profile_path(post.user_id), :class => "post-photo-tag" %>
+    <div class = "large_feed">
+
+          <h4><%= link_to post.title, post_path(id: post.id), :class => "large_posts_title" %></h4>
+              
+         <div class = "large_link_photo">
+              <%=image_tag("https://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "user_large_photo_tag") %><%= link_to post.user.name, user_profile_path(post.user_id), :class => "large_link_photo" %>
          </div>              
-          
-         <div class="embed-responsive embed-responsive-16by9"><%= embed(post.youtube_url) %>
+		 
+		 
+		 <div class="embed-responsive embed-responsive-16by9"><%= embed(post.youtube_url) %>
          </div>
-
-
-
-        <h4><%= link_to post.title, post_path(id: post.id), :class => "title-link" %></h4>
+        
+        
           
         <div class = "artist-link"><%= post.body %>
       

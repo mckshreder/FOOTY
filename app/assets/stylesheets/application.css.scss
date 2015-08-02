@@ -138,6 +138,51 @@ border-top: 1px black solid;
 border-bottom: 1px black solid;
 }
 
+/*styling for feed on left column bottom*/
+.large_feed{ 
+  width: 100%;
+  vertical-align: center;
+  margin-left: 0px;
+  margin-top: 10px;
+  display: block;
+}
+
+.large_posts_title{
+  text-align: left;
+  font-size: 1.8vw;
+  font-weight: 700;
+  padding-left: 5px;
+  text-align: center;
+  color: black;
+    &:hover {
+         color: #337ab7;
+       };
+}
+
+.large_link_photo{
+/*  width: 100%;*/
+  height: 25px;
+  font-size: 12px;
+  z-index: 999;
+  position: relative;
+  text-shadow: 0 0 2px black;
+  padding-left: 8.2px;
+  color:rgb(0, 136, 255);
+    &:hover {
+         color: white;
+       };
+
+  
+}
+.user_large_photo_tag{
+  border-radius: 12px;
+  border: 1px solid rgb(0, 136, 255);
+}
+.large_link_photo a{
+  display: inline !important;
+
+}
+
 /*The right column containing the posts*/
  .right_column {
   width: 33%;

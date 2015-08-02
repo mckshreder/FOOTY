@@ -6,7 +6,9 @@
 
 <div class="feed_container">
 <div class="left_column">
-<h2>Welcome to the Footy app</h2>
+	<div class="feed_border">
+		<h2>Welcome to the Footy app!</h2>
+	</div>
 	<div class="home_info">
 		
 		
@@ -28,11 +30,10 @@
 
 		</ul>
 	</div>
-
-	<br>
-
 <!-- the start of the popular feed on home page -->
-	<h2>Popular ads</h2>
+	<div class="feed_border">
+	<h2>Featured footy</h2>
+	</div>
 		<p>
 	<% if @posts.count > 0 %>
     <% @posts.each do |post| %>

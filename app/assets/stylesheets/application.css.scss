@@ -13,12 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
 h3{
   margin-top: 1%;
 
 }
 h2{
   margin-top: 1%;
+
 }
 
 nav{
@@ -134,7 +136,7 @@ body.container-fluid{
 }
 
 .home_info{
-border-top: 1px black solid;
+border-top: 3px black solid;
 border-bottom: 1px black solid;
 }
 
@@ -183,6 +185,15 @@ border-bottom: 1px black solid;
 
 }
 
+.feed_border{
+  border-bottom: 3px black solid;
+  padding: 5px;
+  text-align: left;
+  font-size: 5vw !important;
+}
+.feed_border h2{
+font-size: 5vw !important;
+}
 /*The right column containing the posts*/
  .right_column {
   width: 33%;

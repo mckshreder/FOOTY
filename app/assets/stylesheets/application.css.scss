@@ -22,6 +22,26 @@ h2{
   margin-top: 1%;
 
 }
+.blue{
+  color:#0088ff;
+  &:hover {
+         color:black;
+       }
+  font-size: 2vw;
+}
+
+.black{
+  padding-top: 1%;
+  padding-left: 1%;
+  font-size: 1.9vw;
+  text-align: left;
+  color:black;
+  &:hover {
+         color:black;
+       }
+}
+
+
 
 nav{
   width: 100%;
@@ -136,8 +156,8 @@ body.container-fluid{
 }
 
 .home_info{
-border-top: 3px black solid;
-border-bottom: 1px black solid;
+border-top: 1.5px black solid;
+/*border-bottom: 1px black solid;*/
 }
 
 /*styling for feed on left column bottom*/
@@ -194,6 +214,17 @@ border-bottom: 1px black solid;
 .feed_border h2{
 font-size: 5vw !important;
 }
+
+.comments-on-feed {
+  font-size: 1.3vw;
+  z-index: 999;
+
+  color:black;
+  display: inline-block;
+
+}
+
+
 /*The right column containing the posts*/
  .right_column {
   width: 33%;

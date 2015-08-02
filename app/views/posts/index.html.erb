@@ -15,7 +15,7 @@
 		<ul class="text_list">
 		<h3>How it works...</h3>
 			<li>
-				<p>#1. Have fun and go skateboarding everyday!</p>
+				<p>#1. Have fun and skate with your bros everyday!</p>
 			</li>
 			<li>
 				<p>#2. Film and edit a fun video or a "Sponsor me clip" with your best footy.</p>
@@ -30,11 +30,12 @@
 
 		</ul>
 	</div>
+	<hr class = "line-break">
 <!-- the start of the popular feed on home page -->
 	<div class="feed_border">
 	<h2>Featured footy</h2>
 	</div>
-		<p>
+	
 	<% if @posts.count > 0 %>
     <% @posts.each do |post| %>
       
@@ -42,41 +43,39 @@
 
           <h4><%= link_to post.title, post_path(id: post.id), :class => "large_posts_title" %></h4>
               
-         <div class = "large_link_photo">
+        <!--  <div class = "large_link_photo">
               <%=image_tag("https://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "user_large_photo_tag") %><%= link_to post.user.name, user_profile_path(post.user_id), :class => "large_link_photo" %>
-         </div>              
+         </div>   -->            
 		 
 		 
 		 <div class="embed-responsive embed-responsive-16by9"><%= embed(post.youtube_url) %>
          </div>
+		
+		<div class="video-poster, black">
+			<div class = "artist-link">
+	        	<%= link_to post.user.name.split.first,  user_profile_path(post.user_id), :class => "title_link" %>
+
+	        	<%= post.body %>
+	      	</div>
+		</div> 
+
+	<div class = "video-poster">
+
         
-        
-          
-        <div class = "artist-link"><%= post.body %>
-      
-          </div>
+		<small><%="Posted by:"%></small> 
+         <%= link_to post.user.name ,  user_profile_path(post.user_id), :class => "title_link, blue" %>
+         <div class = "comments-on-feed">
+	                <small>Age:<%= post.user.age%></small>
+	                <small> | City:<%= post.address%></small>
 
-                   
+		        <small> | <span class="glyphicon glyphicon-time" aria-hidden="false">
+		        	</span>
+		        <%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>
+		        </small>
+	        </div>
+    </div>
+            <hr class = "line-break">
 
-                
-                <hr class = "line-break">
-
-                    
-                
-                
-            <div class = "comments-tag-on-feed">
-               <% if current_user
-                    add = "/Add"
-                else
-                    add = ""
-                end %>
-
-                <%= post.address%>
-            </div>
-
-            <div class= "time-ago-tag"><span class="glyphicon glyphicon-time" aria-hidden="false"></span><%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>
-            </div>
-        
         </div>
         
     <% end %>

@@ -65,7 +65,7 @@
 	<div class = "video-poster">
 
         
-		<small><%="Posted by:"%></small> 
+		<small><%="Featuring:"%></small> 
          <%= link_to post.user.name ,  user_profile_path(post.user_id), :class => "title_link, blue" %>
          <div class = "comments-on-feed">
 	                <small>Age:<%= post.user.age%></small>
@@ -95,8 +95,6 @@
 <div class="right_column">
 <!-- this is the "sign in or sign up forum" -->
 	<ul id="topright_nav">
-	
-
 	<li>
 	    <!--<%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>-->
 		    <small>Hello, </small>
@@ -122,6 +120,10 @@
 	      </ul>
 	    </li>
 	</ul>
+	<div class="feed_border">
+	<h2>Events</h2>
+	<h6>This weeks featured events</h6>
+	</div>
 
 <!-- this is the start of the posts on right column -->
 <% if @posts.count > 0 %>

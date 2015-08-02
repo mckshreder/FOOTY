@@ -27,6 +27,58 @@
 
 		</ul>
 	</div>
+
+<!-- the start of the popular feed on home page -->
+	<% if @posts.count > 0 %>
+    <% @posts.each do |post| %>
+      
+    <div class="map_feed_post">
+                        
+         <div class = "post-photo-tag">
+              <%=image_tag("https://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "user-post-photo_tag") %><%= "  " %><%= link_to post.user.name, user_profile_path(post.user_id), :class => "post-photo-tag" %>
+         </div>              
+          
+         <div class="embed-responsive embed-responsive-16by9"><%= embed(post.youtube_url) %>
+         </div>
+
+
+
+        <h4><%= link_to post.title, post_path(id: post.id), :class => "title-link" %></h4>
+          
+        <div class = "artist-link"><%= post.body %>
+      
+          </div>
+
+                   
+
+                
+                <hr class = "line-break">
+
+                    
+                
+                
+            <div class = "comments-tag-on-feed">
+               <% if current_user
+                    add = "/Add"
+                else
+                    add = ""
+                end %>
+
+                <%= post.address%>
+            </div>
+
+            <div class= "time-ago-tag"><span class="glyphicon glyphicon-time" aria-hidden="false"></span><%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>
+            </div>
+        
+        </div>
+        
+    <% end %>
+    </div>
+</div>    
+<% else %>
+    <h2>No Posts Exist</h2>
+<% end %>
+
 </div>
 
 <!-- begining of the right side column on the home page -->

@@ -129,7 +129,7 @@
     <p class="center">It's simple and easy.</p>
     <%= link_to "Create New Account", new_user_path, class: "submit-button, large_button" %>
     <hr>
-	<h1 class="center">Hello, Sign in</h1>
+	<h2 class="center">Hello, Sign in</h2>
 	<h5 class="center">your footy™ account.</h5>
 	<%= form_for @user, url: create_session_path do |f| %>
 
@@ -149,68 +149,62 @@
 	</div>
     <% end %>
 	<div class="feed_border">
-	<h2>Event News</h2>
-	<h6>This weeks sponsored events</h6>
+		<h2>Event News</h2>
+		<h6>This weeks sponsored events</h6>
 	</div>
+
+	<div class="feed_border">
+		<h4>VAN DOREN INVITATIONAL 2015</h4>
+		<hr class = "line-break">
+		<img alt="Icon" src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2015/08/Screen-Shot-2015-08-01-at-9.04.10-PM-600x383.png" />
+		<!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+		<p class="black">Ben Hatchell is crowned champion for his second Van Doren Invitational title since winning the inaugural Van Doren Invitational in 2013.</p>
+		<p><a  class="blue" href="http://www.vansusopenofsurfing.com/2015-skate">Full Details...</a></p>
+	</div>
+
 
 	<div class="feed_border">
 	<img alt="Icon" src="http://skateparkoftampa.com/spot/images3/damn-am-frontpage2.png" />
 	<!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
 	<h4>DAMN AM COSTA MESA, CA</h4>
-	<p>August 7-9, 2015</p>
-	<!-- <br> -->
+	<p class="blue">August 7-9, 2015</p>
+	<hr class = "line-break">
 	<h4>DAMN AM WOODWARD, PA</h4>
-	<p>August 27-29, 2015</p>
+	<p class="blue">August 27-29, 2015</p>
 	</div>
 
-<!-- this is the start of the posts on right column -->
-<% if @posts.count > 0 %>
-    <% @posts.each do |post| %>
-    <div class="right_column_post">
-                        
-         <div class = "post-photo-tag">
-              <%=image_tag("https://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "user-post-photo_tag") %><%= "  " %><%= link_to post.user.name, user_profile_path(post.user_id), :class => "post-photo-tag" %>
-         </div>              
-          
-         <div class="embed-responsive embed-responsive-16by9"><%= embed(post.youtube_url) %>
-         </div>
+	<div class="feed_border">
+	<h4>LANCE MOUNTAIN SIGNED FLIP BOARD GIVEAWAY</h4>
+	<hr class = "line-break">
+		<img alt="Icon" src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2015/07/TcoRy3lGp3E8_9OZTW53JzLaUN2rZw9Rr7msSiXxJ7qU75YPvgNwKr6fB2nWOmWBS2x9zeUdx6Gy1KLwHz5dKo0Dxvih-bmOaYEPNTYQoxYa6_Hcse-znq2wF2J5yWeLxV4h2nF8SY-i-XPf0GOcu3r45aytNHP4M4RYoKdCACTZAETxuGTrXf5b5okf2gjfbK16AwTFzOmZY6xMZdSqvbkAmWh-600x400.jpg" />
+		<!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+		<p class="black">Want a signed Lance Mountain Flip board? Flip will be picking one winner each week for the next four weeks. Four winners total! Giveaway ends Friday, August 14, 2015</p>
+		<!-- <br> -->
+		<p><a  class="blue" href="https://www.facebook.com/nhsfunfactory?sk=app_190322544333196&ref=s">Click here to enter!</a></p>
+	</div>
+	<div class="feed_border">
+	<!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+	<h4>"TRIALS AND TRIBULATIONS" VIDEO</h4>
+	<hr class = "line-break">
+	<img alt="Icon" src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2015/07/Screen-Shot-2015-07-28-at-4.41.23-PM-600x334.png" />
+	<p class="black">Sure, the video part is the fine tuned, final presentation, but sometimes the raw, behind-the-scenes footy tells an even better story. Clive is a savage.</p>
+	<p><a  class="blue" href="http://www.thrashermagazine.com/articles/videos/clive-dixons-trials-and-tribulations-video/">More details...</a></p>
+	<!-- <br> -->
+	</div>
+	<div class="feed_border">
+	<h4>SUBSCRIBE TO THRASHER</h4>
+	<p><a  class="blue" href="http://shop.thrashermagazine.com/subscriptions/united-states.html">Click here to SUBSCRIBE!</a></p>
+	<img alt="Icon" src="http://www.thrashermagazine.com/imagesV2/Junk_Drawer/2015/07/300aug15.jpg" />
+	<hr class = "line-break">
+	<p><a  class="blue" href="http://shop.thrashermagazine.com/subscriptions/united-states.html">Click here to SUBSCRIBE!</a></p>
+	</div>
 
+	<div class="feed_border">
+	<h4>Contact US</h4>
+	<h4>THE FOOTY™ APP</h4>
+	<p class="blue">garrettmckenzie@ymail.com</p>
+	<hr class = "line-break">
+	</div>
 
-
-        <h4><%= link_to post.title, post_path(id: post.id), :class => "title-link" %></h4>
-          
-        <div class = "artist-link"><%= post.body %>
-      
-          </div>
-
-                   
-
-                
-                <hr class = "line-break">
-
-                    
-                
-                
-            <div class = "comments-tag-on-feed">
-               <% if current_user
-                    add = "/Add"
-                else
-                    add = ""
-                end %>
-
-                <%= post.address%>
-            </div>
-
-            <div class= "time-ago-tag"><span class="glyphicon glyphicon-time" aria-hidden="false"></span><%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>
-            </div>
-        
-        </div>
-        
-    <% end %>
-    </div>
-</div>    
-<% else %>
-    <h2>No Posts Exist</h2>
-<% end %>
 
 

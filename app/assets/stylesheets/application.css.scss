@@ -198,7 +198,7 @@ padding-right: 1%;
 }
 
 .feed_border{
-  border-bottom: 1.5px black solid;
+  border-bottom: 1.8px black solid;
 /*  border-top: 1.3px black solid;*/
   padding: 5px;
   text-align: left;
@@ -210,14 +210,20 @@ padding-right: 1%;
 }
 /*for the dates in on right column*/
 .feed_border p{
-  font-size: 1vw !important;
+  font-size: 1.3vw !important;
   text-align: center;
+}
+/*for the link a tag on right side colum*/
+.feed_border a{
+  font-size: 1.3vw !important;
+  text-align: center;
+  overflow: hidden;
 }
 /*for the titles of the events on right column*/
 .feed_border h4{
-  font-size: 1.2vw !important;
+  font-size: 1.4vw !important;
   text-align: center;
-  font-weight: 100;
+  font-weight: bolder;
 }
 
 /*the word Events on right column top*/
@@ -247,7 +253,8 @@ margin-top: 1%;
 .blue{
   color:#0088ff;
   &:hover {
-         color:black;
+    color:#0088ff;
+ /*   text-decoration: underline;*/
        }
   font-size: 2vw;
 }
@@ -273,7 +280,8 @@ margin-top: 1%;
   padding-top: 5%;
   padding-bottom: 5%;
   color:white !important;
-  width:100% !important; 
+  width:100% !important;
+  overflow: hidden; 
 
   /*both button backgrounds change color*/
   -webkit-animation-name: buttonChangeColor; 
@@ -303,11 +311,6 @@ margin-top: 1%;
         to {background-color:#0088ff !important;}
 }
 
-/*this is the forum for the right column*/
-.form-control{
- padding-right: 5% !important;
-
-}
 /*The right column containing the posts*/
  .right_column {
   width: 33%;

@@ -23,10 +23,10 @@ body{
   text-align: center;
 }
 .left {
-  text-align: left;
+  text-align: left !important;
 }
 .right{
-  text-align: right;
+  text-align: right !important;
 }
 h3{
   margin-top: 1%;
@@ -338,6 +338,17 @@ margin-top: 1%;
  /*   text-decoration: underline;*/
        }
   font-size: 2vw;
+}
+a.blob{
+  color:#0088ff;
+  &:hover {
+    color:#0088ff;
+ /*   text-decoration: underline;*/
+       }
+  font-size: 2vw !important;
+  text-align: center;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 /*these are for the text on the columns*/
 .black{

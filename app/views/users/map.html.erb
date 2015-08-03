@@ -120,12 +120,14 @@ $(document).ready(function() {
   <h2>Search Ads</h2>
   <h6>Search by "name", "age", or "location".</h6>
   </div>
+  <br>
   <%= form_tag('users#map', method: "get") do %>
     Search by
     <%= select_tag "type", options_for_select(["name", "location", "age"]) %> :
     <%= text_field_tag :query %>
     <%= submit_tag "Search", "class" => "btn-primary" %>
   <% end %>
+  <br>
 
   <!-- <div id="map-canvas">
   </div> -->
@@ -283,13 +285,17 @@ $(document).ready(function() {
   <div id="map-canvas">
   </div>
   
-  <div class="feed_border">
     <% @posts.each do |post| %>
-    <div class="embed-responsive embed-responsive-16by9"><%= embed(post.youtube_url) %>
-         </div>
+  <div class="feed_border">
+            <p> Recent ad</p>
+            <%= link_to "#{post.title}" ,  user_profile_path(post.user_id),:class => "blob"%>
+            <h6>Posted by: <%= link_to "#{post.user.name}" ,  user_profile_path(post.user_id)%></h6>
+            <h6>Age: 25<%= post.user.age%> | City:<%= post.address%></h6>
 
-    <% end %>
+ 
   </div>
+    <% end %>
+
 
   <div class="feed_border">
     <h4>VAN DOREN INVITATIONAL 2015</h4>

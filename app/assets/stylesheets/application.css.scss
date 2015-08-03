@@ -153,9 +153,9 @@ body.container-fluid{
   font-weight: bolder;
   line-height: 162%;
 }
-.text_list small{
+/*.text_list small{
   font-size: 1vw;
-}
+}*/
 .text_list h3{
   font-size: 2.3vw;
 }
@@ -312,6 +312,24 @@ margin-top: 1%;
   display: inline-block;
   font-weight: bolder;
   color:black;
+}
+.info-on-feed p{
+  font-size: 1.3vw;
+  color:black;
+  display: inline-block;
+  font-weight: bolder;
+  color:black;
+  margin: 0;
+}
+.info-on-feed xsmall{
+  font-size: 1vw;
+  color:black;
+  display: inline-block;
+  font-weight: bolder;
+  color:black;
+  padding: 0;
+  margin: 0 !important;
+  text-align: left !important;
 }
 .blue{
   color:#0088ff;

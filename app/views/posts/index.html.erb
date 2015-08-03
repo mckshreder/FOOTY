@@ -27,7 +27,7 @@
 			<li>
 				<p>#4. Instantly share your footy with companies, friends, and family all around the world... for FREE!</p>
 			</li>
-			<small>Note: We encouraged you to stay determined and continue to make videos as your skateboarding and camera skills will only improve.</small>
+			<p>Note: We encouraged you to stay determined and continue to make videos as your skateboarding and camera skills will only improve.</p>
 
 		</ul>
 	</div>
@@ -43,13 +43,9 @@
     <% @posts.each do |post| %>
       
     <div class = "large_feed">
-    
-    <!-- <div class = "video_top_container_feed">
 
-    	 -->
-           
             <div class="video_top_info">
-            <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>
+            <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :crop => :fill, class: "user_profile_photo_tag") %>
             <%= "  " %><%= post.user.name %>
 
             <div>
@@ -69,38 +65,28 @@
 		 <div class="embed-responsive embed-responsive-16by9",><%= embed(post.youtube_url) %>
          </div>
 		
-		<div class="video-poster">
-			<small>
-				Click option:
-			</small>
-			
-			<div class="option_link">
-	        	<%= link_to "#{post.user.name.split.first}'s "+"Profile",  user_profile_path(post.user_id), :class => "option_link" %>
-	        	<%= "  |  "%>
-	        	<%= link_to "Full Video", post_path(id: post.id), :class => "option_link" %>
-	      	</div>
+		<div class="video-poster, info-on-feed">
 	
-	<hr class = "small_line_break">
-          	
           	<div class="video-poster">
-			
-	        <h4>
-				<%= link_to "#{post.title}", post_path(id: post.id), :class => "title_link, blue" %>
-	        </h4>
+	        <div>
+          	<xsmall>Video title:</xsmall>
+				<%= link_to "'#{post.title}'", post_path(id: post.id), :class => "title-link, blue" %>
 	        </div>
+	        </div>
+	       <!--  <hr class = "small_line_break">
 
 			<div class = "info-on-feed">
-	      
-				<small><%="Video Description: "%></small>
+				<xsmall>Description:</xsmall>
 				<p>
 					<%= post.body%>
 	       		</p>
-	        </div>
+	        </div> -->
 
+			<hr class = "small_line_break">
 
-	        <small>
+	        <xsmall>
 	        	<%="Skater Info:"%>
-	        </small> 
+	        </xsmall> 
 	        
 	        <div class = "info-on-feed">
 	                <small>Name: <%= link_to post.user.name ,  user_profile_path(post.user_id),:class => "option_link"%></small>
@@ -110,6 +96,15 @@
 			<!-- <div class = "video-poster">
 		         <%= link_to post.user.name ,  user_profile_path(post.user_id), :class => "large_posts_title" %>
 		    </div> -->
+			<small>
+				Options:
+			</small>
+			
+			<div class="option_link">
+	        	<%= link_to "#{post.user.name.split.first}'s "+"Profile",  user_profile_path(post.user_id), :class => "option_link" %>
+	        	<%= "  |  "%>
+	        	<%= link_to "Full Video", post_path(id: post.id), :class => "option_link" %>
+	      	</div>
 		</div> 
 
           <br>

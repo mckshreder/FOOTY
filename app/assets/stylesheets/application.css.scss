@@ -22,7 +22,12 @@ body{
 .center {
   text-align: center;
 }
-
+.left {
+  text-align: left;
+}
+.right{
+  text-align: right;
+}
 h3{
   margin-top: 1%;
 }
@@ -157,7 +162,7 @@ padding-right: 1%;
   width: 100%;
   vertical-align: center;
   margin-left: 0px;
-  margin-top: 10px;
+  /*margin-top: 10px;*/
   display: block;
 }
 
@@ -172,9 +177,39 @@ padding-right: 1%;
          color: #337ab7;
        };
 }
+.video_top_container_feed{
+  border-bottom: 2px solid black;
+  padding-right: 10px; 
+  padding-left:10px;
+  width: 100%; 
+}
+/*this is what contains the user name and photo on large feed left*/
+.video_top_info{
+  color: #1a1c21;
+  text-align: left;
+  font-size: 1.8vw !important;
+  /*line-height: 18px;*/
+  font-weight: 700;
+  width: 100%;
+  padding: 1.5%;
+  display: inline-block;
+  border-top: 1.5px black solid;
+}
+.video_top_info div{
+  color: #1a1c21;
+  text-align: right !important;
+  font-size: 1vw !important;
+ /* line-height: 18px;*/
+  font-weight: 700;
+  width: 20%;
+  /*padding-left: 21.5%;*/
+  padding-top: 0;
+  /*float: right;*/
+   display: inline;
 
-.large_link_photo{
-/*  width: 100%;*/
+}
+/*.large_link_photo{
+ width: 100%;
   height: 25px;
   font-size: 12px;
   z-index: 999;
@@ -185,9 +220,7 @@ padding-right: 1%;
     &:hover {
          color: white;
        };
-
-  
-}
+}*/
 .user_large_photo_tag{
   border-radius: 12px;
   border: 1px solid rgb(0, 136, 255);

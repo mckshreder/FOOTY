@@ -5,9 +5,22 @@
     end
     
     def map 
-        @posts = Post.all.order('created_at DESC')
+        
         @users = User.all
-        @user = User.new  
+        @user = User.new 
+        @posts = Post.all.order('created_at DESC')
+      #    if params[:query]
+      #     search_field = params[:type].to_sym
+      #     @posts = []
+      #     @users.each do |user|
+      #         if user[search_field].downcase.include? params[:query].downcase
+      #             @posts << user.post
+      #         end
+      #       end
+      #     # @posts = post.where(:name => params[:query])
+      # else
+      #   @posts = Post.all.order('created_at DESC')
+      # end 
     end
 
     def new

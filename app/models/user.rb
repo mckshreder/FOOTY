@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-    
+    paginates_per 50
     # geocoded_by :location
     # after_validation :geocode 
     
@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
 #     self.password_digest = BCrypt::Password.create(unencrypted_password)
 #   end
 # end
-
+def to_partial_path
+    'posts/post'
+end
 
 end

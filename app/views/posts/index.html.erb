@@ -124,6 +124,11 @@
 	<% else %>
 
 	<div id="topright_nav">
+    <h4 class="center">New to the Footy app?</h4>
+    <h3 class="center">Sign up for Free!</h3>
+    <p class="center">It's simple and easy.</p>
+    <%= link_to "Create New Account", new_user_path, class: "submit-button, large_button" %>
+    <hr class = "line-break">
 	<h3 class="center">Hello, Sign in</h3>
 	<h5 class="center">Your Account</h5>
 	<%= form_for @user, url: create_session_path do |f| %>
@@ -139,8 +144,7 @@
     </div>
     
     <%= f.submit "Log In", class: "submit-button-create" %>
-    <p class="center">New to the Footy app?</p>
-    <%= link_to "Create New Account", new_user_path, class: "submit-button" %>
+
 <% end %> 
 	</div>
     <% end %>

@@ -88,7 +88,7 @@ div a{
 #green {
   background-color: #9da200;
 }
-
+/*actually red*/
 #purple{
   background-color: #da3905;
 }
@@ -219,6 +219,7 @@ padding-right: 1%;
   text-align: center;
   font-weight: 100;
 }
+
 /*the word Events on right column top*/
 .feed_border h2{
   font-size: 3.5vw !important;
@@ -250,7 +251,7 @@ margin-top: 1%;
        }
   font-size: 2vw;
 }
-
+/*these are for the text on the columns*/
 .black{
   padding-top: 1%;
   padding-left: 1%;
@@ -260,6 +261,45 @@ margin-top: 1%;
   &:hover {
          color:black;
        }
+}
+
+
+/*this is for the button for create new account on main page*/
+.large_button {
+  font-size: 1.75vw !important;
+  text-align: center;
+  font-weight: bolder;
+  border: 1px black solid;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  color:white !important;
+  &:hover {
+         color: #0088ff !important;
+         background-color: white;
+         text-decoration: underline !important;
+       }
+  /*both button backgrounds change color*/
+  -webkit-animation-name: buttonChangeColor; 
+  -webkit-animation-duration: 2s; 
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction:alternate;
+  animation-name: buttonChangeColor;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction:alternate;  
+
+
+    
+}
+/*both button bacgrounds change color*/
+@-webkit-keyframes buttonChangeColor{
+        from {background-color: #da3905 !important;}
+        to {background-color:#0088ff !important;}
+}
+
+@keyframes buttonChangeColor{
+        from {background-color: #da3905 !important;}
+        to {background-color:#0088ff !important;}
 }
 
 

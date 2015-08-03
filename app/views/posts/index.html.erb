@@ -51,7 +51,6 @@
             <div class="video_top_info">
             <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>
             <%= "  " %><%= post.user.name %>
-	
 
             <div>
             	<%= "| posted:" %>
@@ -67,37 +66,52 @@
         <!--  <div class = "large_link_photo">
               <%=image_tag("https://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "user_large_photo_tag") %><%= link_to post.user.name, user_profile_path(post.user_id), :class => "large_link_photo" %>
          </div>   -->            
-		 
-		 
 		 <div class="embed-responsive embed-responsive-16by9",><%= embed(post.youtube_url) %>
          </div>
 		
-		<div class="video-poster, black">
-			<div class = "artist-link">
-	        	<%= link_to post.user.name.split.first,  user_profile_path(post.user_id), :class => "title_link" %>
-
-          <h4><%= link_to post.title, post_path(id: post.id), :class => "large_posts_title" %></h4>
-              
-	        	<%= post.body %>
+		<div class="video-poster">
+			<small>
+				Click option:
+			</small>
+			
+			<div class="option_link">
+	        	<%= link_to "#{post.user.name.split.first}'s "+"Profile",  user_profile_path(post.user_id), :class => "option_link" %>
+	        	<%= "  |  "%>
+	        	<%= link_to "Full Video", post_path(id: post.id), :class => "option_link" %>
 	      	</div>
+	
+	<hr class = "small_line_break">
+          	
+          	<div class="video-poster">
+			
+	        <h4>
+				<%= link_to "#{post.title}", post_path(id: post.id), :class => "title_link, blue" %>
+	        </h4>
+	        </div>
+
+			<div class = "info-on-feed">
+	      
+				<small><%="Video Description: "%></small>
+				<p>
+					<%= post.body%>
+	       		</p>
+	        </div>
+
+
+	        <small>
+	        	<%="Skater Info:"%>
+	        </small> 
+	        
+	        <div class = "info-on-feed">
+	                <small>Name: <%= link_to post.user.name ,  user_profile_path(post.user_id),:class => "option_link"%></small>
+	                <small> | Age: 25<%= post.user.age%></small>
+	                <small> | City:<%= post.address%></small>
+	        </div>  	
+			<!-- <div class = "video-poster">
+		         <%= link_to post.user.name ,  user_profile_path(post.user_id), :class => "large_posts_title" %>
+		    </div> -->
 		</div> 
 
-	<div class = "video-poster">
-
-        
-		<small><%="Featuring:"%></small> 
-         <%= link_to post.user.name ,  user_profile_path(post.user_id), :class => "title_link, blue" %>
-         <div class = "comments-on-feed">
-	                <small>Age:<%= post.user.age%></small>
-	                <small> | City:<%= post.address%></small>
-	                <small> | Email:<%= post.user.email %></small>
-
-		        <small> | <span class="glyphicon glyphicon-time" aria-hidden="false">
-		        	</span>
-		        <%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>
-		        </small>
-	        </div>
-    </div>
           <br>
 
         </div>

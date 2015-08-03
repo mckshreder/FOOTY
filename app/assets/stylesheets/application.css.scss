@@ -13,13 +13,414 @@
  *= require_tree .
  *= require_self
  */
+body{
+  background-image: url(http://khongthe.com/wallpapers/abstract/mix-3d-paint-252853.jpg);
+  background-repeat: none;
+  background-attachment: fixed;
+  background-position: center;
+}
+.center {
+  text-align: center;
+}
+.left {
+  text-align: left;
+}
+.right{
+  text-align: right;
+}
+h3{
+  margin-top: 1%;
+}
+
+h2{
+  margin-top: 1%;
+
+}
+nav{
+  width: 100%;
+  height: 2.5%;
+  padding-left: 38%;
+  margin-top: -2.4%;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  z-index: 10 !important;
+}
+/*this is the class that i had the nav bar set to before i made the dropdowns*/
+#my_new_nav li{
+  float: left;
+  text-align: center;
+  margin-top: -5%;
+  list-style: none;
+  width: 7%;
+  margin: -0.01%;
+  opacity: 0.79;
+
+}
+
+div.tab {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  z-index: 1;
+}
+
+.dropdown_nav {
+  position: absolute; 
+  float:left;
+  /*this is what allowed me to bring the bar to left left of the drop down*/
+  left:38%;
+  display: none;
+  text-align: center;
+  text-decoration: none;
+  width: 21.6%;
+  z-index: 5;
+}
+
+div a{
+  padding: 1px;
+  display: block;
+  white-space: nowrap;
+  color:black;
+  font-size: 1.3em;
+  letter-spacing: 3px;
+  &:hover {
+       color: white;
+     }
+}
+
+#green {
+  background-color: #9da200;
+}
+/*actually red*/
+#purple{
+  background-color: #da3905;
+}
+
+#orange {
+  background-color: #ed9200;
+}
+
+#blue{
+  background-color: #007d9c;
+}
+
+#pink {
+  background-color: #1d8249;
+}
+
+/*this is the image that is the main title image throigh out the entire site*/
+.footy_logo_img{
+  width: 100%;
+  margin-top: -8%;
+  z-index: 1;
+}
+br.clear {
+   clear: both;
+}
+
+
+body.container-fluid{
+  width: 100%;
+  padding: 0;
+  margin-top: -3%;
+  letter-spacing: 2px;
+  }
+
+/*The left column containing the posts*/
+ .left_column {
+  width: 55%;
+  margin-left: 5%;
+  margin-top:25px;
+  float:left;
+  text-align: center;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+  background-color: rgba(255,255,255,0.9);
+  border-top: 1.5px black solid; 
+}
+
+/*this is home page left site info*/
+.text_list{
+  list-style:none;
+  text-align: left;
+  padding: 0;
+  padding-bottom: 1%;
+}
+
+.text_list p{
+  font-size: 1.33vw;
+  font-weight: bolder;
+  line-height: 162%;
+}
+/*.text_list small{
+  font-size: 1vw;
+}*/
+.text_list h3{
+  font-size: 2.3vw;
+}
+.home_info{
+border-top: 1.5px black solid;
+padding-left: 1%;
+padding-right: 1%;
+/*border-bottom: 1px black solid;*/
+}
+
+/*styling for feed on left column bottom*/
+.large_feed{ 
+  width: 100%;
+  vertical-align: center;
+  margin-left: 0px;
+  /*margin-top: 10px;*/
+  display: block;
+}
+/*this is for the title of the video on the large feed*/
+.large_posts_title{
+  text-align: left;
+  font-size: 1.5vw;
+  font-weight: 700;
+  text-align: center;
+  padding: 0 !importantjk;;;
+  color: #0088ff;
+    &:hover {
+         color: #337ab7;
+       };
+}
+.video_top_container_feed{
+  border-bottom: 2px solid black;
+  padding-right: 10px; 
+  padding-left:10px;
+  width: 100%; 
+}
+/*this is what contains the user name and photo on large feed left*/
+.video_top_info{
+  color: #1a1c21;
+  text-align: left;
+  font-size: 1.8vw !important;
+  /*line-height: 18px;*/
+  font-weight: 700;
+  width: 100%;
+  padding: 1.5%;
+  display: inline-block;
+  border-top: 1.5px black solid;
+}
+.video_top_info div{
+  color: #1a1c21;
+  text-align: right !important;
+  font-size: 1vw !important;
+ /* line-height: 18px;*/
+  font-weight: 700;
+  width: 20%;
+  /*padding-left: 21.5%;*/
+  padding-top: 0;
+  /*float: right;*/
+   display: inline;
+
+}
+
+.option_link{
+  color:rgb(0, 136, 255);
+  text-align: left;
+  font-size: 1.2vw !important;
+  line-height: 25px;
+  font-weight: 700;
+  /*padding-left: 1110px; */
+  display: inline-block;
+}
+hr.small_line_break{
+  margin-top: 0;
+  margin-bottom: 0;
+  border-top: 1px solid #eee
+}
+/*.large_link_photo{
+ width: 100%;
+  height: 25px;
+  font-size: 12px;
+  z-index: 999;
+  position: relative;
+  text-shadow: 0 0 2px black;
+  padding-left: 8.2px;
+  color:rgb(0, 136, 255);
+    &:hover {
+         color: white;
+       };
+}*/
+.user_large_photo_tag{
+  border-radius: 12px;
+  border: 1px solid rgb(0, 136, 255);
+}
+.large_link_photo a{
+  display: inline !important;
+
+}
+
+.feed_border{
+  border-bottom: 1.8px black solid;
+/*  border-top: 1.3px black solid;*/
+  padding: 5px;
+  text-align: left;
+  font-size: 5vw !important;
+  background-color: transparent !important;
+}
+.feed_border img{
+  width: 100%;
+}
+/*for the dates in on right column*/
+.feed_border p{
+  font-size: 1.3vw !important;
+  text-align: center;
+}
+/*for the link a tag on right side colum*/
+.feed_border a{
+  font-size: 1.3vw !important;
+  text-align: center;
+  overflow: hidden;
+}
+/*for the titles of the events on right column*/
+.feed_border h4{
+  font-size: 1.4vw !important;
+  text-align: center;
+  font-weight: bolder;
+}
+
+/*the word Events on right column top*/
+.feed_border h2{
+  font-size: 3.5vw !important;
+  text-align: center;
+}
+.feed_border h6{
+  font-size: 1.2vw !important;
+  text-align: center;
+  padding-top: 1%;
+}
+.feed_border h1{
+font-size: 4vw !important;
+text-align: center;
+margin-top: 1%;
+}
+
+.comments-on-feed {
+  font-size: 1.3vw;
+  z-index: 999;
+  color:black;
+  display: inline-block;
+}
+/*this is the part in the video info container that is just below the title for name: garrett age: 25...*/
+.info-on-feed small{
+  font-size: 1.2vw;
+  color:black;
+  display: inline-block;
+  font-weight: bolder;
+  color:black;
+}
+.info-on-feed p{
+  font-size: 1.3vw;
+  color:black;
+  display: inline-block;
+  font-weight: bolder;
+  color:black;
+  margin: 0;
+}
+.info-on-feed xsmall{
+  font-size: 1vw;
+  color:black;
+  display: inline-block;
+  font-weight: bolder;
+  color:black;
+  padding: 0;
+  margin: 0 !important;
+  text-align: left !important;
+}
+.blue{
+  color:#0088ff;
+  &:hover {
+    color:#0088ff;
+ /*   text-decoration: underline;*/
+       }
+  font-size: 2vw;
+}
+/*these are for the text on the columns*/
+.black{
+  padding-top: 1%;
+  padding-left: 1%;
+  font-size: 1.9vw;
+  text-align: left;
+  color:black;
+  &:hover {
+         color:black;
+       }
+}
+
+
+/*this is for the button for create new account on main page*/
+.large_button {
+  font-size: 1.75vw !important;
+  text-align: center;
+  font-weight: bolder;
+  border: 1px black solid;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  color:white !important;
+  width:100% !important;
+  overflow: hidden; 
+
+  /*both button backgrounds change color*/
+  -webkit-animation-name: buttonChangeColor; 
+  -webkit-animation-duration: 2s; 
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction:alternate;
+  animation-name: buttonChangeColor;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction:alternate;  
+  
+  &:hover {
+         color: white !important;
+         text-decoration: underline !important;
+       }
+
+    
+}
+/*both button bacgrounds change color*/
+@-webkit-keyframes buttonChangeColor{
+        from {background-color: #da3905 !important;}
+        to {background-color:#0088ff !important;}
+}
+
+@keyframes buttonChangeColor{
+        from {background-color: #da3905 !important;}
+        to {background-color:#0088ff !important;}
+}
+
+/*The right column containing the posts*/
+ .right_column {
+  width: 33%;
+  margin-right: 5%;
+  margin-top:0.5%;
+  float:right;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+  background-color: rgba(255,255,255,0.9);
+  border-top: 1.5px black solid; 
+ /* text-align: center;*/
+}
+/*The right column actually post contained by right column*/
+.right_column_post {
+    
+    background: white;
+    width: 100%; 
+    height: 350px;
+    display: inline-block;
+    outline: none;
+    margin: 5px;  
+}
 
 /*this is where we over ride boot strap for the map*/
-#home_photo{
+/*#home_photo{
   width: 67%;
   margin-left: 17.5%;
   margin-top: -2.3%;
-}
+}*/
 #map-container {
    height: 384px;
    border-radius: 16px 16px;
@@ -78,52 +479,61 @@
  /*this to align the drop down box*/
 #topright_nav, #topright_nav ul{
   z-index: 1001;
-  position: absolute;
   text-align: right;
   float: right;
   width: 100%;
-  padding-right: 3%;
+  padding-left: 0;
+  margin: 0; 
   list-style-type: none;
   list-style-position: outside;
-  position: relative;
-}
-#topright_nav ul li a{
-  font-size: 0.3em;
-  border-bottom: 1px black solid;
-  padding: 0px;
-}
- #topright_nav a:link, #topright_nav a:active, #topright_nav a:visited{
-    padding:0px 5px;
-    color: #0062c3;
-    text-decoration:none;
- }
-
-#topright_nav a:hover{
-    background-color:#fff;
-    color:#333;
+  display: inline;
 }
 
 #topright_nav li{
-    float:right;
-    position:relative;
+  width: 100%;
+  text-align: center;
+  padding: 3%;
+  /*border-top: 1.5px black solid;*/
+  /*border-bottom: 1px black solid;*/
 }
+#topright_nav ul li a{
+  font-size: 1vw;
+  margin: 0;
+  float: center;
+  text-align: center;
+  display: block;
+
+}
+#topright_nav li a{
+display: inline;
+font-size: 1vw;
+position: relative;
+}
+
+ #topright_nav a:link, #topright_nav a:active, #topright_nav a:visited{
+    /*padding:0px 5px;*/
+    color: #0062c3;
+    text-decoration:none;
+    font-size: 1.4vw;
+ }
+
+#topright_nav a:hover{
+    /*background-color:#fff;*/
+    color:#333;
+}
+
+
 #topright_nav ul {
-    position:absolute;
-    width:12em;
-    top:1.5em;
+    width:100%;
     display:none;
 }
-#topright_nav li ul a{
-    width:12em;
-    float:left;
-}
-#topright_nav ul ul{
-  top:auto;
-  }
 
 #topright_nav li ul ul {
-    left:12em;
-    margin:0px 0 0 10px;
+    right:12em;
+    margin:0;
+    }
+#topright_nav li ul{
+    padding:0;
     }
 
 #topright_nav li:hover ul ul, #topright_nav li:hover ul ul ul, #topright_nav li:hover ul ul ul ul{
@@ -132,100 +542,6 @@
 #topright_nav li:hover ul, #topright_nav li li:hover ul, #topright_nav li li li:hover ul, #topright_nav li li li li:hover ul{
     display:block;
     }
-
-
-nav{
-  width: 100%;
-  height: 2.5%;
-  padding-left: 38%;
-  margin-top: -2.4%;
-  background-color: transparent !important;
-  box-shadow: none !important;
-  z-index: 10 !important;
-}
-/*this is the class that i had the nav bar set to before i made the dropdowns*/
-#my_new_nav li{
-  float: left;
-  text-align: center;
-  margin-top: -5%;
-  list-style: none;
-  width: 7%;
-  margin: -0.01%;
-  opacity: 0.79;
-
-}
-
-div.tab {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 45px;
-    z-index: 1;
-}
-.dropdown_nav {
-  position: absolute; 
-  float:left;
-  /*this is what allowed me to bring the bar to left left of the drop down*/
-  left:38%;
-  display: none;
-  text-align: center;
-  text-decoration: none;
-  width: 21.6%;
-  z-index: 5;
-
-
-
-}
-
-div a{
-    padding: 1px;
-    display: block;
-    white-space: nowrap;
-    color:black;
-    font-size: 1.3em;
-    letter-spacing: 3px;
-    &:hover {
-         color: white;
-       }
-
-}
-
-#green {
-  background-color: #9da200;
-}
-
-#purple{
-  background-color: #da3905;
-}
-
-#orange {
-  background-color: #ed9200;
-}
-
-#blue{
-  background-color: #007d9c;
-}
-
-#pink {
-  background-color: #1d8249;
-}
-
-/*this is the image that is the main title image throigh out the entire site*/
-.footy_logo_img{
-  width: 100%;
-  margin-top: -8%;
-  z-index: 1;
-}
-br.clear {
-   clear: both;
-}
-
-
-body.container-fluid{
-  width: 100%;
-  padding: 0;
-  margin-top: -3%;
-  }
 
 /*.dad-navbar{
 
@@ -288,9 +604,6 @@ a.navbar-brand{
 }
 
 
-/*.feed_container{
-  text-align: center;
-}*/
 
 .container-fluid, .navbar .nav-links {
 font-family: 'Michroma', sans-serif;

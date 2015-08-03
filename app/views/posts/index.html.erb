@@ -1,10 +1,240 @@
+<!-- original photo of kevin on home page check css before destrouying -->
+<!-- <div class="homepage_container">
+<img id="home_photo" alt="Icon" src="https://static1.squarespace.com/static/53694a6de4b0e9a5f9b52a44/5369640ae4b0849f186ecd86/53696491e4b052b073e41381/1433346064504/Kevin+Switch+ollie+web-111.jpg?format=2500w" /> -->
+<!-- <img id="home_photo" alt="Icon" src="/assets/isaac.jpg" />
+<div> -->
+
+<div class="feed_container">
+<div class="left_column">
+	<div class="feed_border">
+		<h1>Welcome to the Footy app!</h1>
+		<h6>The only skateboard sponsorship classifieds ever.</h6>
+	</div>
+	<div class="home_info">
+		
+		
+		<ul class="text_list">
+		<h3>How it works...</h3>
+			<li>
+				<p>#1. Have fun and skate with your bros everyday!</p>
+			</li>
+			<li>
+				<p>#2. Film and edit a fun video or a "Sponsor me clip" with your best footy.</p>
+			</li>
+			<li>
+				<p>#3. Upload your video to YouTube, copy the video url, and place ad with your video on our skateboarding classfields. </p>
+			</li>
+			<li>
+				<p>#4. Instantly share your footy with companies, friends, and family all around the world... for FREE!</p>
+			</li>
+			<p>Note: We encouraged you to stay determined and continue to make videos as your skateboarding and camera skills will only improve.</p>
+
+		</ul>
+	</div>
+	<hr class = "line-break" >
+
+<!-- the start of the popular feed on home page -->
+	<div class="feed_border">
+	<h2>What's poppin'? </h2>
+	<h6>This weeks featured skaters</h6>
+	</div>
+	
+	<% if @posts.count > 0 %>
+    <% @posts.each do |post| %>
+      
+    <div class = "large_feed">
+
+            <div class="video_top_info">
+            <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :crop => :fill, class: "user_profile_photo_tag") %>
+            <%= "  " %><%= post.user.name %>
+
+            <div>
+            	<%= "| posted:" %>
+	            <span class="glyphicon glyphicon-time" aria-hidden="false">
+		        </span>
+		        <%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>
+		    </div>
+            </div> 
+            
+<!--    
+	</div> -->
+
+        <!--  <div class = "large_link_photo">
+              <%=image_tag("https://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "user_large_photo_tag") %><%= link_to post.user.name, user_profile_path(post.user_id), :class => "large_link_photo" %>
+         </div>   -->            
+		 <div class="embed-responsive embed-responsive-16by9",><%= embed(post.youtube_url) %>
+         </div>
+		
+		<div class="video-poster, info-on-feed">
+	
+          	<div class="video-poster">
+	        <div>
+          	<xsmall>Video title:</xsmall>
+				<%= link_to "'#{post.title}'", post_path(id: post.id), :class => "title-link, blue" %>
+	        </div>
+	        </div>
+	       <!--  <hr class = "small_line_break">
+
+			<div class = "info-on-feed">
+				<xsmall>Description:</xsmall>
+				<p>
+					<%= post.body%>
+	       		</p>
+	        </div> -->
+
+			<hr class = "small_line_break">
+
+	        <xsmall>
+	        	<%="Skater Info:"%>
+	        </xsmall> 
+	        
+	        <div class = "info-on-feed">
+	                <small>Name: <%= link_to post.user.name ,  user_profile_path(post.user_id),:class => "option_link"%></small>
+	                <small> | Age: 25<%= post.user.age%></small>
+	                <small> | City:<%= post.address%></small>
+	        </div>  	
+			<!-- <div class = "video-poster">
+		         <%= link_to post.user.name ,  user_profile_path(post.user_id), :class => "large_posts_title" %>
+		    </div> -->
+			<small>
+				Options:
+			</small>
+			
+			<div class="option_link">
+	        	<%= link_to "#{post.user.name.split.first}'s "+"Profile",  user_profile_path(post.user_id), :class => "option_link" %>
+	        	<%= "  |  "%>
+	        	<%= link_to "Full Video", post_path(id: post.id), :class => "option_link" %>
+	      	</div>
+		</div> 
+
+          <br>
+
+        </div>
+        
+    <% end %>
+    </div>
+</div>  
+<br>  
+<% else %>
+    <h2>No Posts Exist</h2>
+<% end %>
+
+</div>
+
+<!-- begining of the right side column on the home page -->
+<div class="right_column">
+<!-- this is the "sign in or sign up forum" -->
+	<% if current_user %>
+		<ul id="topright_nav">
+		<li>
+		    <!--<%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>-->
+			    <small>Hello, </small>
+			      
+			      <a><%= link_to "#{current_user.name}", user_profile_path(current_user) %>
+			      </a>
+				  <span class="glyphicon glyphicon-cog" aria-hidden="true">
+				  </span>
+		      
+		      <ul> 
+		        <li>
+		             <a><%= link_to "Your Profile", user_profile_path(current_user)%>
+		             </a>
+		        </li> 
+		        <li>
+		            <a><%= link_to "Edit Account", edit_users_path(current_user) %>
+		            </a>
+		        </li>  
+		        <li>
+		            <a><%= link_to "Log out", destroy_session_path %>
+		            </a>
+		        </li>  
+		      </ul>
+		    </li>
+		</ul>
+	<% else %>
+
+	<div id="topright_nav">
+    <h4 class="center">New to the Footy app?</h4>
+    <h3 class="center">Sign up for Free!</h3>
+    <p class="center">It's simple and easy.</p>
+    <%= link_to "Create New Account", new_user_path, class: "submit-button, large_button" %>
+    <hr>
+	<h2 class="center">Hello, Sign in</h2>
+	<h5 class="center">your footy™ account.</h5>
+	<%= form_for @user, url: create_session_path do |f| %>
+
+    <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control"%>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control"%>
+    </div>
+    
+    <%= f.submit "Log in", class: "submit-button-create, large_button" %>
+<hr>
+<% end %> 
+	</div>
+    <% end %>
+	<div class="feed_border">
+		<h2>Event News</h2>
+		<h6>This weeks sponsored events</h6>
+	</div>
+
+	<div class="feed_border">
+		<h4>VAN DOREN INVITATIONAL 2015</h4>
+		<hr class = "line-break">
+		<img alt="Icon" src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2015/08/Screen-Shot-2015-08-01-at-9.04.10-PM-600x383.png" />
+		<!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+		<p class="black">Ben Hatchell is crowned champion for his second Van Doren Invitational title since winning the inaugural Van Doren Invitational in 2013.</p>
+		<p><a  class="blue" href="http://www.vansusopenofsurfing.com/2015-skate">Full Details...</a></p>
+	</div>
 
 
 
-<div class="homepage_container">
-<img id="home_photo" alt="Icon" src="https://static1.squarespace.com/static/53694a6de4b0e9a5f9b52a44/5369640ae4b0849f186ecd86/53696491e4b052b073e41381/1433346064504/Kevin+Switch+ollie+web-111.jpg?format=2500w" />
-<!-- <img id="home_photo" alt="Icon" src="/assets/isaac.jpg" /> -->
-<div>
-<br>
+	<div class="feed_border">
+	<h4>LANCE MOUNTAIN SIGNED FLIP BOARD GIVEAWAY</h4>
+	<hr class = "line-break">
+		<img alt="Icon" src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2015/07/TcoRy3lGp3E8_9OZTW53JzLaUN2rZw9Rr7msSiXxJ7qU75YPvgNwKr6fB2nWOmWBS2x9zeUdx6Gy1KLwHz5dKo0Dxvih-bmOaYEPNTYQoxYa6_Hcse-znq2wF2J5yWeLxV4h2nF8SY-i-XPf0GOcu3r45aytNHP4M4RYoKdCACTZAETxuGTrXf5b5okf2gjfbK16AwTFzOmZY6xMZdSqvbkAmWh-600x400.jpg" />
+		<!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+		<p class="black">Want a signed Lance Mountain Flip board? Flip will be picking one winner each week for the next four weeks. Four winners total! Giveaway ends Friday, August 14, 2015</p>
+		<!-- <br> -->
+		<p><a  class="blue" href="https://www.facebook.com/nhsfunfactory?sk=app_190322544333196&ref=s">Click here to enter!</a></p>
+	</div>
+	<div class="feed_border">
+	<!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+	<h4>"TRIALS AND TRIBULATIONS" VIDEO</h4>
+	<hr class = "line-break">
+	<img alt="Icon" src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2015/07/Screen-Shot-2015-07-28-at-4.41.23-PM-600x334.png" />
+	<p class="black">Sure, the video part is the fine tuned, final presentation, but sometimes the raw, behind-the-scenes footy tells an even better story. Clive is a savage.</p>
+	<p><a  class="blue" href="http://www.thrashermagazine.com/articles/videos/clive-dixons-trials-and-tribulations-video/">More details...</a></p>
+	<!-- <br> -->
+	</div>
+	<div class="feed_border">
+	<img alt="Icon" src="http://skateparkoftampa.com/spot/images3/damn-am-frontpage2.png" />
+	<!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+	<h4>DAMN AM COSTA MESA, CA</h4>
+	<p class="blue">August 7-9, 2015</p>
+	<hr class = "line-break">
+	<h4>DAMN AM WOODWARD, PA</h4>
+	<p class="blue">August 27-29, 2015</p>
+	</div>
+	<div class="feed_border">
+	<h4>SUBSCRIBE TO THRASHER</h4>
+	<p><a  class="blue" href="http://shop.thrashermagazine.com/subscriptions/united-states.html">Click here to SUBSCRIBE!</a></p>
+	<img alt="Icon" src="http://www.thrashermagazine.com/imagesV2/Junk_Drawer/2015/07/300aug15.jpg" />
+	<hr class = "line-break">
+	<p><a  class="blue" href="http://shop.thrashermagazine.com/subscriptions/united-states.html">Click here to SUBSCRIBE!</a></p>
+	</div>
+
+	<div class="feed_border">
+	<h4>Contact US</h4>
+	<h4>THE FOOTY™ APP</h4>
+	<p class="blue">garrettmckenzie@ymail.com</p>
+	<hr class = "line-break">
+	</div>
+
 
 

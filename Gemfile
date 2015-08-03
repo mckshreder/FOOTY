@@ -39,6 +39,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 
 
+
 group :development, :test do
   # this brakeman is to catch potetial hacker routes
   gem 'brakeman', :require => false

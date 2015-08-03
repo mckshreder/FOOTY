@@ -3,8 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'bootstrap';
 
+/* user#new mainpage background video*/
 
-
+.new_user_video_wrapper {
+    position: absolute;
+    width: 500%;
+    height: 100%;
+    z-index: 9;
+}
+.screen {
+    position: relative;
+    height: 100%; 
+    width: 20%; /*  NOTE:numVideos/100%  */
+    float: left;
+    overflow: hidden;
+}
 
 
 
@@ -383,9 +396,9 @@ padding: 4px;
   width:100%;
   border:none;
   border-bottom: 1.2px solid black;
-  background-color: white;
+  background-color: transparent !important;
  text-align: right;
-  color:black;
+  color:#0088ff !important;
     &:hover {
          color: #337ab7;
        }
@@ -397,13 +410,14 @@ padding: 4px;
   width:100%;
   border:none;
   border-bottom: 1.2px solid black;
+/*  background-color: transparent;
   background-color: white;
- text-align: right;
-  color:black;
+  text-align: right;
+  color:#0088ff;
     &:hover {
          color: #337ab7;
        }
-
+*/
 
 }
 /*this is for the form on the main log in page that allows already registered user log in*/
@@ -464,9 +478,11 @@ padding: 4px;
 }
 
 .user_profile_photo_tag{
-  border-radius: 19px;
+  border-radius: 100%;
   border: 1px solid rgb(0, 136, 255);
   padding-left: 2px;
+  width: 8%;
+  height: 8%;
 
 }
 

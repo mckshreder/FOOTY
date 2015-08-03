@@ -5,7 +5,9 @@
     end
     
     def map 
-        @posts = Post.all.order('created_at DESC')   
+        @posts = Post.all.order('created_at DESC')
+        @users = User.all
+        @user = User.new  
     end
 
     def new

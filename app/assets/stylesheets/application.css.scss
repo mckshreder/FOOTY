@@ -131,13 +131,13 @@ body.container-fluid{
  .left_column {
   width: 55%;
   margin-left: 5%;
-  margin-top:25px;
+/*  margin-top:25px;*/
   float:left;
   text-align: center;
   padding-left: 0.5%;
   padding-right: 0.5%;
   background-color: rgba(255,255,255,0.9);
-  border-top: 1.5px black solid; 
+  border-top: 1.5px black solid;
 }
 
 /*this is home page left site info*/
@@ -396,12 +396,13 @@ margin-top: 1%;
  .right_column {
   width: 33%;
   margin-right: 5%;
-  margin-top:0.5%;
+/*  margin-top:0.5%;*/
   float:right;
   padding-left: 0.5%;
   padding-right: 0.5%;
   background-color: rgba(255,255,255,0.9);
-  border-top: 1.5px black solid; 
+  border-top: 1.5px black solid;
+
  /* text-align: center;*/
 }
 /*The right column actually post contained by right column*/
@@ -436,11 +437,11 @@ margin-top: 1%;
  }
  #map-canvas {
    height: 353px;
-   width: 65.4%;
+   width: 100%;
    margin: 5px;  
    display: inline-block;
    padding: 0;
-   margin-bottom: -1.1%;
+   /*margin-bottom: -1.1%;*/
  }
 
  .map_feed_row {

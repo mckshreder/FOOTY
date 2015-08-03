@@ -281,13 +281,14 @@ $(document).ready(function() {
 <% end %>
 
 <!-- this is where the map begins -->
-  <h6 class="center">This weeks sponsored events</h6>
+  <h6 class="center">Local shredders near you</h6>
   <div id="map-canvas">
   </div>
   
     <% @posts.each do |post| %>
   <div class="feed_border">
-            <p> Recent ad</p>
+            <p> Recent ad
+            </p>
             <%= link_to "#{post.title}" ,  user_profile_path(post.user_id),:class => "blob"%>
             <h6>Posted by: <%= link_to "#{post.user.name}" ,  user_profile_path(post.user_id)%></h6>
             <h6>Age: 25<%= post.user.age%> | City:<%= post.address%></h6>

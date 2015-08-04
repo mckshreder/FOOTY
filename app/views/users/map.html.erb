@@ -158,13 +158,7 @@ $(document).ready(function() {
           <%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>
         </div>
       </div> 
-            
-<!--    
-  </div> -->
-
-        <!--  <div class = "large_link_photo">
-              <%=image_tag("https://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "user_large_photo_tag") %><%= link_to post.user.name, user_profile_path(post.user_id), :class => "large_link_photo" %>
-         </div>   -->            
+                       
      <div class="embed-responsive embed-responsive-16by9",><%= embed(post.youtube_url) %>
          </div>
     
@@ -233,7 +227,6 @@ $(document).ready(function() {
 <% if current_user %>
     <ul id="topright_nav">
     <li>
-        <!--<%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>-->
           <small>Hello, </small>
             
             <a><%= link_to "#{current_user.name}", user_profile_path(current_user) %>
@@ -259,7 +252,8 @@ $(document).ready(function() {
     </ul>
     
     <div class="feed_border">
-      
+      <h5 class="center">YOUR FOOTY™ ACCOUNT</h5>
+      <hr class = "small_line_break">
       <h3 class="center">
         Share your footy!
       </h3>
@@ -294,23 +288,9 @@ $(document).ready(function() {
     <h5 class="center">
       your footy™ account.
     </h5>
-  
-    <%= form_for @user, url: create_session_path do |f| %>
-
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, class: "form-control"%>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, class: "form-control"%>
-      </div>
-      
-      <%= f.submit "Log in", class: "submit-button-create, large_button" %>
+    
+    <%= link_to "Log in", new_user_path, class: "submit-button, large_button" %>  
 <hr>
-    <% end %> 
-
 </div>
 
 <% end %>

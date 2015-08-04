@@ -100,8 +100,16 @@ $(document).ready(function() {
 
 
   <div class="feed_border">
-    <h4>the FOOTY™app</h4>
-    <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => "40%", :height => "40%", :crop => :fill) %>
+    <h4 class="left">the FOOTY™app</h4>
+    
+    <!-- <div>
+      <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg",:crop => :fill, :class => "post-photo-tag") %>
+    </div> -->
+
+    <h2>
+        <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg",class: "big_profile_photo_tag") %>
+    </h2>
+    
     <h2><%= @user.name %></h2>
     <hr class="small_line_break">
     <h4 class="right">Account profile</h4>
@@ -158,7 +166,7 @@ $(document).ready(function() {
         <%= "  " %>
         <%= post.user.name %>
         
-        <div>
+      <div>
           <%= "| posted:" %>
           <span class="glyphicon glyphicon-time" aria-hidden="false">
           </span>
@@ -283,8 +291,8 @@ $(document).ready(function() {
 <div class="right_column">
     <div class="feed_border">
 
-        <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width=>"100%", :crop => :fill) %>
-    
+      <!--   <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width=>"100%", :crop => :fill) %>
+     -->
     <!-- this is the div just below the profile photo -->
     
      <hr class="small_line_break">
@@ -299,16 +307,15 @@ $(document).ready(function() {
 
 <div class="right_column">
 
-    <div class="feed_border">
-        <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width=>"100%", :crop => :fill) %>
-    
-    <!-- this is the div just below the profile photo -->
-    
-     <hr class="small_line_break">
-        <h4>Contact info:</h4>
-        <%= link_to "Message #{@user.name.split.first}", user_profile_path, class: "submit-button, large_button" %>
+  <div class="feed_border">
+  
+  <!-- this is the div just below the map on right -->
+  
+   <hr class="small_line_break">
+      <h4>Contact info:</h4>
+      <%= link_to "Message #{@user.name.split.first}", user_profile_path, class: "submit-button, large_button" %>
 
-    </div>
+  </div>
 </div>
 <div class="right_column">
     <div id="topright_nav">
@@ -329,13 +336,6 @@ $(document).ready(function() {
 <div class="right_column">
         
     <div class="feed_border">
-        <h5 >the FOOTY™app</h5>
-        
-        <div id="map-canvas">
-        </div>
-        
-        <h4 class="center"><%= @user.name.split.first%>'s ad locations 
-        </h4>
 
 <hr class="small_line_break">
         

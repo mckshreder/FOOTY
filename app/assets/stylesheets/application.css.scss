@@ -272,9 +272,13 @@ hr.small_line_break{
 }
 /*for the link a tag on right side colum*/
 .feed_border a{
-  font-size: 1.3vw !important;
+  font-size: 1.2vw !important;
   text-align: center;
   overflow: hidden;
+  color: #0088ff;
+    &:hover {
+         color: #337ab7;
+       };
 }
 /*for the titles of the events on right column*/
 .feed_border h4{
@@ -291,7 +295,8 @@ hr.small_line_break{
 .feed_border h6{
   font-size: 1.2vw !important;
   text-align: center;
-  padding-top: 1%;
+/*  padding-top: 1%;*/
+  margin:0 !important;
 }
 .feed_border h1{
 font-size: 4vw !important;
@@ -691,6 +696,12 @@ body.container-fluid{
   
   }
 }
+
+/*making font color section*/
+.white{
+  color: white !important;
+}
+
 
 
 

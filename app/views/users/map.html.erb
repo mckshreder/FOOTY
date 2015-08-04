@@ -98,6 +98,7 @@ $(document).ready(function() {
 <div class="feed_container">
 <!-- this contains the map on the view -->
 <div class="left_column">
+
   <div class="feed_border">
     <h1>Footy™ classifieds</h1>
     <h6>The only skateboard sponsorship classifieds ever.</h6>
@@ -137,17 +138,18 @@ $(document).ready(function() {
       
     <div class = "large_feed">
 
-            <div class="video_top_info">
-            <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :crop => :fill, class: "user_profile_photo_tag") %>
-            <%= "  " %><%= post.user.name %>
-
-            <div>
-              <%= "| posted:" %>
-              <span class="glyphicon glyphicon-time" aria-hidden="false">
-            </span>
-            <%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>
+      <div class="video_top_info">
+        <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :crop => :fill, class: "user_profile_photo_tag") %>
+        <%= "  " %>
+        <%= post.user.name %>
+        
+        <div>
+          <%= "| posted:" %>
+          <span class="glyphicon glyphicon-time" aria-hidden="false">
+          </span>
+          <%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>
         </div>
-            </div> 
+      </div> 
             
 <!--    
   </div> -->
@@ -218,8 +220,9 @@ $(document).ready(function() {
 
 <!-- start of the right column -->
 <div class="right_column">
+
 <!-- this is the "sign in or sign up forum" -->
-  <% if current_user %>
+<% if current_user %>
     <ul id="topright_nav">
     <li>
         <!--<%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>-->
@@ -246,56 +249,99 @@ $(document).ready(function() {
           </ul>
         </li>
     </ul>
-    <div class="feed_border">
-    <h3 class="center">Share your footy!</h3 class="center">
-    <a class="submit-button-create, large_button" href="/posts/new">PLACE AD HERE</a>
-    <h6></h6>
-  </div>
-  <% else %>
-
-  <div id="topright_nav">
-    <h4 class="center">New to the Footy app?</h4>
-    <h3 class="center">Sign up for Free!</h3>
-    <p class="center">It's simple and easy.</p>
-    <%= link_to "Create New Account", new_user_path, class: "submit-button, large_button" %>
-    <hr>
-  <h2 class="center">Hello, Sign in</h2>
-  <h5 class="center">your footy™ account.</h5>
-  <%= form_for @user, url: create_session_path do |f| %>
-
-    <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: "form-control"%>
-    </div>
-
-    <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: "form-control"%>
-    </div>
     
-    <%= f.submit "Log in", class: "submit-button-create, large_button" %>
+    <div class="feed_border">
+      
+      <h3 class="center">
+        Share your footy!
+      </h3>
+      <a class="submit-button-create, large_button" href="/posts/new">
+        PLACE AD HERE
+      </a>
+
+    </div>
+
+<% else %>
+
+<div id="topright_nav">
+    
+    <h4 class="center">
+      New to the Footy app?
+    </h4>
+    
+    <h3 class="center">
+      Sign up for Free!
+    </h3>
+    
+    <p class="center">
+      It's simple and easy.
+    </p>
+    
+    <%= link_to "Create New Account", new_user_path, class: "submit-button, large_button" %>   
 <hr>
+    <h2 class="center">
+      Hello, Sign in
+    </h2>
+    
+    <h5 class="center">
+      your footy™ account.
+    </h5>
   
-<% end %> 
-  </div>
+    <%= form_for @user, url: create_session_path do |f| %>
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control"%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control"%>
+      </div>
+      
+      <%= f.submit "Log in", class: "submit-button-create, large_button" %>
+<hr>
+    <% end %> 
+
+</div>
+
 <% end %>
+<!-- <iframe src="http://www.kcrw.com/breakout-player?api_url=http://www.kcrw.com/music/shows/morning-becomes-eclectic/latest-show/player.json&autoplay=false" width="100%" height="28%" frameborder="2" scrolling="yes" seamless="seamless"></iframe> -->
 
 <!-- this is where the map begins -->
-  <h6 class="center">Local shredders near you</h6>
+<h6 class="center">Local shredders near you</h6>
   <div id="map-canvas">
   </div>
-  
-    <% @posts.each do |post| %>
   <div class="feed_border">
-            <p> Recent ad
-            </p>
-            <%= link_to "#{post.title}" ,  user_profile_path(post.user_id),:class => "blob"%>
-            <h6>Posted by: <%= link_to "#{post.user.name}" ,  user_profile_path(post.user_id)%></h6>
-            <h6>Age: 25<%= post.user.age%> | City:<%= post.address%></h6>
-
- 
+    <h4> Recent ads
+    </h4>
   </div>
-    <% end %>
+  <% @posts.each do |post| %>
+    <div class="feed_border">
+
+      <p>
+        Title: 
+        <%= link_to "#{post.title}" ,  user_profile_path(post.user_id)%>
+      </p>
+      <hr class = "line-break">
+      
+      <h6 class="blue">
+        Posted by: <%= link_to "#{post.user.name}" ,  user_profile_path(post.user_id)%>
+      </h6>
+      
+      <h6>Age: 25<%= post.user.age%> | City:<%= post.address%></h6>     
+      <p>
+      <small>
+          <span class="glyphicon glyphicon-time" aria-hidden="false">
+          </span>
+        <%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>
+      </small>
+      </p>
+      <h6 class="left">
+            <%= link_to "Full Video", post_path(id: post.id), :class => "option_link" %>
+      </h6>
+    </div>
+  <% end %>
 
 
   <div class="feed_border">

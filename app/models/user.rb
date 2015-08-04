@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-    paginates_per 50
     # geocoded_by :location
     # after_validation :geocode 
     
@@ -14,7 +13,7 @@ class User < ActiveRecord::Base
    
     validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
 
-    validates :password, presence: true, length: { in: 6..10 }, confirmation: true
+    validates :password, presence: true, length: { in: 6..20 }, confirmation: true
 
   attr_reader :password #add this line right below our list of fields
 

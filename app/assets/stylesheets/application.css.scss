@@ -24,6 +24,7 @@ body{
 }
 .left {
   text-align: left !important;
+  overflow: none !important;
 }
 .right{
   text-align: right !important;
@@ -127,6 +128,74 @@ body.container-fluid{
   letter-spacing: 2px;
   }
 
+/*this to align the drop down box*/
+#topright_nav, #topright_nav ul{
+  z-index: 1001;
+  text-align: right;
+  float: right;
+  width: 100%;
+  padding-left: 0;
+  margin: 0; 
+  list-style-type: none;
+  list-style-position: outside;
+  display: inline;
+}
+
+#topright_nav li{
+  width: 100%;
+  text-align: center;
+  padding: 3%;
+  /*border-top: 1.5px black solid;*/
+  /*border-bottom: 1px black solid;*/
+}
+#topright_nav ul li a{
+  font-size: 1vw;
+  margin: 0;
+  float: center;
+  text-align: center;
+  display: block;
+
+}
+#topright_nav li a{
+display: inline;
+font-size: 1vw;
+position: relative;
+}
+
+ #topright_nav a:link, #topright_nav a:active, #topright_nav a:visited{
+    /*padding:0px 5px;*/
+    color: #0062c3;
+    text-decoration:none;
+    font-size: 1.4vw;
+ }
+
+#topright_nav a:hover{
+    /*background-color:#fff;*/
+    color:#333;
+}
+
+
+#topright_nav ul {
+    width:100%;
+    display:none;
+}
+
+#topright_nav li ul ul {
+    right:12em;
+    margin:0;
+    }
+#topright_nav li ul{
+    padding:0;
+    }
+
+#topright_nav li:hover ul ul, #topright_nav li:hover ul ul ul, #topright_nav li:hover ul ul ul ul{
+    display:none;
+    }
+#topright_nav li:hover ul, #topright_nav li li:hover ul, #topright_nav li li li:hover ul, #topright_nav li li li li:hover ul{
+    display:block;
+    }
+
+
 /*The left column containing the posts*/
  .left_column {
   width: 55%;
@@ -228,9 +297,9 @@ padding-right: 1%;
   display: inline-block;
 }
 hr.small_line_break{
-  margin-top: 0;
-  margin-bottom: 0;
-  border-top: 1px solid #eee
+  margin: 0 !important;
+  padding: 0 !important;
+  border-top: 1px solid #eee;
 }
 /*.large_link_photo{
  width: 100%;
@@ -344,6 +413,11 @@ margin-top: 1%;
        }
   font-size: 2vw;
 }
+.blue_font{
+  color:#0088ff;
+  font-size: 1.25vw;
+
+}
 a.blob{
   color:#0088ff;
   &:hover {
@@ -412,7 +486,7 @@ a.blob{
  .right_column {
   width: 33%;
   margin-right: 5%;
-/*  margin-top:0.5%;*/
+  margin-top:0.5%;
   float:right;
   padding-left: 0.5%;
   padding-right: 0.5%;
@@ -492,73 +566,7 @@ a.blob{
 
 /*end of google maps styling*/
 
- /*this to align the drop down box*/
-#topright_nav, #topright_nav ul{
-  z-index: 1001;
-  text-align: right;
-  float: right;
-  width: 100%;
-  padding-left: 0;
-  margin: 0; 
-  list-style-type: none;
-  list-style-position: outside;
-  display: inline;
-}
-
-#topright_nav li{
-  width: 100%;
-  text-align: center;
-  padding: 3%;
-  /*border-top: 1.5px black solid;*/
-  /*border-bottom: 1px black solid;*/
-}
-#topright_nav ul li a{
-  font-size: 1vw;
-  margin: 0;
-  float: center;
-  text-align: center;
-  display: block;
-
-}
-#topright_nav li a{
-display: inline;
-font-size: 1vw;
-position: relative;
-}
-
- #topright_nav a:link, #topright_nav a:active, #topright_nav a:visited{
-    /*padding:0px 5px;*/
-    color: #0062c3;
-    text-decoration:none;
-    font-size: 1.4vw;
- }
-
-#topright_nav a:hover{
-    /*background-color:#fff;*/
-    color:#333;
-}
-
-
-#topright_nav ul {
-    width:100%;
-    display:none;
-}
-
-#topright_nav li ul ul {
-    right:12em;
-    margin:0;
-    }
-#topright_nav li ul{
-    padding:0;
-    }
-
-#topright_nav li:hover ul ul, #topright_nav li:hover ul ul ul, #topright_nav li:hover ul ul ul ul{
-    display:none;
-    }
-#topright_nav li:hover ul, #topright_nav li li:hover ul, #topright_nav li li li:hover ul, #topright_nav li li li li:hover ul{
-    display:block;
-    }
-
+ 
 /*.dad-navbar{
 
 background-color: white;

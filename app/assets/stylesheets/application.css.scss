@@ -23,10 +23,10 @@ body{
   text-align: center;
 }
 .left {
-  text-align: left;
+  text-align: left !important;
 }
 .right{
-  text-align: right;
+  text-align: right !important;
 }
 h3{
   margin-top: 1%;
@@ -131,13 +131,13 @@ body.container-fluid{
  .left_column {
   width: 55%;
   margin-left: 5%;
-  margin-top:25px;
+/*  margin-top:25px;*/
   float:left;
   text-align: center;
   padding-left: 0.5%;
   padding-right: 0.5%;
   background-color: rgba(255,255,255,0.9);
-  border-top: 1.5px black solid; 
+  border-top: 1.5px black solid;
 }
 
 /*this is home page left site info*/
@@ -272,9 +272,13 @@ hr.small_line_break{
 }
 /*for the link a tag on right side colum*/
 .feed_border a{
-  font-size: 1.3vw !important;
+  font-size: 1.2vw !important;
   text-align: center;
   overflow: hidden;
+  color: #0088ff;
+    &:hover {
+         color: #337ab7;
+       };
 }
 /*for the titles of the events on right column*/
 .feed_border h4{
@@ -291,7 +295,8 @@ hr.small_line_break{
 .feed_border h6{
   font-size: 1.2vw !important;
   text-align: center;
-  padding-top: 1%;
+/*  padding-top: 1%;*/
+  margin:0 !important;
 }
 .feed_border h1{
 font-size: 4vw !important;
@@ -338,6 +343,17 @@ margin-top: 1%;
  /*   text-decoration: underline;*/
        }
   font-size: 2vw;
+}
+a.blob{
+  color:#0088ff;
+  &:hover {
+    color:#0088ff;
+ /*   text-decoration: underline;*/
+       }
+  font-size: 2vw !important;
+  text-align: center;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 /*these are for the text on the columns*/
 .black{
@@ -396,12 +412,13 @@ margin-top: 1%;
  .right_column {
   width: 33%;
   margin-right: 5%;
-  margin-top:0.5%;
+/*  margin-top:0.5%;*/
   float:right;
   padding-left: 0.5%;
   padding-right: 0.5%;
   background-color: rgba(255,255,255,0.9);
-  border-top: 1.5px black solid; 
+  border-top: 1.5px black solid;
+
  /* text-align: center;*/
 }
 /*The right column actually post contained by right column*/
@@ -436,11 +453,10 @@ margin-top: 1%;
  }
  #map-canvas {
    height: 353px;
-   width: 65.4%;
-   margin: 5px;  
+   width: 100%;
    display: inline-block;
    padding: 0;
-   margin-bottom: -1.1%;
+   /*margin-bottom: -1.1%;*/
  }
 
  .map_feed_row {
@@ -680,6 +696,12 @@ body.container-fluid{
   
   }
 }
+
+/*making font color section*/
+.white{
+  color: white !important;
+}
+
 
 
 

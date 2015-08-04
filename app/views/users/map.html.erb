@@ -111,6 +111,14 @@ $(document).ready(function() {
       </li>
       <li>
         <p>#2. Film and edit a fun video or a "Sponsor me clip" with your best footy.</p>
+      </li>
+      <li>
+        <p>#3. Upload your video to YouTube, copy the video url, and place ad with your video on our skateboarding classfields. </p>
+      </li>
+      <li>
+        <p>#4. Instantly share your footy with companies, friends, and family all around the world... for FREE!</p>
+      </li>
+      <p>Note: We encouraged you to stay determined and continue to make videos as your skateboarding and camera skills will only improve.</p>
 
     </ul>
   </div>
@@ -325,8 +333,8 @@ $(document).ready(function() {
       </p>
       <hr class = "line-break">
       
-      <h6 class="blue">
-        Posted by: <%= link_to "#{post.user.name}" ,  user_profile_path(post.user_id)%>
+      <h6>
+        Posted by: <%= link_to "#{post.user.name}" ,  user_profile_path(post.user_id), class: "blue" %>
       </h6>
       
       <h6>Age: 25<%= post.user.age%> | City:<%= post.address%></h6>     

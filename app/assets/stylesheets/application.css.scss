@@ -207,6 +207,10 @@ position: relative;
   padding-right: 0.5%;
   background-color: rgba(255,255,255,0.9);
   border-top: 1.5px black solid;
+  margin-top:0.5%;
+  display: block;
+  clear: both;
+
 }
 
 /*this is home page left site info*/
@@ -497,6 +501,7 @@ a.blob{
   padding-right: 0.5%;
   background-color: rgba(255,255,255,0.9);
   border-top: 1.5px black solid;
+  position: relative;
 
  /* text-align: center;*/
 }

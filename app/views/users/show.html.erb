@@ -94,64 +94,60 @@ $(document).ready(function() {
 <% flash.each do |key, value| %>
     <h4><%= value %></h4>
 <% end %>
-<div class="feed_container">
+
 <!-- this contains the map on the view -->
 <div class="left_column">
 
 
-  <div class="feed_border">
-    <h4 class="left">the FOOTY™app</h4>
-    
-    <!-- <div>
-      <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg",:crop => :fill, :class => "post-photo-tag") %>
-    </div> -->
-
-    <h2>
-        <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg",class: "big_profile_photo_tag") %>
-    </h2>
-    
-    <h2><%= @user.name %></h2>
-    <hr class="small_line_break">
-    <h4 class="right">Account profile</h4>
-  </div>
-
-
- 
-    <div class="feed_border, left">
-        <p class="black">Name: 
+    <div class="feed_border">
+      <h4 class="left">the FOOTY™app</h4>
       
-        <span class="blue"><%= @user.name%></span>
-        </p>
-      
-      
-        <p class="black">Age: 
-        <span class="blue">25<%= @user.age%></span> years old.
-      
-        </p>
-      
-        <p class="black">Location :
-        <span class="blue">Whittier,CA<%= @user.location%></span>
-      
-        </p>
+      <!-- <div>
+        <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg",:crop => :fill, :class => "post-photo-tag") %>
+      </div> -->
 
-        <p class="black">Email :
-        <span class="blue_font"><%= @user.email%></span>
       
-        </p>
+      <h2><%= @user.name %></h2>
+      <hr class="small_line_break">
+      <h4 class="right">Account profile</h4>
+    </div>
+
+    <div class="home_info">
+      <h2>
+          <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg",class: "big_profile_photo_tag") %>
+      </h2>
+      <ul class="text_list">
       
-    
-        <p class="black">Bio :
-        <span class="black">I skate every day, you shoudl sponsor me please!<%= @user.bio%></span>
-        </p>
-    
+        <li>
+          <p class="black"><small>Name:</small> 
+            <%= @user.name%>        
+          </p>
+        </li>
+        
+        <li>
+          <p class="black"><small>Age:</small> 
+            25<%= @user.age%> years old.
+          </p>
+        </li>
+
+        <li>
+          <p class="black"><small>Location :</small>
+            Whittier,CA<%= @user.location%>        </p>
+        </li>
+        
+        <li>
+          <p class="black"><small>Email: </small><%= @user.email%></p>
+        </li>
+
+        <li>
+          <p class="black"><small>About Me:</small>
+          I skate every day, you should sponsor me please!<%= @user.bio%></p>
+        </li>
+
+      </ul>
+    </div>
 
 
-
-  <hr class = "line-break" >
-
-
-  
-  </div>
   <div class="feed_border">
   <h4 class="right">All of <%= @user.name.split.first %>'s footy.</h4>
 </div>
@@ -225,9 +221,9 @@ $(document).ready(function() {
         </div>
         
     <% end %>
-    </div>
-</div>  
-<br>  
+  </div>
+
+<!-- <br>  --> 
 <% else %>
     <h2>No Posts Exist</h2>
 <% end %>

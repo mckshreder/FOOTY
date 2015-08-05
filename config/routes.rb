@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     delete "comments/:id" => "comments#destroy", as: :delete_comment
 
     get "/events" => "events#index", as: :event_map
+    
 
   	
 end

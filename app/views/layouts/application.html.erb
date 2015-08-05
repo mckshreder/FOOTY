@@ -49,18 +49,19 @@
     </li>
     
     <li>
-      <div class = "tab" id = "blue" href="#"><a href="/users/map">COMPANIES</a></div>
+      <div class = "tab" id = "blue" href="#"><a href="/events">COMPANIES</a></div>
         <div class = "dropdown_nav">
-          <a id = "blue" href="/users/map">COMPANIES</a>
+          <a id = "blue" href="/events">COMPANIES</a>
        </div> 
     </li>
     
     
     <li>
-       <div class = "tab" id = "purple" href="#"><a href="/events">PROFILE</a></div>
+       <div class = "tab" id = "purple" href="#">
+       <%= link_to "PROFILE",  user_profile_path(current_user), :id => "purple" %></div>
        </div>
         <div class = "dropdown_nav">
-        <%= link_to "PROFILE",  user_profile_path(current_user), :id => "blue" %>
+        <%= link_to "PROFILE",  user_profile_path(current_user), :id => "purple" %>
 
         </div>
     </li>

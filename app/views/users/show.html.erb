@@ -18,8 +18,7 @@ function initialize() {
   if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
           // this assigns the current users coordinats as pos
-          var pos = new google.maps.LatLng(position.coords.latitude,
-                                         position.coords.longitude);
+          var pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
           // below creates the info window marker for current user location
           var infowindow = new google.maps.InfoWindow({
             // must use map

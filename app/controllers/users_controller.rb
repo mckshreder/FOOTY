@@ -65,21 +65,22 @@
     end
 
     def update
-        respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+        @user = User.find(params[:id])
+
+      respond_to do |format|
+        if @user.update(user_params)
+          format.html { redirect_to user_profile_path(@user), notice: 'User was successfully updated.' }
+          format.json { render :show, status: :ok, location: @user }
+        else
+          format.html { render :edit }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
     end
-    #     @user = User.find(params[:id])
-    #     if @user.update_attributes(params.require(:user).permit(:name, :email, :password, :password_confirmation, :image))
-    #         redirect_to posts_path
-    #     else 
-    #         render :show
+        # if @user.update_attributes(params.require(:user).permit(:name, :email, :password, :password_confirmation, :image))
+        #     redirect_to posts_path
+        # else 
+        #     render :show
     # end
     # end
 

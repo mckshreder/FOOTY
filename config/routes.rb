@@ -5,19 +5,18 @@ Rails.application.routes.draw do
     root "posts#index"
     get "/users" => "users#index", as: :users
     post "/users" => "users#create", as: :create_user
-    get "/sessions/destroy" => "sessions#destroy", as: :destroy_session
     # get "/users/eventmap" => "users#eventmap", as: :event_map
     get "/users/new" => "users#new", as: :new_user
-    get "/users/:id/edit" => "users#edit", as: :edit_users
-    get "/users/:id" => "users#show", as: :user_profile
-    
-    put "/users/:id" => "users#update", as: :update_user
-    patch "/users/:id" =>"users#update"
-    delete "/users/:id" => "users#destroy"
     get "/users/map" => "users#map", as: :user_map
+    get "/users/:id" => "users#show", as: :user_profile
+    get "/users/:id/edit" => "users#edit", as: :edit_users
+    
+    patch "users/:id" =>"users#update", as: :update_user
+    delete "/users/:id" => "users#destroy"
 
     get "/sessions/new" => "sessions#new", as: :new_session
     post "/sessions" => "sessions#create", as: :create_session
+    get "/sessions/destroy" => "sessions#destroy", as: :destroy_session
 
     get "/posts" => "posts#index", as: :posts
     get "/posts/new" => "posts#new", as: :new_post

@@ -1,4 +1,16 @@
-<div class = "video-container">    
+<div class="left_column">
+<div class="video_top_info">
+            <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :crop => :fill, class: "user_profile_photo_tag") %>
+            <%= "  " %><%= @post.user.name %>
+
+            <div>
+                <%= "| posted:" %>
+                <span class="glyphicon glyphicon-time" aria-hidden="false">
+                </span>
+                <%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, @post.updated_at)) + " ago"  %>
+            </div>
+</div> 
+ 
     <div class="embed-responsive embed-responsive-16by9"><%= embed(@post.youtube_url) %>
     </div>
     <div class ="video-info-container-header-top">
@@ -9,6 +21,25 @@
             <%= @post.body %>
         <% end %>      
     </div>
+
+    <div class="feed_border">
+
+    
+    <!-- this is the div just below the profile photo -->
+    
+     <hr class="small_line_break">
+        <h4>Contact info:</h4>
+        <%= link_to "Direct message", user_profile_path(@post.user_id), class: "submit-button, large_button" %>
+        <!-- <hr class = "line-break" >
+        <%= link_to "#{@post.user.name}'s profile", user_profile_path(@post.user_id), class: "submit-button, large_button" %> -->
+
+
+       <!--  <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width=>"100%", :crop => :fill) %> -->
+    </div>
+
+    <div class="feed_border">
+    <%= link_to "#{@post.user.name}'s profile", user_profile_path(@post.user_id), class: "submit-button, large_button" %>
+    </div>
     <div class = "video-poster">
         <span>Posted by: 
             <%= link_to @post.user.name ,  user_profile_path(@post.user_id), :class => "title_link" %>
@@ -17,11 +48,105 @@
         <span class="glyphicon glyphicon-time" aria-hidden="false"></span>
         <%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, @post.updated_at)) + " ago"  %></small>
     </div>
+
+    
 </div>
-    <div class = "video-container">
-        <div class = "video-nav">
+
+
+<!-- this is the user profile photo container  for right column-->
+        
+
+
+
+
+<!-- this is the "sign in or sign up forum" -->
+<% if current_user %>
+    <div class="right_column">
+        <ul id="topright_nav">
+        <li>
+            <!--<%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>-->
+                <small>Hello, </small>
+                  
+                  <a><%= link_to "#{current_user.name}", user_profile_path(current_user) %>
+                  </a>
+                  <span class="glyphicon glyphicon-cog" aria-hidden="true">
+                  </span>
+              
+              <ul> 
+                <li>
+                     <a><%= link_to "Your Profile", user_profile_path(current_user)%>
+                     </a>
+                </li> 
+                <li>
+                    <a><%= link_to "Edit Account", edit_users_path(current_user) %>
+                    </a>
+                </li>  
+                <li>
+                    <a><%= link_to "Log out", destroy_session_path %>
+                    </a>
+                </li>  
+              </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="right_column">
+   
+
+    <div>
+        <p class="black">the FOOTY™ info</p>
+        <hr class = "line-break" >
+    <!-- <h4 class="blue"><%= @post.title%></h4> -->
+
+        <p class="black">Name: 
+        <span><%= link_to @post.user.name ,  user_profile_path(@post.user_id), :class => "title_link, blue_font_large" %></span>
+      
+<!--         <span class="blue"><%= @post.user.name%></span> -->
+        </p>
+      
+      
+        <p class="black">Age: 
+        <span class="blue_font">25<%= @post.user.age%> years old.</span>
+      
+        </p>
+      
+        <p class="black">Location :
+        <span class="blue_font">Whittier,CA<%= @post.user.location%></span>
+      
+        </p>
+        <!-- <hr class = "line-break" > -->
+    </div>
+   <!--  <div class="feed_border"> -->
+
+    
+    <!-- this is the div just below the profile photo -->
+    
+   <!--   <hr class="small_line_break">
+        <h4>Contact info:</h4>
+        <%= link_to "Direct message", user_profile_path(@post.user_id), class: "submit-button, large_button" %> -->
+        <!-- <hr class = "line-break" >
+        <%= link_to "#{@post.user.name}'s profile", user_profile_path(@post.user_id), class: "submit-button, large_button" %> -->
+
+
+       <!--  <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width=>"100%", :crop => :fill) %> -->
+    
+    <!-- </div> -->
+
+
+    <div class = "feed_border">
+        <div class = "feed_border">
             <h4>Comments</h4>
-            <div class="video-comments-container">       
+            <div class="video-comments-container"> 
+
+            <div class = "video-comment-form">           
+                <%= form_for @comment, url: create_comment_path do |f| %>
+                    <%= hidden_field_tag :post_id, @post.id %>
+                        <div class="form-group">
+                            <%= f.text_area :body, class: "form-control" %>
+                            <%= f.submit "Add Comment", class: "submit-button" %>
+                        </div>
+                <% end %>
+            </div>       
                 <% if @post.comments.count > 0 %>
                     <% @post.comments.each do |comment| %>
                         
@@ -35,9 +160,9 @@
                     
                     <hr class = "comment-line-break-top">
                         
-                        <div class= "comment-photo">
-                            <%=image_tag("https://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "comment-user-post-photo_tag") %>
-                        </div>
+                       <!--  <div class= "comment-photo">
+                            <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "comment-user-post-photo_tag") %>
+                        </div> -->
                         
                         <div class = "comment-video-body">
                             <%= comment.body %>
@@ -47,54 +172,48 @@
                             <hr class = "comment-line-break">
                         <% end %>
                     <% else %>
-                        <p>No Comments Yet</p>
+                        <p>Be the first to Comment!</p>
                 <% end %>
             </div>
-            
-            <div class = "video-comment-form">           
-                <%= form_for @comment, url: create_comment_path do |f| %>
-                    <%= hidden_field_tag :post_id, @post.id %>
-                        <div class="form-group">
-                            <%= f.text_area :body, class: "form-control" %>
-                            <%= f.submit "Add Comment", class: "submit-button" %>
-                        </div>
-                <% end %>
-            </div>        
+       
         </div>
 
-        <div class="comment_feed_container">
-                <h4 class = "more_music">More Clips &nbsp;&nbsp;<small>(scroll)</small></h4>
-            <div class="comment_feed_row">
-                <% if @posts.count > 0 %>
-                    <% @posts.each do |post| %>
-                        <div class="comment_feed_post">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <%= embed(post.youtube_url) %>
-                            </div>
-                            
-                            <h4>
-                                <%= link_to post.title, post_path(id: post.id), :class => "title-link" %>
-                            </h4>
-                            
-                            <div class = "artist-link">
-                                <%= post.body %>
-                            </div>
-                            
-                            <hr class = "line-break">
-
-                            <div class= "time-ago-tag">
-                                <span class="glyphicon glyphicon-time" aria-hidden="false"></span>
-                                    <%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>
-                            </div>
-                    </div>
-                <% end %>
-            </div>
-        </div>
-</div> 
-<% else %>
-    <h2>No Posts Exist</h2>
-<% end %>
-<div class = "video-return-delete-box">
     <%= link_to "Return to All Posts",  posts_path, :class => "title_link" %>
     <%= link_to 'Destroy this post', @post, :class => "title_link_right", method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
-</div> 
+
+</div>
+
+
+
+
+<!-- ELSE!!!!! -->
+<% else %>
+
+<div class="right_column">
+    <div class="feed_border">
+        <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width=>"100%", :crop => :fill) %>
+    
+    <!-- this is the div just below the profile photo -->
+    
+     <hr class="small_line_break">
+        <h4>Contact info:</h4>
+        <%= link_to "Message #{@post.user.name.split.first}", user_profile_path(@post.user_id), class: "submit-button, large_button" %>
+
+    </div>
+</div>
+<div class="right_column">
+    <div id="topright_nav">
+        <!-- <h4 class="center">New to the Footy app?</h4>
+        <h3 class="center">Sign up for Free!</h3>
+        <p class="center">It's simple and easy.</p>
+        <%= link_to "Create New Account", new_user_path, class: "submit-button, large_button" %>
+        <hr> -->
+        <h2 class="center">Hello, Sign in</h2>
+        <h5 class="center">your footy™ account.</h5>
+
+        <%= link_to "Log in", new_user_path, class: "submit-button, large_button" %>
+    </div>
+    <h4 class="center">the FOOTY™app</h4>
+</div>
+    <% end %>
+

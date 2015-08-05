@@ -490,6 +490,9 @@ padding: 4px;
   clear: both;
 }
 
+.inline{
+  display: inline !important;
+}
 
 /*this is for the users profile show page*/
 .big_profile_photo_tag{
@@ -499,6 +502,15 @@ padding: 4px;
   max-width: 33%;
   max-height: 33%;
   float: left;
+}
+
+/*this is for the companies profile show page*/
+.company_profile_photo_tag{
+  border-radius: 100%;
+  border: 1px solid white;
+  margin: 2%;
+  max-width: 20%;
+  max-height: 20%;
 }
 
 

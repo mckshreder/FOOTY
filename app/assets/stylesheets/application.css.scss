@@ -37,58 +37,82 @@ h2{
   margin-top: 1%;
 
 }
+
 nav{
   width: 100%;
   height: 2.5%;
-  padding-left: 38%;
-  margin-top: -2.4%;
+  padding-left: 0px !important;
+  margin-top: -26px;
+  /*margin-left: -5% !important;*/
+
   background-color: transparent !important;
   box-shadow: none !important;
   z-index: 10 !important;
 }
-/*this is the class that i had the nav bar set to before i made the dropdowns*/
+/*this basically controlls the place ment of the nav*/
+nav ul{
+  padding: 0;
+  margin-left: 11.25%;
+}
+
+/*this is the STYLE of the divs that do not drop down dropdowns*/
 #my_new_nav li{
-  float: left;
+  /*float: left;*/
   text-align: center;
-  margin-top: -5%;
+/*  margin-top: -5%;*/
   list-style: none;
-  width: 7%;
-  margin: -0.01%;
-  opacity: 0.79;
+  width: 17.5%;
+  margin: -0.21%;
+  /*opacity: 0.9;*/
+  overflow: hidden;
+  display: inline-block;
 
 }
 
 div.tab {
-  bottom: 0;
-  left: 0;
   width: 100%;
-  height: 45px;
-  z-index: 1;
+  height: 30px;
+/*  z-index: 1;*/
 }
 
 .dropdown_nav {
   position: absolute; 
   float:left;
   /*this is what allowed me to bring the bar to left left of the drop down*/
-  left:38%;
+  left:0;
   display: none;
   text-align: center;
   text-decoration: none;
-  width: 21.6%;
+  width: 100%;
+  /*z-index: 5;*/
+}
+div.dropdown_nav a{
+  height: 81px;
+  padding: 1%;
+  white-space: nowrap;
+  color:white;
+  font-size: 2.5vw;
   z-index: 5;
+  letter-spacing: 3px;
+  &:hover {
+       color: black;
+     }
 }
 
 div a{
-  padding: 1px;
+  font-size: 1vw;
+  padding: 2%;
+  margin: 0;
   display: block;
   white-space: nowrap;
-  color:black;
-  font-size: 1.3em;
+  color:white;
+  font-size: 1vw;
   letter-spacing: 3px;
   &:hover {
-       color: white;
+       color: black;
      }
 }
+
 
 #green {
   background-color: #9da200;
@@ -124,7 +148,7 @@ br.clear {
 body.container-fluid{
   width: 100%;
   padding: 0;
-  margin-top: -3%;
+/*  margin-top: -3%;*/
   letter-spacing: 2px;
   }
 
@@ -502,6 +526,7 @@ a.blob{
   background-color: rgba(255,255,255,0.9);
   border-top: 1.5px black solid;
   position: relative;
+  z-index: -1;
 
  /* text-align: center;*/
 }

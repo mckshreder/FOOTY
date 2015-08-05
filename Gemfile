@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+# Gemfile
+gem 'paperclip'
+
+gem 'aws-sdk'
+
 gem 'gmaps4rails'
 
 gem 'geocoder'

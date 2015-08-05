@@ -6,6 +6,8 @@
 
 <%= form_for @user, url: update_user_path, html: { multipart: true } do |f| %>
 
+<%= image_tag @user.image.url(:medium) %>
+
 
 <% if @user.errors.any? %>
     <div id="error_explanation">

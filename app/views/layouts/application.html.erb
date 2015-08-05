@@ -57,10 +57,11 @@
     
     
     <li>
-       <div class = "tab" id = "purple" href="#"><a href="/events">MAP</a></div>
+       <div class = "tab" id = "purple" href="#"><a href="/events">PROFILE</a></div>
        </div>
         <div class = "dropdown_nav">
-          <a id = "purple" href="/events">MAP</a>
+        <%= link_to "PROFILE",  user_profile_path(current_user), :id => "blue" %>
+
         </div>
     </li>
     

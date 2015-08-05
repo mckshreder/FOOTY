@@ -77,14 +77,6 @@
 				<%= link_to "'#{post.title}'", post_path(id: post.id), :class => "title-link, blue" %>
 	        </div>
 	        </div>
-	       <!--  <hr class = "small_line_break">
-
-			<div class = "info-on-feed">
-				<xsmall>Description:</xsmall>
-				<p>
-					<%= post.body%>
-	       		</p>
-	        </div> -->
 
 			<hr class = "small_line_break">
 
@@ -118,7 +110,7 @@
     <% end %>
     </div>
 </div>  
-<br>  
+  
 <% else %>
     <h2>No Posts Exist</h2>
 <% end %>

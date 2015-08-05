@@ -16,7 +16,9 @@
     
     
            
-              <h4 class="video-title-link"><%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user-profile-photo_tag") %><%= "  " %><%= link_to user.name, user_profile_path(user) %></h4> 
+              <%=image_tag user.image.url(:medium, class: "user-profile-photo_tag") %><%= "  " %><%= link_to user.name, user_profile_path(user) %>
+              <h4 class="video-title-link">
+              </h4> 
                
             
           

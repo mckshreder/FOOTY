@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150717073005) do
+ActiveRecord::Schema.define(version: 20150805091221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +32,15 @@ ActiveRecord::Schema.define(version: 20150717073005) do
     t.string   "date"
     t.string   "info"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
@@ -45,13 +49,17 @@ ActiveRecord::Schema.define(version: 20150717073005) do
     t.string   "title"
     t.string   "body"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "youtube_url"
     t.string   "image_url"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
@@ -60,13 +68,17 @@ ActiveRecord::Schema.define(version: 20150717073005) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "account_type"
     t.string   "age"
     t.string   "location"
     t.string   "bio"
     t.string   "password"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_foreign_key "comments", "posts"

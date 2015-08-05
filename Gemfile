@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Gemfile
-gem 'paperclip'
+gem "paperclip", "~> 4.3" 
 
 gem 'aws-sdk'
 

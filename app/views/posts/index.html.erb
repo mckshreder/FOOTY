@@ -1,8 +1,91 @@
-<!-- original photo of kevin on home page check css before destrouying -->
-<!-- <div class="homepage_container">
-<img id="home_photo" alt="Icon" src="https://static1.squarespace.com/static/53694a6de4b0e9a5f9b52a44/5369640ae4b0849f186ecd86/53696491e4b052b073e41381/1433346064504/Kevin+Switch+ollie+web-111.jpg?format=2500w" /> -->
-<!-- <img id="home_photo" alt="Icon" src="/assets/isaac.jpg" />
-<div> -->
+<script>
+//= require jquery.turbolinks
+
+var map;
+
+function initialize() {
+  var mapOptions = {
+    zoom: 10,
+    // mapTypeId: google.maps.MapTypeId.HYBRID
+  };
+  // google.maps,Map creates map on div canvas
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+  // this creates a location of the current users location 
+	if(navigator.geolocation) {
+	    navigator.geolocation.getCurrentPosition(function(position) {
+	      	// this assigns the current users coordinats as pos
+	      	var pos = new google.maps.LatLng(position.coords.latitude,
+	                                       position.coords.longitude);
+	      	// below creates the info window marker for current user location
+	      	var infowindow = new google.maps.InfoWindow({
+		        // must use map
+		        map: map,
+		        // assigns the window to show on map at current user location
+		        position: pos,
+		        content: 'your current location'
+	      	});
+	      	// brings the users map to center their location
+	    	map.setCenter(pos);
+	 	});
+
+	 	handleNoGeolocation(true);
+	}
+	else {
+    // Browser doesn't support Geolocation
+    	handleNoGeolocation(false);
+  	}
+  	
+  	// variable for all markers in post.all. We extract the data from the <select hidden, id = "marker_data" multiple> tag. data is ["123.1,-76.928"] Jquery
+  	var markers = $("#marker_data").val();
+
+	for (var i = 0; i < markers.length; i++) {
+		// this splits data into two seperate strings of an array. Erase ","
+		var coordinates = markers[i].split(",");
+		// Number takes array turns strings into numbers for google pos variable
+		var pos = new google.maps.LatLng(Number(coordinates[0]),Number(coordinates[1]));
+	      console.log(pos);
+
+	    
+      	var contentString = '<h4>Info for this post coming soon...</h4>';
+
+	  var infowindow = new google.maps.InfoWindow({
+	      content: contentString
+	  });
+		
+	    // this creates the marker in the user view
+		var marker = new google.maps.Marker({
+	      animation: google.maps.Animation.DROP,
+	      position: pos,
+	      map: map
+	  
+	  	});
+
+		// this creates zoom when user clicks marker
+        google.maps.event.addListener(marker, 'click', function() {
+	     map.setZoom(10);
+	     infowindow.open(map,marker);
+	     map.setCenter(marker.getPosition());
+	    });
+
+	}
+}
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
+}
+
+// jquery call to initalize () on load basically
+$(document).ready(function() {
+	initialize();
+});
+</script>
+
 
 <div class="feed_container">
 <div class="left_column">
@@ -174,10 +257,36 @@
 <% end %> 
 	</div>
     <% end %>
-	<div class="feed_border">
-	<hr class = "small_line_break">
-	    <h5 class="center">YOUR FOOTY™ ACCOUNT</h5>
+
+     <div class="feed_border">
+      <h5 class="center">YOUR FOOTY™ DASHBOARD</h5>
 	    <hr class = "small_line_break">
+	    <h3 class="center">
+        Share your footy!
+	      </h3>
+	      <a class="submit-button-create, large_button" href="/posts/new">
+	        PLACE AD HERE
+      </a>
+
+	    <h4 class="left">theFOOTY™app</h4>
+		<div id="map-canvas">
+		</div>
+		  
+		<div class="feed_border">
+		<h4><a  class="blue, right" href="users/map">Search Ads by Map here</a></h4>
+		</div>
+
+
+
+      <h3 class="center">
+        Are you a company?
+      </h3>
+      <a class="submit-button-create, large_button" href="/posts/new">
+       PLEASE APPLY HERE
+      </a>
+      <hr class = "line_break">
+
+
 		<h2>Event News</h2>
 		<h6>This weeks sponsored events</h6>
 	</div>
@@ -236,4 +345,10 @@
 	</div>
 
 
-
+<!-- this creates ruby data in the view that can be accessed by JS if the <script> is on same exact file. multiple allows JS to know there is multple data  -->
+<select hidden, id = "marker_data" multiple>
+<% @posts.each do |post| %>
+	<option selected = "true" value = "<%= post.latitude%>,<%= post.longitude%>, <%= post.title%>, <=% post.id %>">
+	</option>	
+<% end %>
+</select>

@@ -239,8 +239,8 @@ $(document).ready(function() {
                   
                   <a><%= link_to "#{current_user.name}", user_profile_path(current_user) %>
                   </a>
-                  <span class="glyphicon glyphicon-cog" aria-hidden="true">
-                  </span>
+            <!--     <span class="glyphicon glyphicon-cog" aria-hidden="true">
+                    </span> -->
               
               <ul> 
                 <li>
@@ -266,6 +266,19 @@ $(document).ready(function() {
         <h5 class="center">YOUR FOOTY™ DASHBOARD</h5>
       </div>
     </div>
+<div class="right_column">
+    <div class="feed_border">
+
+      <!--   <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width=>"100%", :crop => :fill) %>
+     -->
+    <!-- this is the div just below the profile photo -->
+    
+     <hr class="small_line_break">
+        <h4>Contact info:</h4>
+        <%= link_to "Message #{@user.name.split.first}", user_profile_path, class: "submit-button, large_button" %>
+
+    </div>
+</div>
 
 <div class="right_column">
   <div class="feed_border">
@@ -281,19 +294,6 @@ $(document).ready(function() {
 </div>
 
 
-<div class="right_column">
-    <div class="feed_border">
-
-      <!--   <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width=>"100%", :crop => :fill) %>
-     -->
-    <!-- this is the div just below the profile photo -->
-    
-     <hr class="small_line_break">
-        <h4>Contact info:</h4>
-        <%= link_to "Message #{@user.name.split.first}", user_profile_path, class: "submit-button, large_button" %>
-
-    </div>
-</div>
 
 
 <% else %>

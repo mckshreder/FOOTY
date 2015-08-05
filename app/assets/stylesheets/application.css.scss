@@ -145,6 +145,9 @@ br.clear {
    clear: both;
 }
 
+select{
+display: none !important;
+}
 
 body.container-fluid{
   width: 100%;
@@ -180,11 +183,12 @@ body.container-fluid{
   text-align: center;
   display: block;
 
+
 }
 #topright_nav li a{
 display: inline;
 font-size: 1vw;
-position: relative;
+
 }
 
  #topright_nav a:link, #topright_nav a:active, #topright_nav a:visited{
@@ -247,7 +251,7 @@ position: relative;
 }
 
 .text_list p{
-  font-size: 1.33vw;
+  font-size: 1vw;
   font-weight: bolder;
   line-height: 162%;
 }
@@ -526,7 +530,6 @@ a.blob{
   padding-right: 0.5%;
   background-color: rgba(255,255,255,0.9);
   border-top: 1.5px black solid;
-  position: relative;
 
  /* text-align: center;*/
 }

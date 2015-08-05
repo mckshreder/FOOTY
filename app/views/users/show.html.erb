@@ -100,8 +100,6 @@ $(document).ready(function() {
 
     <div class="feed_border">
       <h4 class="left">the FOOTY™app</h4>
-
-      
       <h2><%= @user.name %></h2>
       <hr class="small_line_break">
       <h4 class="right">Account profile</h4>
@@ -109,7 +107,8 @@ $(document).ready(function() {
 
     <div class="home_info">
       <h2>
-          <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg",class: "big_profile_photo_tag") %>
+          <%= image_tag @user.image.url(:medium),class: "big_profile_photo_tag" %>
+        <!--  <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg",class: "big_profile_photo_tag") %> -->
       </h2>
       <ul class="text_list">
       

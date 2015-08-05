@@ -1,0 +1,34 @@
+<div class = "create_post">
+<p>Create New Event</p>
+
+<%= form_for @event, :html => { :multipart => true }  do |f| %>
+    
+    <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image%>
+    </div>
+
+    <div class="form-group">
+    <%= f.label 'Title' %>
+    <%= f.text_field :title, class: "form-control"%>
+    </div>
+
+    <div class="form-group">
+    <%= f.label 'Date' %>
+    <%= f.text_field :date, class: "form-control"%>
+    </div>
+    
+    <div class="form-group">
+    <%= f.label 'Event Info' %>
+    <%= f.text_field :info, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label 'Address (City, State)' %>
+    <%= f.text_field :address, class: "form-control", placeholder: "eg.(Whittier, CA)" %>
+    </div>
+
+    <%= f.submit "Event", class: "submit-button-create", id: "submit_event" %>
+
+<% end %>
+</div>

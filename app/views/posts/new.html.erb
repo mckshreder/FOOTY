@@ -31,7 +31,22 @@
 <% end %>
 
 
-<%= form_for(@post) do |f| %>
+<%= form_for @post, :html => { :multipart => true }  do |f| %>
+    
+    <div class="form-group">
+    <%= f.label 'PASTE YOUTUBE URL' %>
+    <%= f.url_field :youtube_url, class: "form-control" %>
+    </div>
+    
+    <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control"%>
+    </div>
+    
+    <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control"%>
+    </div>
 
     <div class="form-group">
     <%= f.label 'Title' %>
@@ -43,16 +58,12 @@
     <%= f.text_field :body, class: "form-control"%>
     </div>
 
-    <div class="form-group">
-    <%= f.label 'Paste YouTube Url' %>
-    <%= f.url_field :youtube_url, class: "form-control" %>
-    </div>
-    
 
     <div class="form-group">
     <%= f.label 'Address (City, State)' %>
     <%= f.text_field :address, class: "form-control", placeholder: "eg.(Whittier, CA)" %>
     </div>
+
 
     <%= f.submit "Post", class: "submit-button-create" %>
 
@@ -63,7 +74,12 @@
 <div class = "create_post">
 <p>Create New Event</p>
 
-<%= form_for(@event) do |f| %>
+<%= form_for @event, :html => { :multipart => true }  do |f| %>
+    
+    <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control"%>
+    </div>
 
     <div class="form-group">
     <%= f.label 'Title' %>

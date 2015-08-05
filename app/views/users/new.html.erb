@@ -60,16 +60,6 @@
         <%= f.password_field :password_digest, class: "form-control", placeholder: "Confirm Password..." %>
     </div>
 
-    <div class="field">
-        <%= f.label "Account Type" %>
-        <small>  (select one of the following)</small>
-    <br>
-        <%= f.radio_button :account_type, "Skate Account", :checked => true  %>
-        <%= f.label :account_type, "Skate Account", :value => "Skateboarder"  %>
-    <br>
-        <%= f.radio_button :account_type, "Business Account" %>
-        <%= f.label :account_type, "Business Account", :value => "Business Account" %>
-    </div>
        
         <%= f.submit "Sign Up", class: "submit-button-create" %>
 <% end %>

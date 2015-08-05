@@ -248,7 +248,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk
+  aws-sdk (~> 2)
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.1.0)
   brakeman
@@ -263,7 +263,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   kaminari
-  paperclip
+  paperclip (~> 4.3)
   pg
   pry
   rack_session_access

@@ -87,47 +87,199 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <h4><%= value %></h4>
 <% end %>
 
-<h5 id = "event_logo">EVENTS</h5>
+
+
 <div class="feed_container">
-<div class="map_feed_row">
 <!-- this contains the map on the view -->
-<div id="map-canvas">
-</div>
-<% if @events.count > 0 %>
+<div class="left_column">
+
+    <div class="feed_border">
+      <h4 class="left">the FOOTY™app</h4>
+      <h2>
+      DO YOU WANT TO GET SPONSORED?
+        </h2>
+      <hr class="small_line_break">
+      <h4 class="right">Send your favoite company your footy.</h4>
+    </div>
+  <div class="home_info"> 
+    <ul class="text_list">
+    <h3>FEATURED COMPANIES</h3>
+      <li>
+        <p>#1. Have fun and skate with your bros everyday!</p>
+      </li>
+      <li>
+        <p>#2. Film and edit a fun video or a "Sponsor me clip" with your best footy.</p>
+      </li>
+      <li>
+        <p>#3. Upload your video to YouTube, copy the video url, and place ad with your video on our skateboarding classfields. </p>
+      </li>
+      <li>
+        <p>#4. Instantly share your footy with companies, friends, and family all around the world... for FREE!</p>
+      </li>
+      <p>Note: We encouraged you to stay determined and continue to make videos as your skateboarding and camera skills will only improve.</p>
+
+    </ul>
+  </div>
+  <hr class = "line-break" >
+
+
+  <div class="feed_border">
+  <h2>Search Ads</h2>
+  <h6>Search by "name", "age", or "location".</h6>
+  </div>
+  <br>
+  <%= form_tag('users#map', method: "get") do %>
+    Search by
+    <%= select_tag "type", options_for_select(["name", "location", "age"]) %> :
+    <%= text_field_tag :query %>
+    <%= submit_tag "Search", "class" => "btn-primary" %>
+  <% end %>
+  <br>
+
+  
+  <% if @events.count > 0 %>
     <% @events.each do |event| %>
-      
-    <div class="map_feed_post">  
-    <div class = "artist-link"><%= event.address %>
-      
-          </div>          
-        <h1><%= event.date %></h1>
-        <h1><%= link_to event.title, event_path(id: event.id), :class => "title-link" %></h1>
-          
-        <div class = "artist-link"><%= event.info %>
-      
-          </div>
 
-                   
-
-                
-                <hr class = "line-break">
-
-                    
-                
-                
-           
-
-            <div class= "time-ago-tag"><span class="glyphicon glyphicon-time" aria-hidden="false"></span><%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, event.updated_at)) + " ago"  %>
-            </div>
-        
-        </div>
-        
     <% end %>
     </div>
-</div>    
+</div>  
+<br>  
 <% else %>
-    <h2>No Posts Exist</h2>
+    <h2>No COMPANIES Exist</h2>
 <% end %>
+</div>
+</div>
+
+
+
+
+<!-- this is the "sign in or sign up forum" -->
+<% if current_user %>
+<!-- start of the right column -->
+<div class="right_column">
+    <ul id="topright_nav">
+    <li>
+          <small>Hello, </small>
+            
+            <a><%= link_to "#{current_user.name}", user_profile_path(current_user) %>
+            </a>
+          <span class="glyphicon glyphicon-cog" aria-hidden="true">
+          </span>
+          
+          <ul> 
+            <li>
+                 <a><%= link_to "Your Profile", user_profile_path(current_user)%>
+                 </a>
+            </li> 
+            <li>
+                <a><%= link_to "Edit Account", edit_users_path(current_user) %>
+                </a>
+            </li>  
+            <li>
+                <a><%= link_to "Log out", destroy_session_path %>
+                </a>
+            </li>  
+          </ul>
+        </li>
+    </ul>
+    
+    <div class="feed_border">
+      <h5 class="center">YOUR FOOTY™ DASHBOARD</h5>
+      <hr class = "line_break">
+      <h3 class="center">
+        Are you a company?
+      </h3>
+      <h5 class="center">DO YOU WANT TO START A MOVEMENT?</h5>
+      <a class="submit-button-create, large_button" href="/posts/new">
+       PLEASE APPLY HERE
+      </a>
+
+    </div>
+
+<% else %>
+<div class="right_column">
+<div id="topright_nav">
+    
+    <h4 class="center">
+      New to the Footy app?
+    </h4>
+    
+    <h3 class="center">
+      Sign up for Free!
+    </h3>
+    
+    <p class="center">
+      It's simple and easy.
+    </p>
+    
+    <%= link_to "Create New Account", new_user_path, class: "submit-button, large_button" %>   
+<hr>
+    <h2 class="center">
+      Hello, Sign in
+    </h2>
+    
+    <h5 class="center">
+      your footy™ account.
+    </h5>
+    
+    <%= link_to "Log in", new_user_path, class: "submit-button, large_button" %>  
+<hr>
+</div>
+
+<% end %>
+<!-- <iframe src="http://www.kcrw.com/breakout-player?api_url=http://www.kcrw.com/music/shows/morning-becomes-eclectic/latest-show/player.json&autoplay=false" width="100%" height="28%" frameborder="2" scrolling="yes" seamless="seamless"></iframe> -->
+
+<!-- this is where the map begins -->
+  <div class="feed_border">
+    <h4 class="left">Find companies near you</h4>
+  </div>
+  <h4 class="left">the FOOTY™app</h4>
+  <div id="map-canvas">
+  </div>
+  
+  <div class="feed_border">
+    <h6 class="black" id = "event_logo">COMPANIES</h6>
+    <h4><a  class="blue, right" href="">Search by Map here</a></h4>
+  </div>
+
+  <div class="feed_border">
+    <h4>VAN DOREN INVITATIONAL 2015</h4>
+    <hr class = "line-break">
+    <img alt="Icon" src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2015/08/Screen-Shot-2015-08-01-at-9.04.10-PM-600x383.png" />
+    <!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+    <p class="black">Ben Hatchell is crowned champion for his second Van Doren Invitational title since winning the inaugural Van Doren Invitational in 2013.</p>
+    <p><a  class="blue" href="http://www.vansusopenofsurfing.com/2015-skate">Full Details...</a></p>
+  </div>
+
+
+
+  <div class="feed_border">
+  <h4>LANCE MOUNTAIN SIGNED FLIP BOARD GIVEAWAY</h4>
+  <hr class = "line-break">
+    <img alt="Icon" src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2015/07/TcoRy3lGp3E8_9OZTW53JzLaUN2rZw9Rr7msSiXxJ7qU75YPvgNwKr6fB2nWOmWBS2x9zeUdx6Gy1KLwHz5dKo0Dxvih-bmOaYEPNTYQoxYa6_Hcse-znq2wF2J5yWeLxV4h2nF8SY-i-XPf0GOcu3r45aytNHP4M4RYoKdCACTZAETxuGTrXf5b5okf2gjfbK16AwTFzOmZY6xMZdSqvbkAmWh-600x400.jpg" />
+    <!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+    <p class="black">Want a signed Lance Mountain Flip board? Flip will be picking one winner each week for the next four weeks. Four winners total! Giveaway ends Friday, August 14, 2015</p>
+    <!-- <br> -->
+    <p><a  class="blue" href="https://www.facebook.com/nhsfunfactory?sk=app_190322544333196&ref=s">Click here to enter!</a></p>
+  </div>
+  <div class="feed_border">
+  <!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+  <h4>"TRIALS AND TRIBULATIONS" VIDEO</h4>
+  <hr class = "line-break">
+  <img alt="Icon" src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2015/07/Screen-Shot-2015-07-28-at-4.41.23-PM-600x334.png" />
+  <p class="black">Sure, the video part is the fine tuned, final presentation, but sometimes the raw, behind-the-scenes footy tells an even better story. Clive is a savage.</p>
+  <p><a  class="blue" href="http://www.thrashermagazine.com/articles/videos/clive-dixons-trials-and-tribulations-video/">More details...</a></p>
+  <!-- <br> -->
+  </div>
+ 
+
+  <div class="feed_border">
+  <h4>Contact US</h4>
+  <h4>THE FOOTY™ APP</h4>
+  <p class="blue">garrettmckenzie@ymail.com</p>
+  <hr class = "line-break">
+  </div>
+
 
 
 

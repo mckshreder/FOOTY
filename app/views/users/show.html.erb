@@ -18,8 +18,7 @@ function initialize() {
   if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
           // this assigns the current users coordinats as pos
-          var pos = new google.maps.LatLng(position.coords.latitude,
-                                         position.coords.longitude);
+          var pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
           // below creates the info window marker for current user location
           var infowindow = new google.maps.InfoWindow({
             // must use map
@@ -271,11 +270,14 @@ $(document).ready(function() {
 
 <div class="right_column">
   <div class="feed_border">
-
         <h4 class="left">the FOOTY™app</h4>
+        
         <div id="map-canvas">
         </div>
-        <p class="center, black"><%= @user.name.split.first%>'s ad locations</p>         
+        <h4 class="right"><%= @user.name.split.first%>'s ad locations</h4>         
+        <p>
+          <a class="blue, right" href="">Search by Map here</a>
+        </p>
   </div>
 </div>
 
@@ -321,7 +323,7 @@ $(document).ready(function() {
 
         <%= link_to "Log in", new_user_path, class: "submit-button, large_button" %>
     </div>
-    <h4 class="center">the FOOTY™app</h4>
+    <h4 class="center">theFOOTY™app</h4>
 </div>
     <% end %>
 

@@ -176,14 +176,6 @@ $(document).ready(function() {
         <%= link_to "'#{post.title}'", post_path(id: post.id), :class => "title-link, blue" %>
           </div>
           </div>
-         <!--  <hr class = "small_line_break">
-
-      <div class = "info-on-feed">
-        <xsmall>Description:</xsmall>
-        <p>
-          <%= post.body%>
-            </p>
-          </div> -->
 
       <hr class = "small_line_break">
 
@@ -191,21 +183,22 @@ $(document).ready(function() {
             <%="Skater Info:"%>
           </xsmall> 
           
-          <div class = "info-on-feed">
-                  <small>Name: <%= link_to post.user.name ,  user_profile_path(post.user_id),:class => "option_link"%></small>
-                  <small> | Age: 25<%= post.user.age%></small>
-                  <small> | City:<%= post.address%></small>
+          <div class = "info-on-feed, center">
+                  <p>Name: </p>
+                  <p><%= link_to post.user.name ,  user_profile_path(post.user_id),:class => "option_link"%></p>
           </div>    
+                  <p> Age: <%= post.user.age%></p>
+                  <p> | City: <%= post.address%></p>
       <!-- <div class = "video-poster">
              <%= link_to post.user.name ,  user_profile_path(post.user_id), :class => "large_posts_title" %>
         </div> -->
-      <small>
+    
+      <div>
+      <p>
         Options:
-      </small>
-      
-      <div class="option_link">
+      </p>
             <%= link_to "#{post.user.name.split.first}'s "+"Profile",  user_profile_path(post.user_id), :class => "option_link" %>
-            <%= "  |  "%>
+            <%= "  &  "%>
             <%= link_to "Full Video", post_path(id: post.id), :class => "option_link" %>
           </div>
     </div> 

@@ -85,7 +85,9 @@ $(document).ready(function() {
 	initialize();
 });
 </script>
-
+<% flash.each do |key, value| %>
+    <h4><%= value %></h4>
+<% end %>
 
 <div class="feed_container">
 <div class="left_column">

@@ -105,37 +105,225 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <ul class="text_list">
     <h3>FEATURED COMPANIES</h3>
       <li>
-        <p>#1. Have fun and skate with your bros everyday!</p>
+        <p>#1. Please contact the company of your choice!</p>
       </li>
       <li>
-        <p>#2. Film and edit a fun video or a "Sponsor me clip" with your best footy.</p>
+        <p>#2. Click a company's logo icon.</p>
       </li>
       <li>
-        <p>#3. Upload your video to YouTube, copy the video url, and place ad with your video on our skateboarding classfields. </p>
+        <p>#3. Then send them a message and ask them to check out your footy!</p>
       </li>
-      <li>
-        <p>#4. Instantly share your footy with companies, friends, and family all around the world... for FREE!</p>
-      </li>
-      <p>Note: We encouraged you to stay determined and continue to make videos as your skateboarding and camera skills will only improve.</p>
-
     </ul>
   </div>
   <hr class = "line-break" >
 
 
-  <div class="feed_border">
-  <h2>Search Ads</h2>
-  <h6>Search by "name", "age", or "location".</h6>
-  </div>
-  <br>
-  <%= form_tag('users#map', method: "get") do %>
-    Search by
-    <%= select_tag "type", options_for_select(["name", "location", "age"]) %> :
-    <%= text_field_tag :query %>
-    <%= submit_tag "Search", "class" => "btn-primary" %>
-  <% end %>
-  <br>
+<div class="feed_border">
+      
+      <h2>
+        <!--  <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg",class: "big_profile_photo_tag") %> -->
+      </h2>
+    
+            <a title="3D in stock now." href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/5091mfgr.jpg" class= "big_profile_photo_tag" >
+            </a>
 
+            <a title="3D in stock now." href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1411mfgr.jpg" class= "big_profile_photo_tag" >
+            </a>
+
+            <a title="3D in stock now." href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1089mfgr.jpg" class= "big_profile_photo_tag" >
+            </a>
+
+            <a title="3D in stock now." href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1244mfgr.jpg" class= "big_profile_photo_tag" >
+            </a>
+
+            <a title="3D in stock now." href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1430mfgr.jpg" class= "big_profile_photo_tag" >
+            </a>
+
+            <a title="3D in stock now." href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1004mfgr.jpg" class= "big_profile_photo_tag" >
+            </a>
+
+            <a title="3D in stock now." href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1570mfgr.jpg" class= "big_profile_photo_tag" >
+            </a>
+
+            <a title="3D in stock now." href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1263mfgr.jpg" class= "big_profile_photo_tag" >
+            </a>
+    
+        <!-- 
+
+
+        <div class="FeaturedCompany">
+            <a title="Brixton in stock now." href="/company/1430/Brixton">
+            <img src="http://skateparkoftampa.com/spot/productimages/1430mfgr.jpg" title="Brixton in stock now." alt="Brixton in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Converse in stock now." href="/company/1004/Converse">
+            <img src="http://skateparkoftampa.com/spot/productimages/1004mfgr.jpg" title="Converse in stock now." alt="Converse in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="DC Shoe Co. in stock now." href="/company/1006/DC_Shoe_Co.">
+            <img src="http://skateparkoftampa.com/spot/productimages/1006mfgr.jpg" title="DC Shoe Co. in stock now." alt="DC Shoe Co. in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="DGK in stock now." href="/company/1264/DGK">
+            <img src="http://skateparkoftampa.com/spot/productimages/1264mfgr.jpg" title="DGK in stock now." alt="DGK in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Dickies in stock now." href="/company/5049/Dickies">
+            <img src="http://skateparkoftampa.com/spot/productimages/5049mfgr.jpg" title="Dickies in stock now." alt="Dickies in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Fourstar in stock now." href="/company/1175/Fourstar">
+            <img src="http://skateparkoftampa.com/spot/productimages/1175mfgr.jpg" title="Fourstar in stock now." alt="Fourstar in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Girl in stock now." href="/company/1128/Girl">
+            <img src="http://skateparkoftampa.com/spot/productimages/1128mfgr.jpg" title="Girl in stock now." alt="Girl in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Happy Hour Eyewear in stock now." href="/company/5033/Happy_Hour_Eyewear">
+            <img src="http://skateparkoftampa.com/spot/productimages/5033mfgr.jpg" title="Happy Hour Eyewear in stock now." alt="Happy Hour Eyewear in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Herschel Supply Co. in stock now." href="/company/5062/Herschel_Supply_Co.">
+            <img src="http://skateparkoftampa.com/spot/productimages/5062mfgr.jpg" title="Herschel Supply Co. in stock now." alt="Herschel Supply Co. in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Hopps in stock now." href="/company/1461/Hopps">
+            <img src="http://skateparkoftampa.com/spot/productimages/1461mfgr.jpg" title="Hopps in stock now." alt="Hopps in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="HUF in stock now." href="/company/1570/HUF">
+            <img src="http://skateparkoftampa.com/spot/productimages/1570mfgr.jpg" title="HUF in stock now." alt="HUF in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Independent in stock now." href="/company/1069/Independent">
+            <img src="http://skateparkoftampa.com/spot/productimages/1069mfgr.jpg" title="Independent in stock now." alt="Independent in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="KR3W (Krew) in stock now." href="/company/1259/KR3W_(Krew)">
+            <img src="http://skateparkoftampa.com/spot/productimages/1259mfgr.jpg" title="KR3W (Krew) in stock now." alt="KR3W (Krew) in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Krooked in stock now." href="/company/1226/Krooked">
+            <img src="http://skateparkoftampa.com/spot/productimages/1226mfgr.jpg" title="Krooked in stock now." alt="Krooked in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Lakai in stock now." href="/company/1013/Lakai">
+            <img src="http://skateparkoftampa.com/spot/productimages/1013mfgr.jpg" title="Lakai in stock now." alt="Lakai in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Levis in stock now." href="/company/5059/Levis">
+            <img src="http://skateparkoftampa.com/spot/productimages/5059mfgr.jpg" title="Levis in stock now." alt="Levis in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="LRG in stock now." href="/company/1213/LRG">
+            <img src="http://skateparkoftampa.com/spot/productimages/1213mfgr.jpg" title="LRG in stock now." alt="LRG in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Magenta in stock now." href="/company/5036/Magenta">
+            <img src="http://skateparkoftampa.com/spot/productimages/5036mfgr.jpg" title="Magenta in stock now." alt="Magenta in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Matix in stock now." href="/company/1088/Matix">
+            <img src="http://skateparkoftampa.com/spot/productimages/1088mfgr.jpg" title="Matix in stock now." alt="Matix in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Mob Grip in stock now." href="/company/1386/Mob_Grip">
+            <img src="http://skateparkoftampa.com/spot/productimages/1386mfgr.jpg" title="Mob Grip in stock now." alt="Mob Grip in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Nike in stock now." href="/company/1263/Nike">
+            <img src="http://skateparkoftampa.com/spot/productimages/1263mfgr.jpg" title="Nike in stock now." alt="Nike in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Polar Skateboards in stock now." href="/company/5081/Polar_Skateboards">
+            <img src="http://skateparkoftampa.com/spot/productimages/5081mfgr.jpg" title="Polar Skateboards in stock now." alt="Polar Skateboards in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Real in stock now." href="/company/1074/Real">
+            <img src="http://skateparkoftampa.com/spot/productimages/1074mfgr.jpg" title="Real in stock now." alt="Real in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Skate Mental in stock now." href="/company/1441/Skate_Mental">
+            <img src="http://skateparkoftampa.com/spot/productimages/1441mfgr.jpg" title="Skate Mental in stock now." alt="Skate Mental in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Skatepark of Tampa in stock now." href="/company/1065/Skatepark_of_Tampa">
+            <img src="http://skateparkoftampa.com/spot/productimages/1065mfgr.jpg" title="Skatepark of Tampa in stock now." alt="Skatepark of Tampa in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Spitfire in stock now." href="/company/1150/Spitfire">
+            <img src="http://skateparkoftampa.com/spot/productimages/1150mfgr.jpg" title="Spitfire in stock now." alt="Spitfire in stock now." style="width:220px;">
+            </a>
+        </div>
+    
+        <div class="FeaturedCompany">
+            <a title="Vans in stock now." href="/company/1017/Vans">
+            <img src="http://skateparkoftampa.com/spot/productimages/1017mfgr.jpg" title="Vans in stock now." alt="Vans in stock now." style="width:220px;">
+            </a>
+        </div> -->
+    
+</div>
+</div>
+</div>
   
   <% if @events.count > 0 %>
     <% @events.each do |event| %>

@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def embed(youtube_url)
     youtube_id = youtube_url.split("=").last
-    content_tag(:iframe, nil, src: "//www.youtube.com/embed/#{youtube_id}?rel=0&showinfo=0&autohide=1")
+    content_tag(:iframe, nil, src: "//www.youtube.com/embed/#{youtube_id}")
   end
 
    def image_tag(source, options={})

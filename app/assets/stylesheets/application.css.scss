@@ -85,15 +85,16 @@ div.tab {
   text-align: center;
   text-decoration: none;
   width: 100%;
-  /*z-index: 5;*/
+  z-index: 5;
 }
 div.dropdown_nav a{
-  height: 102px;
+
+  height: 90px;
   padding: 1%;
   white-space: nowrap;
   color:white;
   font-size: 2.5vw;
-  z-index: 5;
+
   letter-spacing: 3px;
   &:hover {
        color: black;
@@ -102,7 +103,7 @@ div.dropdown_nav a{
 
 div a{
   font-size: 1vw;
-  padding: 2%;
+
   margin: 0;
   display: block;
   white-space: nowrap;
@@ -112,6 +113,10 @@ div a{
   &:hover {
        color: black;
      }
+}
+
+.nav_pad{
+  padding: 4.3%;
 }
 
 
@@ -145,9 +150,6 @@ br.clear {
    clear: both;
 }
 
-select{
-display: none !important;
-}
 
 body.container-fluid{
   width: 100%;
@@ -183,12 +185,11 @@ body.container-fluid{
   text-align: center;
   display: block;
 
-
 }
 #topright_nav li a{
 display: inline;
 font-size: 1vw;
-
+position: relative;
 }
 
  #topright_nav a:link, #topright_nav a:active, #topright_nav a:visited{
@@ -251,7 +252,7 @@ font-size: 1vw;
 }
 
 .text_list p{
-  font-size: 1vw;
+  font-size: 1.33vw;
   font-weight: bolder;
   line-height: 162%;
 }
@@ -530,6 +531,7 @@ a.blob{
   padding-right: 0.5%;
   background-color: rgba(255,255,255,0.9);
   border-top: 1.5px black solid;
+  position: relative;
 
  /* text-align: center;*/
 }

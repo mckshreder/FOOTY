@@ -24,54 +24,54 @@
   <ul id = "my_new_nav">
 
     <li>
-      <div class = "tab" id = "pink"><a href="/posts">HOME</a></div>
-        <div class = "dropdown_nav"><a id = "pink" href="/posts">HOME</a>
+      <div class = "tab" id = "pink"><a class="nav_pad" href="/posts">HOME</a></div>
+        <div class = "dropdown_nav"><a class="nav_pad" id = "pink" href="/posts">HOME</a>
       </div>
     </li> 
     
     <li>
-       <div class = "tab" id = "orange"><a href="/users/map">CLASSIFIEDS</a>
+       <div class = "tab" id = "orange"><a class="nav_pad" href="/users/map">CLASSIFIEDS</a>
        </div>
         <div class = "dropdown_nav">
-          <a id = "orange" href="/users/map">CLASSIFIEDS</a>
+          <a class="nav_pad" id = "orange" href="/users/map">CLASSIFIEDS</a>
         </div>
     </li>
     
     <li>
-      <div class = "tab" id = "blue" href="#"><a href="/events">COMPANIES</a>
+      <div class = "tab" id = "blue" href="#"><a class="nav_pad" href="/events">COMPANIES</a>
       </div>
       <div class = "dropdown_nav">
-          <a id = "blue" href="/events">COMPANIES</a>
+          <a class="nav_pad" id = "blue" href="/events">COMPANIES</a>
       </div> 
     </li>
     
 <% if current_user %>
     <li>
        <div class = "tab" id = "purple" href="#">
-         <%= link_to "PROFILE",  user_profile_path(current_user), :id => "purple" %>
+         <%= link_to "PROFILE",  user_profile_path(current_user), class: "nav_pad", :id => "purple" %>
        </div>
        </div>
         <div class = "dropdown_nav">
-          <%= link_to "PROFILE",  user_profile_path(current_user), :id => "purple" %>
+          <%= link_to "PROFILE",  user_profile_path(current_user), class: "nav_pad", :id => "purple" %>
         </div>
     </li>
 <% else %>
     
     <li>
        <div class = "tab" id = "purple" href="#">
-       <%= link_to "PROFILE", new_user_path, :id => "purple" %></div>
+       <%= link_to "PROFILE", new_user_path, class: "nav_pad", :id => "purple" %></div>
        </div>
         <div class = "dropdown_nav">
-        <%= link_to "PROFILE", new_user_path, :id => "purple" %>
+        <%= link_to "PROFILE", new_user_path, class: "nav_pad", :id => "purple" %>
 
         </div>
     </li>
   <% end %>
     
     <li>
-       <div class = "tab" id = "green" href="#"><a href="#">ABOUT</a></div>  
+       <div class = "tab" id = "green" href="#"><a class="nav_pad" href="#">ABOUT</a></div>  
           <div class = "dropdown_nav">
-            <a id = "green" href="#">ABOUT</a>
+            <a class="nav_pad" id = "green" href="#">ABOUT</a>
           </div>
 
     </li>

@@ -87,7 +87,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <h4><%= value %></h4>
 <% end %>
 
-<h5 id = "event_logo">EVENTS</h5>
+
 
 <div class="feed_container">
 <!-- this contains the map on the view -->
@@ -136,8 +136,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
   <% end %>
   <br>
 
-  <!-- <div id="map-canvas">
-  </div> -->
   
   <% if @events.count > 0 %>
     <% @events.each do |event| %>
@@ -231,12 +229,12 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <!-- <iframe src="http://www.kcrw.com/breakout-player?api_url=http://www.kcrw.com/music/shows/morning-becomes-eclectic/latest-show/player.json&autoplay=false" width="100%" height="28%" frameborder="2" scrolling="yes" seamless="seamless"></iframe> -->
 
 <!-- this is where the map begins -->
-<h6 class="center">Local shredders near you</h6>
+  <h5 id = "event_logo">EVENTS</h5>
   <div id="map-canvas">
   </div>
   <div class="feed_border">
-    <h4> Recent ads
-    </h4>
+    <p><a  class="blue, right" href="">Search by Map here</a></p>
+<h6 class="center">Fine events near you</h6>
   </div>
   
   <div class="feed_border">

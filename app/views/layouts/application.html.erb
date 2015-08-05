@@ -49,22 +49,35 @@
     </li>
     
     <li>
-      <div class = "tab" id = "blue" href="#"><a href="/events">COMPANIES</a></div>
-        <div class = "dropdown_nav">
+      <div class = "tab" id = "blue" href="#"><a href="/events">COMPANIES</a>
+      </div>
+      <div class = "dropdown_nav">
           <a id = "blue" href="/events">COMPANIES</a>
-       </div> 
+      </div> 
     </li>
     
+<% if current_user %>
+    <li>
+       <div class = "tab" id = "purple" href="#">
+         <%= link_to "PROFILE",  user_profile_path(current_user), :id => "purple" %>
+       </div>
+       </div>
+        <div class = "dropdown_nav">
+          <%= link_to "PROFILE",  user_profile_path(current_user), :id => "purple" %>
+        </div>
+    </li>
+<% else %>
     
     <li>
        <div class = "tab" id = "purple" href="#">
-       <%= link_to "PROFILE",  user_profile_path(current_user), :id => "purple" %></div>
+       <%= link_to "PROFILE", new_user_path, :id => "purple" %></div>
        </div>
         <div class = "dropdown_nav">
-        <%= link_to "PROFILE",  user_profile_path(current_user), :id => "purple" %>
+        <%= link_to "PROFILE", new_user_path, :id => "purple" %>
 
         </div>
     </li>
+  <% end %>
     
     <li>
        <div class = "tab" id = "green" href="#"><a href="#">ABOUT</a></div>  

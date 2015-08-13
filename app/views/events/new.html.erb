@@ -1,12 +1,19 @@
 <div class = "create_post">
 <p>Create New Event</p>
 
+<%= cloudinary_js_config %>
+<%= form_tag(@event, :method => :post) do  %>
+    <%= cl_image_upload_tag(:image_id) %>
+
+    <% end %>
+        
+
 <%= form_for @event, :html => { :multipart => true }  do |f| %>
     
-    <div class="form-group">
+  <!--   <div class="form-group">
     <%= f.label :image %>
     <%= f.file_field :image%>
-    </div>
+    </div> -->
 
     <div class="form-group">
     <%= f.label 'Title' %>

@@ -32,6 +32,15 @@ Rails.application.configure do
   :enable_starttls_auto => true
   }
 
+  config.action_mailer.smtp_settings = {
+    address: "garrettmckenzie@ymail.com",
+    port: 587,
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["EMAIL_LOGIN"],
+    password: ENV["EMAIL_PASSWORD"]
+}
+
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 

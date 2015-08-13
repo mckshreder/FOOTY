@@ -14,9 +14,18 @@ class User < ActiveRecord::Base
     validates :password, presence: true, length: { in: 6..20 }, confirmation: true
 
   attr_reader :password #add this line right below our list of fields
-    has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
-    validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
+    has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" },
+        :default_url => "/images/:style/missing.png",
+    :url  => ":s3_domain_url",
+    :path => "public/users/:id/:style_:basename.:extension",
+    :storage => :fog,
+    :fog_credentials => {
+        provider: 'AWS',
+        aws_access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+        aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
+    },
+    fog_directory:ENV["FOG_DIRECTORY"]
 #we also need to create an @password instance variable and set it's value in our setter method
 # def password=(unencrypted_password)
 #   unless unencrypted_password.empty?

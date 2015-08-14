@@ -19,14 +19,14 @@ $('.attachinary-input').attachinary();
 
 <p>Create New Event</p>
 
-<%= form_tag(@event, :method => :post) do  %>
-    <%= cl_image_upload_tag(:image_file_name) %>
-<% end %>
+
 
         
-<%= form_for @event, :method => :post, :html => { :multipart => true }  do |f| %>
-    
-
+<%= form_for @event, :method => :post do |f| %>
+    <div class="form-group">
+    <%= f.hidden_field(:image_cache)%>
+    <%= f.file_field(:image)%>
+    </div>
 
     <div class="form-group">
     <%= f.label 'Title' %>

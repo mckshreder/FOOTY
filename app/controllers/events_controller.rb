@@ -10,6 +10,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @event = Event.find(params[:id])
   end
 
   # GET /events/new
@@ -25,9 +26,17 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-    # Cloudinary::Uploader.upload(event_params[:image])
-    respond_to do |format|
       
+      if params[:image_id].present?
+      preloaded = Cloudinary::PreloadedFile.new(params[:image_id])         
+      raise "Invalid upload signature" if !preloaded.valid?
+      @event.image_id = preloaded.identifier
+    end
+    
+    
+    
+    respond_to do |format|
+
       if @event.save 
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }

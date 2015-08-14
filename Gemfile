@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 
 # Gemfile
+# gem 'attachinary'
+
 gem 'carrierwave'
 
-gem 'cloudinary'
+gem 'cloudinary', "~> 1.0.24"
 
 gem "paperclip", "~> 4.3" 
 

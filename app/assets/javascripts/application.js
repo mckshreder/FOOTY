@@ -21,6 +21,7 @@
 
 
 
+
 // this is for the dropdowns
 $('div').on('click', function(){
 $(this).toggleClass('show-description');
@@ -34,8 +35,12 @@ $(this).find('ul:first').css({visibility: 'visible',display: 'none'}).show(400);
 $(this).find('ul:first').css({visibility: 'hidden'});
 });
 }
+
+
+// onload
 $(document).ready(function(){
 mainmenu();
+$('.attachinary-input').attachinary();
 });
 
 

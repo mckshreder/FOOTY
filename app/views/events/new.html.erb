@@ -1,22 +1,33 @@
+
+<script type="text/javascript">
+$('.attachinary-input').attachinary();
+    
+</script>
+
 <div class = "create_post">
+<% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <ul>
+        <% @event.errors.full_messages.each do |message| %>
+            <li><%= message %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
 <p>Create New Event</p>
-<%= javascript_include_tag "jquery.ui.widget", "jquery.iframe-transport", 
-                           "jquery.fileupload", "jquery.cloudinary" %>
-<%= cloudinary_js_config %>
+
 <%= form_tag(@event, :method => :post) do  %>
     <%= cl_image_upload_tag(:image_file_name) %>
 <% end %>
-        
 
+        
 <%= form_for @event, :method => :post, :html => { :multipart => true }  do |f| %>
     
-  <!--   <div class="form-group">
-    <%= f.label :image %>
-    <%= f.file_field :image%>
-    </div> -->
-    
-    <%= cl_image_upload_tag(:image) %>
-    
+
+
     <div class="form-group">
     <%= f.label 'Title' %>
     <%= f.text_field :title, class: "form-control"%>

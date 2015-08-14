@@ -76,7 +76,7 @@ GEM
       mime-types (>= 1.16)
     climate_control (0.0.3)
       activesupport (>= 3.0)
-    cloudinary (1.1.0)
+    cloudinary (1.0.85)
       aws_cf_signer
       rest-client
     cocaine (0.5.7)
@@ -380,7 +380,7 @@ DEPENDENCIES
   byebug
   capybara
   carrierwave
-  cloudinary
+  cloudinary (~> 1.0.24)
   coffee-rails (~> 4.1.0)
   factory_girl_rails
   figaro

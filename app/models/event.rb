@@ -6,4 +6,6 @@ class Event < ActiveRecord::Base
 	after_validation :geocode 
 	
   belongs_to :user
+
+  # mount_uploader :avatar, AvatarUploader
 end

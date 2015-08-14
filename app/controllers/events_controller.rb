@@ -24,9 +24,10 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    Cloudinary::Event.upload(event_params[:image], :public_id => :image_file_name)
     @event = Event.new(event_params)
+    # Cloudinary::Uploader.upload(event_params[:image])
     respond_to do |format|
+      
       if @event.save 
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
@@ -42,7 +43,6 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        Cloudinary::Uploader.upload(event_params[:image])
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
@@ -70,6 +70,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-        params.require(:event).permit(:title,:date,:address,:info, :image)
+        params.require(:event).permit(:title,:date,:address,:info,:image)
     end
 end

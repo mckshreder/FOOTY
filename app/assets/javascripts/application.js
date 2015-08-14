@@ -15,7 +15,15 @@
 //= require turbolinks
 //= require bootstrap
 //= require jquery.turbolinks
+//= require cloudinary
+//= require jquery.min
+//= require jquery.ui.widget
+//= require jquery.iframe-transport
+//= require jquery.fileupload
+//= require jquery.cloudinary
+//= require jquery-ui
 //= require_tree .
+
 
 
 
@@ -33,8 +41,23 @@ $(this).find('ul:first').css({visibility: 'visible',display: 'none'}).show(400);
 $(this).find('ul:first').css({visibility: 'hidden'});
 });
 }
+// this is for the image uploader form
+$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
+  $('.preview').html(
+    $.cloudinary.image(data.result.public_id, 
+      { format: data.result.format, version: data.result.version, 
+        crop: 'fill', width: 150, height: 100 })
+  );    
+  $('.image_public_id').val(data.result.public_id);    
+  return true;
+  $('.progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%'); 
+});
+
+
+// onload
 $(document).ready(function(){
 mainmenu();
+
 });
 
 

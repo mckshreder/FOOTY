@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-
+    
     resources :events
 
-    root "posts#index"
+    root "users#landing_page"
     get "/users" => "users#index", as: :users
     post "/users" => "users#create", as: :create_user
     # get "/users/eventmap" => "users#eventmap", as: :event_map
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get "/users/map" => "users#map", as: :user_map
     get "/users/:id" => "users#show", as: :user_profile
     get "/users/:id/edit" => "users#edit", as: :edit_users
+    get "/users/landing_page" => "users#landing_page"
     
     patch "users/:id" =>"users#update", as: :update_user
     delete "/users/:id" => "users#destroy"

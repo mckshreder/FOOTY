@@ -23,9 +23,10 @@ $('.attachinary-input').attachinary();
 
         
 <%= form_for @event, :method => :post do |f| %>
+    <%= f.cl_image_upload(:image_id, :html => { :multiple => true })%>
     <div class="form-group">
     <%= f.hidden_field(:image_cache)%>
-    <%= f.file_field(:image)%>
+    <%= f.file_field(:image_id)%>
     </div>
 
     <div class="form-group">

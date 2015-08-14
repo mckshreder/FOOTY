@@ -31,7 +31,7 @@ class EventsController < ApplicationController
       preloaded = Cloudinary::PreloadedFile.new(params[:image_id])         
       raise "Invalid upload signature" if !preloaded.valid?
       @event.image_id = preloaded.identifier
-    end
+      end
     
     
     

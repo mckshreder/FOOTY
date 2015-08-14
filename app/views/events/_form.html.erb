@@ -12,6 +12,6 @@
   <% end %>
 
 <%= form_tag @event, :method => :post do |f| %>
-  <%= cl_image_upload_tag(:image, :html => { :multiple => true })%>
+  <%= cl_image_upload_tag(:image_id, :html => { :multiple => true })%>
 <% end %>
 <% end %>

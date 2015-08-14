@@ -15,8 +15,14 @@
 //= require turbolinks
 //= require bootstrap
 //= require jquery.turbolinks
-//= require_tree .
 //= require cloudinary
+//= require jquery.min
+//= require jquery.ui.widget
+//= require jquery.iframe-transport
+//= require jquery.fileupload
+//= require jquery.cloudinary
+//= require jquery-ui
+//= require_tree .
 
 
 

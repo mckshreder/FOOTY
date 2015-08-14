@@ -1,20 +1,22 @@
 <div class = "create_post">
 <p>Create New Event</p>
-
+<%= javascript_include_tag "jquery.ui.widget", "jquery.iframe-transport", 
+                           "jquery.fileupload", "jquery.cloudinary" %>
 <%= cloudinary_js_config %>
 <%= form_tag(@event, :method => :post) do  %>
-    <%= cl_image_upload_tag(:image_id) %>
-
-    <% end %>
+    <%= cl_image_upload_tag(:image_file_name) %>
+<% end %>
         
 
-<%= form_for @event, :html => { :multipart => true }  do |f| %>
+<%= form_for @event, :method => :post, :html => { :multipart => true }  do |f| %>
     
   <!--   <div class="form-group">
     <%= f.label :image %>
     <%= f.file_field :image%>
     </div> -->
-
+    
+    <%= cl_image_upload_tag(:image) %>
+    
     <div class="form-group">
     <%= f.label 'Title' %>
     <%= f.text_field :title, class: "form-control"%>

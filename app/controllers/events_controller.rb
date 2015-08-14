@@ -24,8 +24,8 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    Cloudinary::Event.upload(event_params[:image], :public_id => :image_file_name)
     @event = Event.new(event_params)
-    Cloudinary::Uploader.upload(event_params[:image])
     respond_to do |format|
       if @event.save 
         format.html { redirect_to @event, notice: 'Event was successfully created.' }

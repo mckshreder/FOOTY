@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 # Gemfile
+gem 'carrierwave'
+
 gem 'cloudinary'
 
 gem "paperclip", "~> 4.3" 
